@@ -1,0 +1,970 @@
+/* ==========================================================================
+   SIHATMASKAN — MINIMALIST EDITORIAL & WARM LUXURY DESIGN SYSTEM
+   Inspired by contemporary Scandinavian & Wellness platforms (MyPiFi aesthetic)
+   ========================================================================== */
+
+:root {
+  /* Font Stacks */
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Palette from user reference screenshots */
+  --bg-canvas: #FAF8F5;          /* Warm soothing off-white cream */
+  --bg-card: #FFFFFF;            /* Pure clean card surface */
+  --bg-subtle: #F2EFEB;          /* Soft warm neutral */
+  --border-subtle: #E8E4DC;      /* Ultra delicate warm border */
+  --border-card: rgba(0, 0, 0, 0.06);
+
+  /* Deep Charcoal & Blacks */
+  --text-primary: #1A1A1C;       /* Deep soft black/charcoal */
+  --text-secondary: #6B6762;     /* Warm muted grey */
+  --text-muted: #8E8A83;         /* Subtle note grey */
+  --dark-capsule: #1C1C1E;       /* Floating pill black */
+
+  /* Signature Lavender / Pale Mauve Accent */
+  --accent-lavender: #EAD5E6;    /* Soft signature blush lavender */
+  --accent-lavender-hover: #DFCAE0;
+  --accent-lavender-dark: #2D1D30;
+  --accent-lavender-subtle: #F7EFF8;
+
+  /* Natural Forest / Sage Accent */
+  --accent-sage: #2C3E35;
+  --accent-sage-subtle: #EBF0EC;
+
+  /* Legacy variable mappings for seamless compatibility */
+  --bg-surface: #FFFFFF;
+  --bg-surface-subtle: #F7F5F0;
+  --border-color: #E8E4DC;
+  --text-main: #1A1A1C;
+  --primary-50: #F7EFF8;
+  --primary-100: #EAD5E6;
+  --primary-200: #DFCAE0;
+  --primary-400: #8C6A8F;
+  --primary-500: #4A334D;
+  --primary-600: #1C1C1E;
+  --primary-700: #1C1C1E;
+  --primary-800: #141416;
+  --primary-900: #0D0D0E;
+  --primary-gradient: #1C1C1E;
+
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-smooth: 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 15px;
+  background-color: var(--bg-canvas);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--text-primary);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body.dark-mode {
+  --bg-canvas: #121214;
+  --bg-card: #1C1C1F;
+  --bg-subtle: #232328;
+  --border-subtle: #2E2E35;
+  --border-card: rgba(255, 255, 255, 0.08);
+  --text-primary: #F5F5F7;
+  --text-secondary: #A1A1A8;
+  --text-muted: #7E7E86;
+  --dark-capsule: #232328;
+  --bg-surface: #1C1C1F;
+  --bg-surface-subtle: #232328;
+  --border-color: #2E2E35;
+  --text-main: #F5F5F7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1220px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ==========================================================================
+   TOP ANNOUNCEMENT BAR (Soft Lavender)
+   ========================================================================== */
+.announcement-bar {
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+
+.announcement-bar a {
+  text-decoration: underline;
+  margin-left: 0.5rem;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   FLOATING DARK CAPSULE NAVBAR
+   ========================================================================== */
+.floating-nav-wrapper {
+  position: sticky;
+  top: 14px;
+  z-index: 1000;
+  padding: 0 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.floating-nav {
+  max-width: 1180px;
+  margin: 0 auto;
+  background: var(--dark-capsule);
+  border-radius: 9999px;
+  padding: 0.5rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.32);
+  transition: all var(--transition-smooth);
+}
+
+.floating-nav .logo-text {
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.floating-nav .logo-pill {
+  font-size: 0.65rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--accent-lavender);
+  padding: 0.15rem 0.45rem;
+  border-radius: 9999px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.floating-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  list-style: none;
+}
+
+.floating-nav-link {
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.4rem 0.85rem;
+  border-radius: 9999px;
+  transition: all var(--transition-fast);
+}
+
+.floating-nav-link:hover, .floating-nav-link.active {
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.floating-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-lavender-btn {
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.48rem 1.25rem;
+  border-radius: 9999px;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-lavender-btn:hover {
+  background: var(--accent-lavender-hover);
+  transform: translateY(-1px);
+}
+
+.nav-icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.nav-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: #FFFFFF;
+}
+
+.nav-badge-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  font-size: 0.65rem;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 3px;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY STYLES (Editorial Italic Serif + Geometric Sans)
+   ========================================================================== */
+.font-italic-serif {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 500;
+}
+
+.section-tagline {
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.tagline-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent-lavender-dark);
+}
+
+.heading-editorial {
+  font-size: 2.35rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+  line-height: 1.22;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto 2rem auto;
+}
+
+.section-title {
+  font-size: 1.95rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin: 0.25rem 0 0.5rem 0;
+  line-height: 1.25;
+}
+
+.section-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin: 0 auto;
+}
+
+.section-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  display: inline-block;
+  margin-bottom: 0.6rem;
+  border: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   BUTTONS & PILLS
+   ========================================================================== */
+.btn-dark-pill {
+  background: var(--dark-capsule);
+  color: #FFFFFF;
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.55rem 1.3rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-dark-pill:hover {
+  background: #2D2D30;
+  transform: translateY(-1px);
+}
+
+.btn-lavender-pill {
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 0.55rem 1.3rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-lavender-pill:hover {
+  background: var(--accent-lavender-hover);
+  transform: translateY(-1px);
+}
+
+.btn-outline-pill {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-outline-pill:hover {
+  border-color: var(--text-primary);
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.btn-primary {
+  background: var(--dark-capsule);
+  color: #FFFFFF;
+  font-weight: 600;
+  border-radius: 9999px;
+  padding: 0.5rem 1.15rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-primary:hover {
+  background: #2D2D30;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.45rem 1rem;
+  transition: all var(--transition-fast);
+}
+
+.btn-outline:hover {
+  border-color: var(--text-primary);
+}
+
+/* ==========================================================================
+   HERO & MASTER SEARCH CAPSULE
+   ========================================================================== */
+.hero-wrapper {
+  padding: 2rem 0 1.5rem 0;
+  text-align: center;
+}
+
+.hero-kicker-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--accent-lavender-subtle);
+  border: 1px solid var(--accent-lavender);
+  padding: 0.3rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-lavender-dark);
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.hero-kicker-badge .badge-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10B981;
+}
+
+.hero-main-title {
+  font-size: 3rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.hero-lead-text {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  margin: 0 auto 2.25rem auto;
+  line-height: 1.6;
+}
+
+/* Master Airbnb/Capsule Style Search Bar */
+.search-capsule-bar {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.5rem 0.65rem 0.5rem 1.25rem;
+  box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.07);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.search-segment {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  padding: 0.25rem 0.65rem;
+}
+
+.search-segment-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.15rem;
+}
+
+.search-segment-input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  outline: none;
+}
+
+.search-segment-input::placeholder {
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.search-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-subtle);
+}
+
+.search-submit-pill {
+  background: var(--dark-capsule);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.search-submit-pill:hover {
+  background: #2D2D30;
+  transform: scale(1.02);
+}
+
+.quick-chips-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.quick-tag-chip {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.quick-tag-chip:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   METRIC STRIP / TRUST STATS
+   ========================================================================== */
+.trust-strip-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-card);
+  border-radius: 20px;
+  padding: 1.25rem 1.75rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.02);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.25rem;
+}
+
+.trust-metric-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.trust-metric-val {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.trust-metric-lbl {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 0.15rem;
+}
+
+/* ==========================================================================
+   SANATORIUM CARDS (Matching MyPiFi product card design)
+   ========================================================================== */
+.sanatorium-card {
+  background: var(--bg-card);
+  border-radius: 22px;
+  border: 1px solid var(--border-card);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transition-smooth), box-shadow var(--transition-smooth), border-color var(--transition-smooth);
+}
+
+.sanatorium-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+.card-image-wrap {
+  position: relative;
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background: var(--bg-subtle);
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.sanatorium-card:hover .card-image {
+  transform: scale(1.04);
+}
+
+.card-badge-pill {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.2rem 0.65rem;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  z-index: 2;
+}
+
+.card-badge-dark {
+  background: var(--dark-capsule);
+  color: #FFFFFF;
+}
+
+.card-wishlist-pill {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 2;
+  transition: transform var(--transition-fast);
+}
+
+.card-wishlist-pill:hover {
+  transform: scale(1.1);
+}
+
+.card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card-location-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.card-location-text {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.card-rating-text {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.card-title-editorial {
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text-primary);
+  margin-bottom: 0.45rem;
+  line-height: 1.3;
+}
+
+.card-inclusions-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-sage);
+  background: var(--accent-sage-subtle);
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  margin-bottom: 0.65rem;
+  width: fit-content;
+}
+
+.card-specs-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-spec-tag {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.18rem 0.5rem;
+  border-radius: 6px;
+  border: 1px solid var(--border-card);
+}
+
+.card-phone-banner {
+  background: var(--bg-subtle);
+  border: 1px dashed var(--border-subtle);
+  border-radius: 10px;
+  padding: 0.35rem 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.76rem;
+  margin-bottom: 0.85rem;
+}
+
+.card-phone-banner a {
+  color: var(--text-primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.card-bottom-pricing {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-card);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-price-num {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.card-price-sub {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   CATEGORY TABS (Segmented Pill Layout)
+   ========================================================================== */
+.segmented-pills-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.segmented-pill-btn {
+  padding: 0.45rem 1.15rem;
+  border-radius: 9999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.segmented-pill-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.segmented-pill-btn.active {
+  background: var(--dark-capsule);
+  color: #FFFFFF;
+  border-color: var(--dark-capsule);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   FLOATING CHAT / HELP WIDGET (Exact MyPiFi lavender square)
+   ========================================================================== */
+.pifi-chat-widget {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+}
+
+.pifi-chat-btn {
+  width: 46px;
+  height: 46px;
+  background: var(--accent-lavender);
+  color: var(--accent-lavender-dark);
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+}
+
+.pifi-chat-btn:hover {
+  background: var(--accent-lavender-hover);
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   MODALS, DRAWERS & OVERLAYS
+   ========================================================================== */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 20, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  animation: fadeIn 0.2s ease;
+}
+
+.booking-modal-card {
+  background: var(--bg-card);
+  border-radius: 24px;
+  border: 1px solid var(--border-card);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 720px;
+  overflow: hidden;
+  animation: modalScale 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 18, 20, 0.5);
+  backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.drawer-panel {
+  width: 100%;
+  max-width: 440px;
+  height: 100%;
+  background: var(--bg-card);
+  box-shadow: -10px 0 35px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalScale {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+/* Leaflet container */
+.map-container-box {
+  width: 100%;
+  height: 440px;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid var(--border-card);
+  z-index: 1;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-main-title {
+    font-size: 2.2rem;
+  }
+  .search-capsule-bar {
+    border-radius: 24px;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 0.75rem;
+  }
+  .search-divider {
+    display: none;
+  }
+  .search-segment {
+    width: 100%;
+    border-bottom: 1px solid var(--border-subtle);
+    padding-bottom: 0.5rem;
+  }
+  .search-submit-pill {
+    width: 100%;
+    justify-content: center;
+  }
+  .floating-nav {
+    border-radius: 20px;
+  }
+  .floating-nav-links {
+    display: none;
+  }
+  .heading-editorial {
+    font-size: 1.85rem;
+  }
+}
