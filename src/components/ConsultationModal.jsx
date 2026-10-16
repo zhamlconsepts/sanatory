@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IconClose } from './Icons'
 
 export default function ConsultationModal({ isOpen, onClose, onRequestSuccess }) {
   const [name, setName] = useState('')
@@ -24,18 +25,19 @@ export default function ConsultationModal({ isOpen, onClose, onRequestSuccess })
         <div style={{ padding: '1.1rem 1.5rem', borderBottom: '1px solid var(--border-card)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-card)' }}>
           <div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
-              Shifokor Maslahati
+              Tibbiy & Salomatlik Maslahati
             </h3>
             <span style={{ fontSize: '0.76rem', color: 'var(--text-secondary)' }}>
-              Mutaxassis 10-15 daqiqa ichida siz bilan bog'lanadi
+              Malakali mutaxassis 10-15 daqiqa ichida siz bilan bog'lanadi
             </span>
           </div>
           <button
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '34px', height: '34px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 

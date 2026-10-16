@@ -70,7 +70,7 @@ export default function VoucherVerification({ sampleVouchers, userBookings }) {
           </span>
           <h2 className="heading-editorial">Elektron Vaucherni Tekshirish</h2>
           <p className="section-subtitle">
-            SihatMaskan portali orqali rasmiylashtirilgan elektron vaucher haqiqiyligi va bron holatini bir zumda tekshiring
+            Sihat & Sport portali orqali rasmiylashtirilgan elektron vaucher haqiqiyligi va bandlik holatini bir zumda tekshiring
           </p>
         </div>
 
@@ -182,7 +182,7 @@ export default function VoucherVerification({ sampleVouchers, userBookings }) {
                       </div>
                     </div>
                     <div>
-                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Sanatoriya:</div>
+                      <div style={{ fontSize: '0.7rem', color: 'var(--text-muted)', textTransform: 'uppercase' }}>Maskan / Muassasa:</div>
                       <div style={{ fontSize: '0.92rem', fontWeight: 700, color: 'var(--text-primary)' }}>
                         {verificationResult.sanatoriumName}
                       </div>

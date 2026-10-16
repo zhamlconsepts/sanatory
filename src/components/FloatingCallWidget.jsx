@@ -29,7 +29,7 @@ export default function FloatingCallWidget({ onOpenConsultation }) {
               Tezkor Muloqot Markazi
             </div>
             <div style={{ fontSize: '0.76rem', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>
-              Sanatoriyalar bo'yicha bepul ma'lumot va yo'llanma
+              Sport, massaj va sanatoriylar bo'yicha bepul ma'lumot va yo'llanma
             </div>
           </div>
 
@@ -49,7 +49,7 @@ export default function FloatingCallWidget({ onOpenConsultation }) {
           </a>
 
           <a
-            href="https://t.me/sihatmaskan_support"
+            href="https://t.me/sihatsport_support"
             target="_blank"
             rel="noreferrer"
             className="btn-outline-pill"

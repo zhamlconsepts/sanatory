@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconClose } from './Icons'
 
 export default function ComparisonModal({
   isOpen,
@@ -26,8 +27,9 @@ export default function ComparisonModal({
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '36px', height: '36px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 
@@ -46,10 +48,10 @@ export default function ComparisonModal({
                 Taqqoslash ro'yxati bo'sh
               </h4>
               <p style={{ color: 'var(--text-secondary)', fontSize: '0.86rem', marginBottom: '1.25rem' }}>
-                Katalogdagi sanatoriya kartalaridan "Taqqoslash" belgisini tanlang.
+                Katalogdagi maskan kartalaridan "Taqqoslash" tugmasini tanlang.
               </p>
               <button className="btn-dark-pill" onClick={onClose}>
-                Sanatoriylarni Ko'rish
+                Maskanlarni Ko'rish
               </button>
             </div>
           ) : (
@@ -73,14 +75,14 @@ export default function ComparisonModal({
                             width: '22px',
                             height: '22px',
                             cursor: 'pointer',
-                            fontSize: '0.7rem',
                             display: 'flex',
                             alignItems: 'center',
-                            justifyContent: 'center'
+                            justifyContent: 'center',
+                            zIndex: 2
                           }}
                           title="O'chirish"
                         >
-                          ✕
+                          <IconClose size={11} color="#FFFFFF" />
                         </button>
                         <img
                           src={item.image}

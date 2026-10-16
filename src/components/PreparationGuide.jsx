@@ -17,7 +17,7 @@ export default function PreparationGuide() {
   const docsList = [
     { id: 'doc1', title: "072/u Sanatoriya-kurort kartasi", desc: "Oilaviy poliklinika terapevti tomonidan to'ldiriladi (amal qilish muddati 1 oy)." },
     { id: 'doc2', title: "Pasport / ID-karta (asl nusxasi)", desc: "16 yoshgacha bo'lgan bolalar uchun tug'ilganlik haqidagi guvohnoma." },
-    { id: 'doc3', title: "Elektron Vaucher yoki Bron tasdiqnomasi", desc: "SihatMaskan portali orqali olingan rasmiy QR-kodli elektron vaucher." },
+    { id: 'doc3', title: "Elektron Vaucher yoki Bron tasdiqnomasi", desc: "Sihat & Sport portali orqali olingan rasmiy QR-kodli elektron vaucher." },
     { id: 'doc4', title: "Flyuorografiya va EKG xulosasi", desc: "So'nggi 6 oy ichidagi ko'krak qafasi tekshiruvi va elektrokardiogramma natijasi." }
   ]
 
@@ -41,9 +41,9 @@ export default function PreparationGuide() {
             <span className="tagline-dot"></span>
             TAYYORGARLIK VA YO'RIQNOMA
           </span>
-          <h2 className="heading-editorial">Sanatoriyaga Borishdan Oldin</h2>
+          <h2 className="heading-editorial">Dam Olish va Davolanishdan Oldin</h2>
           <p className="section-subtitle">
-            Hujjatlarni to'g'ri rasmiylashtirish va davolanish kursini samarali o'tkazish bo'yicha amaliy yo'riqnoma
+            Hujjatlarni to'g'ri rasmiylashtirish, qulay kiyinish va tashrifni samarali o'tkazish bo'yicha amaliy yo'riqnoma
           </p>
         </div>
 

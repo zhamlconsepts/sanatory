@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { getCompanyDetails, fetchLiveWeather } from '../services/companyApi'
+import {
+  IconClose,
+  IconBuilding,
+  IconShieldCheck,
+  IconCheck,
+  IconMapPin,
+  IconExternal,
+  IconSun,
+  IconLeaf
+} from './Icons'
 
 export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBooking }) {
   const [activeImageIndex, setActiveImageIndex] = useState(0)
@@ -74,8 +84,9 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '36px', height: '36px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={16} />
           </button>
         </div>
 
@@ -132,7 +143,21 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
               }}
             >
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>
-                <span style={{ fontSize: '2.2rem' }}>{weather.icon}</span>
+                <div
+                  style={{
+                    width: '46px',
+                    height: '46px',
+                    borderRadius: '12px',
+                    background: 'rgba(2, 132, 199, 0.14)',
+                    color: '#0284C7',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
+                  <IconSun size={24} />
+                </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <span style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)' }}>
@@ -155,8 +180,22 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
               </div>
 
               <div style={{ textAlign: 'right' }}>
-                <span style={{ fontSize: '0.74rem', background: 'var(--bg-card)', padding: '0.35rem 0.75rem', borderRadius: '9999px', fontWeight: 700, border: '1px solid var(--border-subtle)', color: 'var(--text-primary)' }}>
-                  🍃 {weather.airQuality.badge}: {weather.airQuality.index}% Toza
+                <span
+                  style={{
+                    fontSize: '0.74rem',
+                    background: 'var(--bg-card)',
+                    padding: '0.35rem 0.75rem',
+                    borderRadius: '9999px',
+                    fontWeight: 700,
+                    border: '1px solid var(--border-subtle)',
+                    color: 'var(--text-primary)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.35rem'
+                  }}
+                >
+                  <IconLeaf size={13} color="#059669" />
+                  <span>{weather.airQuality.badge}: {weather.airQuality.index}% Toza</span>
                 </span>
                 <div style={{ fontSize: '0.68rem', color: 'var(--text-muted)', marginTop: '0.35rem' }}>
                   Yangilangan: {weather.updatedAt}
@@ -179,13 +218,14 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
             >
               <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '0.85rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ fontSize: '1.1rem' }}>🏢</span>
+                  <IconBuilding size={18} color="var(--accent-lavender-dark)" />
                   <span style={{ fontWeight: 800, fontSize: '0.94rem', color: 'var(--text-primary)' }}>
                     Rasmiy Yuridik Ma'lumotlar & Davlat Reestri
                   </span>
                 </div>
-                <span style={{ fontSize: '0.72rem', background: 'rgba(5, 150, 105, 0.1)', color: '#059669', padding: '0.2rem 0.6rem', borderRadius: '9999px', fontWeight: 700 }}>
-                  ✓ {company.accreditationBadge}
+                <span style={{ fontSize: '0.72rem', background: 'rgba(5, 150, 105, 0.1)', color: '#059669', padding: '0.2rem 0.6rem', borderRadius: '9999px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', gap: '0.3rem' }}>
+                  <IconShieldCheck size={12} color="#059669" />
+                  <span>{company.accreditationBadge}</span>
                 </span>
               </div>
 
@@ -224,18 +264,20 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
                     target="_blank"
                     rel="noreferrer"
                     className="btn-outline-pill"
-                    style={{ fontSize: '0.74rem', padding: '0.35rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                    style={{ fontSize: '0.74rem', padding: '0.4rem 0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    <span>📍 Yandex Xarita</span>
+                    <IconMapPin size={13} />
+                    <span>Yandex Xarita</span>
                   </a>
                   <a
                     href={company.googleMapUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="btn-outline-pill"
-                    style={{ fontSize: '0.74rem', padding: '0.35rem 0.75rem', display: 'flex', alignItems: 'center', gap: '0.35rem' }}
+                    style={{ fontSize: '0.74rem', padding: '0.4rem 0.8rem', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
                   >
-                    <span>🗺️ Google Maps</span>
+                    <IconExternal size={13} />
+                    <span>Google Maps</span>
                   </a>
                 </div>
               </div>
@@ -438,8 +480,9 @@ export default function DetailsModal({ isOpen, onClose, sanatorium, onOpenBookin
                   <div>
                     <div style={{ fontWeight: 700, fontSize: '0.94rem', color: 'var(--text-primary)' }}>{r.name}</div>
                     <div style={{ fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '0.15rem' }}>{r.desc}</div>
-                    <div style={{ fontSize: '0.74rem', color: '#059669', fontWeight: 600, marginTop: '0.25rem' }}>
-                      ✓ Rasmiy tasdiqlangan narx
+                    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.74rem', color: '#059669', fontWeight: 600, marginTop: '0.25rem' }}>
+                      <IconCheck size={13} color="#059669" />
+                      <span>Rasmiy tasdiqlangan narx</span>
                     </div>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.85rem' }}>

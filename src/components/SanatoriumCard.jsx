@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { getCompanyDetails, fetchLiveWeather } from '../services/companyApi'
+import {
+  IconFootball,
+  IconMassage,
+  IconPool,
+  IconSanatorium,
+  IconCheck,
+  IconSun
+} from './Icons'
 
 export default function SanatoriumCard({
   item,
@@ -22,31 +30,32 @@ export default function SanatoriumCard({
     }
     return () => { mounted = false }
   }, [item.coords])
+
   const getCategoryBadge = () => {
     switch (item.facilityType) {
       case 'football':
-        return { label: '⚽ Futbol Arenasi', bg: '#0284C7', color: '#FFFFFF' }
+        return { label: 'Futbol Arenasi', bg: '#0284C7', color: '#FFFFFF', Icon: IconFootball }
       case 'massage':
-        return { label: '💆‍♂️ Terapevtik Massaj', bg: '#7C3AED', color: '#FFFFFF' }
+        return { label: 'Terapevtik Massaj', bg: '#7C3AED', color: '#FFFFFF', Icon: IconMassage }
       case 'fitness':
-        return { label: '🏊‍♂️ Basseyn & Fitnes', bg: '#0D9488', color: '#FFFFFF' }
+        return { label: 'Basseyn & Fitnes', bg: '#0D9488', color: '#FFFFFF', Icon: IconPool }
       case 'sanatorium':
       default:
-        return { label: '🏥 Sanatoriya', bg: '#059669', color: '#FFFFFF' }
+        return { label: 'Sanatoriya-Kurort', bg: '#059669', color: '#FFFFFF', Icon: IconSanatorium }
     }
   }
 
   const getInclusionText = () => {
     switch (item.facilityType) {
       case 'football':
-        return "FIFA sun'iy chim + Yoritgich + Dush kiritilgan"
+        return "FIFA sun'iy chim + Professional yoritish + Shinam dush"
       case 'massage':
-        return "Shifokor ko'rigi + Shifobaxsh moylar kiritilgan"
+        return "Shifokor ko'rigi + Tabiiy shifobaxsh moylar kiritilgan"
       case 'fitness':
-        return "Basseyn + Trenajyor + Sauna erkin kirish"
+        return "Basseyn + Kardio zona + Fin saunasi erkin kirish"
       case 'sanatorium':
       default:
-        return "3 mahal ovqat + To'liq davolash kiritilgan"
+        return "3 mahal parhez taomlar + To'liq tibbiy davolash kursi"
     }
   }
 
@@ -91,14 +100,18 @@ export default function SanatoriumCard({
               background: categoryBadge.bg,
               color: categoryBadge.color,
               fontSize: '0.68rem',
-              fontWeight: 800,
-              padding: '0.22rem 0.6rem',
+              fontWeight: 700,
+              padding: '0.24rem 0.65rem',
               borderRadius: '9999px',
               letterSpacing: '0.02em',
-              boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+              boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.35rem'
             }}
           >
-            {categoryBadge.label}
+            <categoryBadge.Icon size={12} color="#FFFFFF" />
+            <span>{categoryBadge.label}</span>
           </span>
           {item.badge && (
             <span className="card-badge-pill">
@@ -185,17 +198,17 @@ export default function SanatoriumCard({
         </div>
 
         {/* Live Satellite Weather + State Verification Pill */}
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem', margin: '0.45rem 0', flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#059669', background: 'rgba(5, 150, 105, 0.08)', padding: '0.18rem 0.55rem', borderRadius: '9999px', fontWeight: 600 }}>
-            <span>✓</span>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem', margin: '0.55rem 0', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#059669', background: 'rgba(5, 150, 105, 0.08)', padding: '0.2rem 0.55rem', borderRadius: '9999px', fontWeight: 600 }}>
+            <IconCheck size={12} color="#059669" />
             <span title={company.officialLegalName}>STIR: {company.inn}</span>
           </div>
 
           {weather && (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', color: 'var(--text-secondary)', background: 'var(--bg-subtle)', padding: '0.18rem 0.55rem', borderRadius: '9999px', fontWeight: 600, border: '1px solid var(--border-subtle)' }} title={`Jonli Open-Meteo ob-havo: ${weather.description}, Shamol: ${weather.windSpeed} km/s`}>
-              <span>{weather.icon}</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: 'var(--text-secondary)', background: 'var(--bg-subtle)', padding: '0.2rem 0.6rem', borderRadius: '9999px', fontWeight: 600, border: '1px solid var(--border-subtle)' }} title={`Jonli sun'iy yo'ldosh ma'lumoti: ${weather.description}, Shamol: ${weather.windSpeed} km/s`}>
+              <IconSun size={12} color="#0284C7" />
               <span>{weather.temp > 0 ? `+${weather.temp}` : weather.temp}°C</span>
-              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Jonli</span>
+              <span style={{ fontSize: '0.66rem', color: 'var(--text-muted)' }}>Jonli</span>
             </div>
           )}
         </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconClose } from './Icons'
 
 export default function Toast({ toasts, onDismiss }) {
   if (!toasts || toasts.length === 0) return null
@@ -66,12 +67,15 @@ export default function Toast({ toasts, onDismiss }) {
                 border: 'none',
                 cursor: 'pointer',
                 color: 'var(--text-muted)',
-                fontSize: '0.9rem',
-                padding: '0 0.2rem'
+                padding: '0 0.2rem',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
               title="Yopish"
+              aria-label="Yopish"
             >
-              ✕
+              <IconClose size={13} />
             </button>
           </div>
         )

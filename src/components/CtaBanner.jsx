@@ -47,18 +47,18 @@ export default function CtaBanner({ onOpenConsultation }) {
               fontFamily: 'var(--font-mono)'
             }}
           >
-            BEPUL KURORTOLOG MASLAHATI
+            BEPUL MUTAXASSIS VA TIBBIY MASLAHAT
           </span>
 
           <h2
             className="heading-editorial"
             style={{ color: '#FFFFFF', fontSize: '2.2rem', marginBottom: '0.85rem' }}
           >
-            <span className="font-italic-serif">Qaysi sanatoriya</span> sizga eng ma'qul keladi?
+            <span className="font-italic-serif">Qaysi maskan yoki muolaja</span> sizga eng ma'qul keladi?
           </h2>
 
           <p style={{ fontSize: '0.96rem', color: 'rgba(255, 255, 255, 0.82)', lineHeight: 1.6, maxWidth: '620px', margin: '0 auto 2rem auto' }}>
-            Tajribali kurortolog-shifokorimiz sizning tibbiy tashxisingiz va byudjetingizga mos sanatoriyni 10 daqiqa ichida bepul tanlab beradi.
+            Tajribali shifokor va mutaxassislarimiz sizning salomatligingiz, maqsadingiz va byudjetingizga mos maskanni 10 daqiqa ichida bepul tanlab berishadi.
           </p>
 
           <div style={{ display: 'flex', gap: '0.85rem', justifyContent: 'center', flexWrap: 'wrap' }}>
@@ -67,7 +67,7 @@ export default function CtaBanner({ onOpenConsultation }) {
               className="btn-lavender-pill"
               style={{ padding: '0.65rem 1.6rem', fontSize: '0.9rem' }}
             >
-              Shifokor Maslahatini Olish
+              Mutaxassis Maslahatini Olish
             </button>
             <a
               href="tel:+998712000000"

@@ -35,9 +35,9 @@ export default function ReviewsSection({ reviews, onOpenAddReview }) {
               <span className="tagline-dot"></span>
               HAQIQIY TAJRIBA
             </span>
-            <h2 className="heading-editorial">Bemorlar Baholari va Fikrlari</h2>
+            <h2 className="heading-editorial">Tashrif Buyuruvchilar Baholari va Fikrlari</h2>
             <p className="section-subtitle">
-              Sanatoriyalarda davolanish kursini o'tagan yurtdoshlarimizning tekshirilgan va xolis baholari
+              Sport arenalari, massaj va sanatoriylardan foydalangan yurtdoshlarimizning tekshirilgan va xolis fikrlari
             </p>
           </div>
 

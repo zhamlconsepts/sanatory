@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getCompanyDetails, submitBookingToCompanyApi } from '../services/companyApi'
+import { IconClose, IconCheck, IconShieldCheck } from './Icons'
 
 export default function BookingModal({
   isOpen,
@@ -238,8 +239,9 @@ export default function BookingModal({
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '32px', height: '32px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 
@@ -271,10 +273,10 @@ export default function BookingModal({
                   }}
                 >
                   {sanatoriums.map(s => {
-                    let typeTag = '🏥'
-                    if (s.facilityType === 'football') typeTag = '⚽'
-                    if (s.facilityType === 'massage') typeTag = '💆'
-                    if (s.facilityType === 'fitness') typeTag = '🏊'
+                    let typeTag = '[Sanatoriy]'
+                    if (s.facilityType === 'football') typeTag = '[Futbol]'
+                    if (s.facilityType === 'massage') typeTag = '[Massaj]'
+                    if (s.facilityType === 'fitness') typeTag = '[Fitnes]'
 
                     return (
                       <option key={s.id} value={s.id}>
@@ -462,8 +464,9 @@ export default function BookingModal({
                     {baseTotal.toLocaleString()} so'm
                   </div>
                 </div>
-                <div style={{ fontSize: '0.74rem', color: '#059669', fontWeight: 700 }}>
-                  ✓ Rasmiy narx kafolati
+                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.74rem', color: '#059669', fontWeight: 700 }}>
+                  <IconShieldCheck size={14} color="#059669" />
+                  <span>Rasmiy narx kafolati</span>
                 </div>
               </div>
             </div>
@@ -640,8 +643,9 @@ export default function BookingModal({
                   </button>
                 </div>
                 {appliedPromo && (
-                  <div style={{ fontSize: '0.74rem', color: '#10B981', fontWeight: 600, marginTop: '0.3rem' }}>
-                    ✓ Promokod faollashtirildi: {appliedPromo.label}
+                  <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.74rem', color: '#10B981', fontWeight: 600, marginTop: '0.3rem' }}>
+                    <IconCheck size={13} color="#10B981" />
+                    <span>Promokod faollashtirildi: {appliedPromo.label}</span>
                   </div>
                 )}
                 {promoError && (
@@ -720,8 +724,9 @@ export default function BookingModal({
                 {/* Official Company Registry & API Transaction Banner */}
                 <div style={{ background: '#F0FDF4', border: '1px solid #BBF7D0', borderRadius: '12px', padding: '0.65rem 0.85rem', marginBottom: '0.85rem', fontSize: '0.74rem' }}>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.4rem' }}>
-                    <span style={{ color: '#166534', fontWeight: 700 }}>
-                      ✓ Korxona: {generatedVoucher.officialLegalName} (STIR: {generatedVoucher.companyInn})
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: '#166534', fontWeight: 700 }}>
+                      <IconShieldCheck size={13} color="#166534" />
+                      <span>Korxona: {generatedVoucher.officialLegalName} (STIR: {generatedVoucher.companyInn})</span>
                     </span>
                     <span style={{ color: '#15803D', fontFamily: 'monospace', fontWeight: 600 }}>
                       API TXN: {generatedVoucher.apiTransactionId}
@@ -815,9 +820,10 @@ export default function BookingModal({
             <button
               onClick={handleNextStep}
               className="btn-dark-pill"
-              style={{ padding: '0.5rem 1.35rem', fontSize: '0.86rem', background: '#059669', borderColor: '#059669' }}
+              style={{ padding: '0.5rem 1.35rem', fontSize: '0.86rem', background: '#059669', borderColor: '#059669', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
             >
-              Vaucherni Shakllantirish ✓
+              <IconCheck size={14} color="#FFFFFF" />
+              <span>Vaucherni Shakllantirish</span>
             </button>
           ) : (
             <button

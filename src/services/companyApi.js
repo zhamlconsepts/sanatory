@@ -39,7 +39,7 @@ export async function fetchLiveWeather(lat, lon) {
       isDay: curr.is_day === 1,
       code: curr.weather_code,
       description: weatherDesc.text,
-      icon: weatherDesc.icon,
+      condition: weatherDesc.condition,
       airQuality: getAirQualityEstimate(lat, lon),
       updatedAt: new Date().toLocaleTimeString('uz-UZ', { hour: '2-digit', minute: '2-digit' })
     };
@@ -57,33 +57,33 @@ export async function fetchLiveWeather(lat, lon) {
 function getWeatherDescription(code, isDay) {
   switch (code) {
     case 0:
-      return { text: "Musaffo ochiq osmon", icon: isDay ? "☀️" : "🌙" };
+      return { text: "Musaffo ochiq osmon", condition: isDay ? "clear-day" : "clear-night" };
     case 1:
     case 2:
-      return { text: "Mayin quyoshli, toza havo", icon: isDay ? "🌤️" : "☁️" };
+      return { text: "Mayin quyoshli, toza havo", condition: isDay ? "partly-cloudy-day" : "partly-cloudy-night" };
     case 3:
-      return { text: "Bulutli, yumshoq shabada", icon: "☁️" };
+      return { text: "Bulutli, yumshoq shabada", condition: "cloudy" };
     case 45:
     case 48:
-      return { text: "Tog' tumanli va salqin", icon: "🌫️" };
+      return { text: "Tog' tumanli va salqin", condition: "fog" };
     case 51:
     case 53:
     case 55:
-      return { text: "Yengil shifobaxsh yomg'ir", icon: "🌦️" };
+      return { text: "Yengil shifobaxsh yomg'ir", condition: "light-rain" };
     case 61:
     case 63:
     case 65:
-      return { text: "Yomg'irli, toza kislorod", icon: "🌧️" };
+      return { text: "Yomg'irli, toza kislorod", condition: "rain" };
     case 71:
     case 73:
     case 75:
-      return { text: "Qorli tog' manzarasi", icon: "❄️" };
+      return { text: "Qorli tog' manzarasi", condition: "snow" };
     case 80:
     case 81:
     case 82:
-      return { text: "Qisqa muddatli tog' yomg'iri", icon: "🌦️" };
+      return { text: "Qisqa muddatli tog' yomg'iri", condition: "shower" };
     default:
-      return { text: "Toza, qulay iqlim", icon: "🌤️" };
+      return { text: "Toza, qulay iqlim", condition: "fair" };
   }
 }
 
@@ -105,7 +105,7 @@ function getFallbackWeather(lat, lon) {
     isDay: true,
     code: 1,
     description: isMountain ? "Musaffo tog' havosi" : "Quyoshli, ochiq havo",
-    icon: "☀️",
+    condition: "clear-day",
     airQuality: { index: 98, label: "A'lo havo tozaligi", badge: "Iqlimiy Toza" },
     updatedAt: "Hozirgi"
   };

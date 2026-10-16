@@ -1,4 +1,12 @@
 import React from 'react'
+import {
+  IconAll,
+  IconFootball,
+  IconMassage,
+  IconSanatorium,
+  IconPool,
+  IconMountain
+} from './Icons'
 
 export default function Hero({
   searchQuery,
@@ -17,12 +25,12 @@ export default function Hero({
   onCategoryChange
 }) {
   const categoryShortcuts = [
-    { key: 'all', label: 'Barchasi', icon: '🌟' },
-    { key: 'football', label: 'Futbol & Sport', icon: '⚽' },
-    { key: 'massage', label: 'Massaj & SPA', icon: '💆‍♂️' },
-    { key: 'sanatorium', label: 'Sanatoriylar', icon: '🏥' },
-    { key: 'fitness', label: 'Basseyn & Fitnes', icon: '🏊‍♂️' },
-    { key: 'mountain', label: "Tog' Iqlimi", icon: '🏔️' }
+    { key: 'all', label: 'Barcha Maskanlar', Icon: IconAll },
+    { key: 'football', label: 'Futbol Maydonlari', Icon: IconFootball },
+    { key: 'massage', label: 'Terapevtik Massaj', Icon: IconMassage },
+    { key: 'sanatorium', label: 'Sanatoriylar', Icon: IconSanatorium },
+    { key: 'fitness', label: 'Basseyn & Fitnes', Icon: IconPool },
+    { key: 'mountain', label: "Tog' Iqlimi", Icon: IconMountain }
   ]
 
   return (
@@ -31,23 +39,24 @@ export default function Hero({
         {/* Editorial Tagline */}
         <div className="hero-kicker-badge">
           <span className="badge-pulse-dot"></span>
-          <span>Yagona Sog'lom Hayot, Sport & Sanatoriya Ekotizimi</span>
+          <span>O'zbekistonning Yagona Salomatlik, Sport va Reabilitatsiya Portali</span>
         </div>
 
         {/* Editorial Main Title */}
         <h1 className="hero-main-title">
-          <span className="font-italic-serif">Salomatlik, sport</span> va to'laqonli dam olish maskanlari
+          <span className="font-italic-serif">Salomatlik, sport</span> va professional dam olish maskanlari
         </h1>
 
         {/* Lead subtitle */}
         <p className="hero-lead-text">
-          Shifobaxsh sanatoriylar, professional mini-futbol maydonchalari, terapevtik massaj studiyalari va zamonaviy sport majmualari — inson salomatligi uchun barchasi yagona rasmiy platformada.
+          Sertifikatlangan sanatoriylar, zamonaviy mini-futbol maydonlari, malakali shifokorlar nazoratidagi terapevtik massaj studiyalari va suzish havzalari — barchasi yagona rasmiy platformada.
         </p>
 
         {/* Quick Category Navigation Shortcuts */}
         <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap', margin: '0 auto 1.75rem auto', maxWidth: '850px' }}>
           {categoryShortcuts.map(cat => {
             const isActive = activeCategory === cat.key
+            const IconComp = cat.Icon
             return (
               <button
                 key={cat.key}
@@ -72,7 +81,7 @@ export default function Hero({
                   transition: 'all 0.2s ease'
                 }}
               >
-                <span>{cat.icon}</span>
+                <IconComp size={15} color={isActive ? '#FFFFFF' : 'currentColor'} />
                 <span>{cat.label}</span>
               </button>
             )
@@ -227,12 +236,12 @@ export default function Hero({
               alt="Futbol va Sport Maydonlari"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
-              <span style={{ background: '#0284C7', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
-                ⚽ SPORT & FUTBOL
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#0284C7', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.22rem 0.65rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem', letterSpacing: '0.04em' }}>
+                SPORT VA FUTBOL
               </span>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Futbol Maydonlari</h3>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>FIFA chimli maydonlar, tungi projektorlar va dush</p>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.25rem 0 0 0', lineHeight: 1.4 }}>FIFA sertifikatli chim, kechki LED yoritish va qulay dush</p>
             </div>
           </div>
 
@@ -260,12 +269,12 @@ export default function Hero({
               alt="Terapevtik Massaj & SPA"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
-              <span style={{ background: '#7C3AED', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
-                💆‍♂️ RELAKS & TIKLANISH
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#7C3AED', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.22rem 0.65rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem', letterSpacing: '0.04em' }}>
+                TERAPEVTIK MASSAJ
               </span>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Terapevtik Massaj</h3>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>Grija, bo'g'im, manual terapiya va sauna</p>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Manual Terapiya va SPA</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.25rem 0 0 0', lineHeight: 1.4 }}>Umurtqa pog'onasi, grija va bo'g'imlar uchun professional parvarish</p>
             </div>
           </div>
 
@@ -293,12 +302,12 @@ export default function Hero({
               alt="Basseyn va Fitnes Zallari"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
-              <span style={{ background: '#0D9488', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
-                🏊‍♂️ AQUA & FITNES
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#0D9488', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.22rem 0.65rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem', letterSpacing: '0.04em' }}>
+                SUZISH VA FITNES
               </span>
-              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Basseyn & Fitnes</h3>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>50m isitiladigan basseyn, akva va zallar</p>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Basseyn & Fitnes Zallari</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.25rem 0 0 0', lineHeight: 1.4 }}>50m isitiladigan yopiq basseyn va zamonaviy trenajyorlar</p>
             </div>
           </div>
 
@@ -326,12 +335,12 @@ export default function Hero({
               alt="Shifobaxsh Sanatoriylar"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
-              <span style={{ background: '#059669', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
-                🏥 TIBBIY SOG'LOMLASHTIRISH
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.85) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#059669', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.22rem 0.65rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem', letterSpacing: '0.04em' }}>
+                TIBBIY SANATORIYLAR
               </span>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Sanatoriylar & Kurortlar</h3>
-              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>Zomin, Chortoq, Chinobod, mineral suvlar</p>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.25rem 0 0 0', lineHeight: 1.4 }}>Tabiiy mineral buloqlar, tuz g'ori va shifobaxsh tog' havosi</p>
             </div>
           </div>
         </div>

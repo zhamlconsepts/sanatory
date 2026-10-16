@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IconClose } from './Icons'
 
 export default function AddReviewModal({
   isOpen,
@@ -51,8 +52,9 @@ export default function AddReviewModal({
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '34px', height: '34px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 

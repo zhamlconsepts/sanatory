@@ -39,13 +39,13 @@ export default function Footer() {
             <h4 style={{ color: '#FFFFFF', fontSize: '0.88rem', fontWeight: 700, marginBottom: '1rem', textTransform: 'uppercase', letterSpacing: '0.04em', fontFamily: 'var(--font-mono)' }}>
               Xizmat Yo'nalishlari
             </h4>
-            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.5rem', fontSize: '0.84rem' }}>
-              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>⚽ Futbol Maydonlari</a></li>
-              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>💆‍♂️ Terapevtik Massaj & SPA</a></li>
-              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>🏊‍♂️ Basseyn & Fitnes Zallari</a></li>
-              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>🏥 Shifobaxsh Sanatoriylar</a></li>
-              <li><a href="#quiz" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>🎯 Aqlli Tavsiya Testi</a></li>
-              <li><a href="#vaucher-tekshirish" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none' }}>🧾 Vaucherni Tekshirish</a></li>
+            <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.65rem', fontSize: '0.84rem' }}>
+              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Futbol Maydonlari</a></li>
+              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Terapevtik Massaj va SPA</a></li>
+              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Basseyn va Fitnes Zallari</a></li>
+              <li><a href="#katalog" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Shifobaxsh Sanatoriylar</a></li>
+              <li><a href="#quiz" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Aqlli Tavsiya Tizimi</a></li>
+              <li><a href="#vaucher-tekshirish" style={{ color: 'rgba(255, 255, 255, 0.75)', textDecoration: 'none', transition: 'color 0.2s' }}>Vaucherni Tekshirish</a></li>
             </ul>
           </div>
 

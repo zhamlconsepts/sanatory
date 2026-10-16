@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconClose } from './Icons'
 
 export default function FavoritesDrawer({
   isOpen,
@@ -29,8 +30,9 @@ export default function FavoritesDrawer({
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '34px', height: '34px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 
@@ -46,8 +48,8 @@ export default function FavoritesDrawer({
               <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
                 Sevimlilar ro'yxati bo'sh
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem' }}>
-                Katalogdagi sanatoriya kartasining yurak belgisini tanlang.
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem', lineHeight: 1.5 }}>
+                Katalogdagi maskan kartasidagi saqlash belgisini bosib, o'zingizga yoqqan maskanlarni to'plang.
               </p>
             </div>
           ) : (
@@ -96,10 +98,11 @@ export default function FavoritesDrawer({
                     <button
                       onClick={() => onRemoveFavorite(item.id)}
                       className="btn-outline-pill"
-                      style={{ padding: '0.3rem 0.55rem', fontSize: '0.74rem' }}
+                      style={{ padding: '0.3rem 0.55rem', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
                       title="O'chirish"
+                      aria-label="O'chirish"
                     >
-                      ✕
+                      <IconClose size={12} />
                     </button>
                   </div>
                 </div>

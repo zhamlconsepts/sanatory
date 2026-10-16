@@ -4,56 +4,56 @@ export default function TreatmentsSection({ onFilterByKeyword }) {
   const treatments = [
     {
       id: 'football_sport',
-      title: "⚽ Mini-Futbol & Faol Jismoniy Chiniqish",
-      badge: 'Yurak va Qon Aylanish',
+      title: "Mini-Futbol va Kardio Chiniqish",
+      badge: 'Yurak va Qon Tomirlari',
       image: 'assets/images/treatment_football.jpg',
-      desc: "Muntazam mini-futbol o'ynash va jismoniy harakat yurak mushaklarini mustahkamlaydi, ortiqcha vaznni kamaytiradi va yoshlik energiyasini beradi.",
-      effects: ["Gipodinamiyani yengish va metabolizmni tezlashtirish", "Tetiklik gormonlari (endorfin) ajralishi"],
+      desc: "Muntazam mini-futbol o'yinlari va jismoniy harakat yurak mushaklarini baquvvat qiladi, metabolizmni tezlashtiradi va kuchli energiya baxsh etadi.",
+      effects: ["Gipodinamiyani bartaraf etish va chidamlilikni oshirish", "Tetiklik gormonlari (endorfin) ajralishini faollashtirish"],
       sanatoriums: ['Bunyodkor Arena', 'Zomin Stadium', 'Registon Sport']
     },
     {
       id: 'massage_therapy',
-      title: '💆‍♂️ Terapevtik Massaj & Manual Terapiya',
-      badge: 'Umurtqa va Bo\'g\'im',
+      title: 'Terapevtik Massaj va Manual Terapiya',
+      badge: "Umurtqa va Bo'g'imlar",
       image: 'assets/images/treatment_massage.jpg',
-      desc: "Disk churrasi (grija), osteoxondroz va bo'yin-bel og'riqlarini dori-darmonsiz bartaraf etish. Mushaklardagi qotish va spazmlarni yo'qotadi.",
-      effects: ["Umurtqa disklaridagi bosimni pasaytirish", "Asab tolalarini qisilishi va bosh og'rig'ini yozish"],
+      desc: "Disk churrasi (grija), osteoxondroz hamda bo'yin-bel og'riqlarini dori-darmonsiz bartaraf etish. Chuqur mushak spazmlarini yozadi.",
+      effects: ["Umurtqalararo disk bosimini sezilarli pasaytirish", "Qisilgan asab tolalari va surunkali bosh og'rig'ini yengillashtirish"],
       sanatoriums: ['Ibn Sino Massaj', 'Lotus SPA', 'Shifo Nur']
     },
     {
       id: 'swimming_pool',
-      title: '🏊‍♂️ Suzish & Isitiladigan Suv Havzalari',
-      badge: 'Mukammal Qad-Qomat',
+      title: 'Suzish va Gidroterapiya Havzalari',
+      badge: 'Qad-Qomat va Bo\'g\'im',
       image: 'assets/images/treatment_aquatic.jpg',
-      desc: "Umurtqaga og'ir yuk tushirmasdan butun tana mushaklarini uyg'un rivojlantiruvchi, bo'g'imlar harakatlanishini yengillashtiruvchi universal sport.",
-      effects: ["O'pka hajmini kengaytirish va to'g'ri nafas", "Umurtqa egriligi (skolioz) profilaktikasi"],
+      desc: "Umurtqaga ortiqcha yuk tushirmasdan butun tana mushaklarini uyg'un rivojlantiruvchi, bo'g'imlar elastikligini tiklovchi universal sport.",
+      effects: ["O'pka nafas sig'imini kengaytirish", "Skolioz va qad-qomat egriliklarini tuzatish"],
       sanatoriums: ['Olimpiya Kompleks', 'Titan Fitnes', 'Humson Buloq']
     },
     {
       id: 'mineral_water',
-      title: '💧 Balneoterapiya (Issiq Mineral Suvlar)',
-      badge: 'Ichki Organlar & Bo\'g\'im',
+      title: 'Tabiiy Mineral Suvlar (Balneoterapiya)',
+      badge: "Oshqozon va Ichki A'zolar",
       image: 'assets/images/treatment_mineral.jpg',
-      desc: "Yod-brom va xlorid-natriyli tabiiy shifobaxsh vannalar va ichimlik kursi. Oshqozon, jigar va qon bosimini me'yorlashtiradi.",
-      effects: ["Oshqozon-ichak shirasini normallashtirish", "Bo'g'imlardagi tuz va yallig'lanishni kamaytirish"],
+      desc: "Yod-brom va xlorid-natriyli shifobaxsh vannalar hamda ichimlik kursi. Oshqozon-ichak, jigar va qon bosimini me'yorlashtiradi.",
+      effects: ["Me'da-ichak shilliq qavatini qayta tiklash", "Bo'g'imlardagi tuz va yallig'lanishlarni yuvish"],
       sanatoriums: ['Chortoq', 'Chinobod', 'Omonxona']
     },
     {
       id: 'salt_cave',
-      title: "🫁 Speleoterapiya (Shifobaxsh Tuz G'ori)",
-      badge: 'Nafas Yo\'llari',
+      title: "Speleoterapiya (Tabiiy Tuz G'orlari)",
+      badge: 'Nafas Yo\'llari Salomatligi',
       image: 'assets/images/treatment_salt.jpg',
-      desc: "Tabiiy kaliy-natriy tuzi aerozollari bilan to'yingan mikroiqlim. Bronxial astma, allergik yo'tal va o'pka tozalanishi uchun mo''jizaviy vosita.",
-      effects: ["O'pka to'qimalarini chuqur tozalash", "Mavsumiy shamollashlarga qarshi immunitet"],
+      desc: "Tabiiy kaliy-natriy tuzi mikropartikullari bilan to'yingan ionlashgan havo. Bronxial astma, allergik yo'tal va o'pka tozalanishi uchun samarali.",
+      effects: ["O'pka to'qimalarini shilimshiqdan chuqur tozalash", "Mavsumiy infeksiyalarga qarshi tabiiy immunitetni kuchaytirish"],
       sanatoriums: ['Zomin', 'Oqtosh', 'Humson']
     },
     {
       id: 'mountain_air',
-      title: '🌲 Archazor Tog\' Havosi & Terrenkur',
-      badge: 'Asab & Ruhiy Xotirjamlik',
+      title: 'Archazor Tog\' Iqlimi va Terrenkur',
+      badge: 'Asab Tizimi va Ruhiy Xotirjamlik',
       image: 'assets/images/treatment_mountain.jpg',
-      desc: "2000m balandlikdagi archa fitonsidlariga boy toza kislorodli havo va shifobaxsh piyoda yurish yo'laklari (terrenkur).",
-      effects: ["Stress va surunkali toliqishni yo'qotish", "Qonning kislorod bilan 100% to'yinishi"],
+      desc: "Baland tog' archazorlarining fitonsidlarga boy kislorodli havosi va shifobaxsh piyoda yurish yo'laklari (terrenkur tizimi).",
+      effects: ["Surunkali charchoq va stressni samarali bartaraf etish", "Qon aylanishini toza kislorod bilan to'liq to'yintirish"],
       sanatoriums: ['Zomin', 'Xonobod', 'Miraki']
     }
   ]
@@ -64,11 +64,11 @@ export default function TreatmentsSection({ onFilterByKeyword }) {
         <div className="section-header">
           <span className="section-tagline">
             <span className="tagline-dot"></span>
-            SALOMATLIKNING 6 ASOSIY OMILI
+            ILMIY ASOSLANGAN REABILITATSIYA
           </span>
-          <h2 className="heading-editorial">Sport, Massaj va Shifobaxsh Muolajalar</h2>
+          <h2 className="heading-editorial">Salomatlik va Jismoniy Tiklanishning 6 Asosiy Omili</h2>
           <p className="section-subtitle">
-            Faol harakat, to'g'ri tiklanish va tabiiy davolash omillarining inson salomatligidagi o'rni
+            Doimiy jismoniy faollik, professional manual parvarish va tabiiy shifobaxsh manbalarning kompleks ijobiy ta'siri
           </p>
         </div>
 

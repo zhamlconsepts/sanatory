@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconClose } from './Icons'
 
 export default function BookingsDrawer({
   isOpen,
@@ -19,15 +20,16 @@ export default function BookingsDrawer({
         <div style={{ padding: '1.1rem 1.5rem', borderBottom: '1px solid var(--border-card)', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: 'var(--bg-card)' }}>
           <div>
             <h3 style={{ fontSize: '1.15rem', fontWeight: 800, color: 'var(--text-primary)', margin: 0 }}>
-              Buyurtmalarim ({bookings.length})
+              Mening Buyurtmalarim ({bookings.length})
             </h3>
           </div>
           <button
             onClick={onClose}
             className="btn-outline-pill"
             style={{ width: '34px', height: '34px', padding: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%' }}
+            aria-label="Yopish"
           >
-            ✕
+            <IconClose size={15} />
           </button>
         </div>
 
@@ -45,10 +47,10 @@ export default function BookingsDrawer({
                 </svg>
               </div>
               <h4 style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.35rem' }}>
-                Hozircha buyurtmalar yo'q
+                Hozircha buyurtmalar mavjud emas
               </h4>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem', marginBottom: '1.25rem' }}>
-                O'zingizga ma'qul sanatoriyni tanlang va rasmiy elektron vaucher oling.
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.84rem', marginBottom: '1.25rem', lineHeight: 1.5 }}>
+                O'zingizga mos sport maydoni, massaj seansi yoki sanatoriyni tanlang va rasmiy elektron vaucher oling.
               </p>
               <button
                 className="btn-dark-pill"

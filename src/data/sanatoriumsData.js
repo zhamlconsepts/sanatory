@@ -724,7 +724,7 @@ export const SANATORIUMS_DATA = [
       "assets/images/humson_river.jpg",
       "assets/images/humson_spa_pool.jpg"
     ],
-    badge: "Premium 5★",
+    badge: "Premium Resort",
     badgeType: "premium",
     discount: "Maxsus Taklif",
     categories: ["popular", "mountain", "family", "cardio", "spa", "sports", "sanatorium"],
@@ -1322,14 +1322,14 @@ export const SANATORIUMS_DATA = [
 // TOIFALAR & FILTERLAR
 // ==========================================================================
 export const FACILITY_CATEGORIES = [
-  { key: 'all', label: 'Barchasi', icon: '🌟' },
-  { key: 'football', label: 'Futbol & Sport Maydonlari', icon: '⚽' },
-  { key: 'massage', label: 'Massaj & Terapevtik SPA', icon: '💆‍♂️' },
-  { key: 'sanatorium', label: 'Sanatoriylar & Davolanish', icon: '🏥' },
-  { key: 'fitness', label: 'Basseyn & Fitnes Zallari', icon: '🏊‍♂️' },
-  { key: 'mountain', label: "Tog' Iqlimi & Eko Hordiq", icon: '🏔️' },
-  { key: 'mineral', label: 'Mineral Buloqlar', icon: '💧' },
-  { key: 'family', label: 'Oilaviy Hordiq', icon: '👨‍👩‍👧‍👦' }
+  { key: 'all', label: 'Barcha Maskanlar' },
+  { key: 'football', label: 'Futbol Maydonlari' },
+  { key: 'massage', label: 'Terapevtik Massaj & SPA' },
+  { key: 'sanatorium', label: 'Sanatoriylar & Kurortlar' },
+  { key: 'fitness', label: 'Basseyn & Fitnes' },
+  { key: 'mountain', label: "Tog' Iqlimi" },
+  { key: 'mineral', label: 'Mineral Buloqlar' },
+  { key: 'family', label: 'Oilaviy Dam Olish' }
 ];
 
 // Hududlar ro'yxati
@@ -1418,7 +1418,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "artroz",
     name: "Artroz, osteoxondroz va umurtqa churrasi (grija)",
-    icon: "🦴",
     recommendedSanatoriums: ["Ibn Sino Massaj Markazi", "Chortoq Sanatoriysi", "Olimpiya Basseyn Majmuasi"],
     sanatoriumIds: ["ibn_sino_massage", "chortoq", "olimpiya_complex"],
     treatments: "Manual terapiya va davolovchi massaj, termal yod-bromli vannalar, suzish (umurtqaga yuk tushirmasdan mustahkamlash).",
@@ -1428,7 +1427,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "charchoq",
     name: "Surunkali stress, charchoq va gipodinamiya (kamharakatlik)",
-    icon: "⚡",
     recommendedSanatoriums: ["Bunyodkor Futbol Arena", "Lotus SPA & Relaks", "Humson Buloq"],
     sanatoriumIds: ["bunyodkor_arena", "lotus_spa_wellness", "humson"],
     treatments: "Haftada 2 marta mini-futbol o'ynash, fin saunasi va bug' hammomi, toshlar bilan relaks massaj.",
@@ -1438,7 +1436,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "astma",
     name: "Bronxial astma, nafas qisishi va surunkali bronxit",
-    icon: "🫁",
     recommendedSanatoriums: ["Zomin Sanatoriysi", "Zomin Sport Majmuasi", "Oqtosh Sanatoriysi"],
     sanatoriumIds: ["zomin", "zaamin_stadium", "oqtosh"],
     treatments: "Tuz g'ori (Speleoterapiya), ignabargli archazor tog' kislorodi, ochiq havoda yengil yugurish.",
@@ -1448,7 +1445,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "vazn",
     name: "Ortiqcha vazn, modda almashinuvi sekinlashishi va diabet",
-    icon: "🏃‍♂️",
     recommendedSanatoriums: ["Olimpiya Fitnes Majmuasi", "Titan Gym Club", "Chinobod Sanatoriysi"],
     sanatoriumIds: ["olimpiya_complex", "titan_fit_club", "chinobod"],
     treatments: "Kardiomashqlar, 50m suzish, xlorid-gidrokarbonatli mineral suv ichish, limfodrenaj massaji.",
@@ -1458,7 +1454,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "yurak",
     name: "Arterial gipertoniya va yurak qon aylanishi zo'riqishi",
-    icon: "❤️",
     recommendedSanatoriums: ["Turon Kardiologiya", "Xonobod Sanatoriysi", "Lotus SPA"],
     sanatoriumIds: ["turon", "xonobod", "lotus_spa_wellness"],
     treatments: "Doimiy kardiomonitoring, marvaridli va kislorodli vannalar, yengil suzish, piyoda terrenkur.",
@@ -1468,7 +1463,6 @@ export const DISEASES_DIRECTORY_DATA = [
   {
     id: "jigar",
     name: "Jigar, o't qopi xastaliklari va xoletsistit",
-    icon: "🥗",
     recommendedSanatoriums: ["Omonxona Sanatoriysi", "Chinobod Sanatoriysi", "Chortoq Sanatoriysi"],
     sanatoriumIds: ["omonxona", "chinobod", "chortoq"],
     treatments: "Tabiiy mineral buloq suvlarini ichish, tyubaj, №5 maxsus jigar parhezi, mineral vannalar.",

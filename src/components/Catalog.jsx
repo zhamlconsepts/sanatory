@@ -1,6 +1,17 @@
 import React from 'react'
 import SanatoriumCard from './SanatoriumCard.jsx'
 import { FACILITY_CATEGORIES } from '../data/sanatoriumsData.js'
+import {
+  IconAll,
+  IconFootball,
+  IconMassage,
+  IconSanatorium,
+  IconPool,
+  IconMountain,
+  IconSun,
+  IconShieldCheck,
+  IconSearch
+} from './Icons'
 
 export default function Catalog({
   sanatoriums,
@@ -25,31 +36,44 @@ export default function Catalog({
 }) {
   const hasActiveFilters = activeCategory !== 'all' || activeRegion !== 'all' || activeSpecialty !== 'all' || !!searchQuery
 
+  const getCategoryIcon = (key) => {
+    switch (key) {
+      case 'football': return IconFootball
+      case 'massage': return IconMassage
+      case 'sanatorium': return IconSanatorium
+      case 'fitness': return IconPool
+      case 'mountain': return IconMountain
+      case 'mineral': return IconSun
+      case 'family': return IconShieldCheck
+      default: return IconAll
+    }
+  }
+
   const getSectionTitle = () => {
     switch (activeCategory) {
-      case 'football': return 'Futbol & Sport Maydonlari'
-      case 'massage': return 'Terapevtik Massaj & SPA Markazlari'
-      case 'fitness': return 'Basseyn & Fitnes Majmualari'
-      case 'sanatorium': return 'Shifobaxsh Sanatoriylar & Kurortlar'
-      case 'mountain': return "Tog' Iqlimi & Eko Maskanlar"
-      case 'mineral': return 'Tabiiy Mineral Buloqlar'
-      case 'family': return 'Oilaviy Dam Olish Maskani'
-      default: return 'Barcha Salomatlik, Sport & Hordiq Maskanlari'
+      case 'football': return 'Futbol Maydonlari va Sport Arenalari'
+      case 'massage': return 'Terapevtik Massaj va Reabilitatsiya Studiyalari'
+      case 'fitness': return 'Suzish Havzalari va Fitnes Majmualari'
+      case 'sanatorium': return 'Davlat Sertifikatiga Ega Sanatoriylar va Kurortlar'
+      case 'mountain': return "Tog' Iqlimi va Ekologik Sog'lomlashtirish Maskanlari"
+      case 'mineral': return 'Tabiiy Issiq Mineral Buloqlar'
+      case 'family': return 'Oilaviy Dam Olish va Tiklanish Maskanlari'
+      default: return 'Barcha Salomatlik, Sport va Hordiq Maskanlari'
     }
   }
 
   const getSectionSubtitle = () => {
     switch (activeCategory) {
-      case 'football': return "FIFA standartidagi sun'iy chim, tungi LED yoritgichlar, dush va qulay mini-futbol arenalari"
-      case 'massage': return "Umurtqa churrasi (grija), bel-bo'g'im og'riqlari va asabiy charchoqni yo'qotuvchi sertifikatlangan tibbiy massaj"
-      case 'fitness': return "50 metrli isitiladigan basseynlar, professional Technogym trenajyorlari va akva-aerobika"
-      case 'sanatorium': return "Davlat sog'liqni saqlash akkreditatsiyasiga ega, tabiiy buloqlari va zamonaviy tibbiy bazasi bilan mashhur kurortlar"
-      default: return "Inson salomatligi, jismoniy chiniqish, professional massaj va to'liq tibbiy tiklanish maskanlari ro'yxati"
+      case 'football': return "FIFA standartidagi sifatli sun'iy chim, kuchli tungi LED yoritgichlar va qulay dushga ega mini-futbol maydonlari"
+      case 'massage': return "Umurtqa churrasi (grija), bo'yin-bel og'riqlari va asabiy zo'riqishni bartaraf etuvchi sertifikatlangan manual muolajalar"
+      case 'fitness': return "50 metrli isitiladigan yopiq basseynlar, zamonaviy trenajyor zallari va professional murabbiylar"
+      case 'sanatorium': return "O'zbekiston Respublikasi SSV litsenziyasiga ega, tabiiy mineral buloqlar va to'liq tibbiy parhez ta'minlangan kurortlar"
+      default: return "Salomatlikni mustahkamlash, faol sport bilan shug'ullanish, terapevtik massaj va to'liq dam olish maskanlarining yagona reyestri"
     }
   }
 
   return (
-    <section className="catalog-section" id="katalog" style={{ padding: '3rem 0 2rem 0' }}>
+    <section className="catalog-section" id="katalog" style={{ padding: '3.5rem 0 2.5rem 0' }}>
       <div className="container">
         {/* Section Header */}
         <div className="section-header">
@@ -64,9 +88,10 @@ export default function Catalog({
         </div>
 
         {/* Category Segmented Pills Bar */}
-        <div className="segmented-pills-bar" style={{ flexWrap: 'wrap', gap: '0.45rem', justifyContent: 'center' }}>
+        <div className="segmented-pills-bar" style={{ flexWrap: 'wrap', gap: '0.45rem', justifyContent: 'center', marginBottom: '1.5rem' }}>
           {FACILITY_CATEGORIES.map(cat => {
             const isActive = activeCategory === cat.key
+            const IconComp = getCategoryIcon(cat.key)
             return (
               <button
                 key={cat.key}
@@ -75,11 +100,14 @@ export default function Catalog({
                 style={{
                   display: 'inline-flex',
                   alignItems: 'center',
-                  gap: '0.4rem',
-                  padding: '0.45rem 1rem'
+                  gap: '0.45rem',
+                  padding: '0.5rem 1.05rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600
                 }}
               >
-                <span>{cat.icon}</span>
+                <IconComp size={15} color={isActive ? '#FFFFFF' : 'currentColor'} />
                 <span>{cat.label}</span>
               </button>
             )
@@ -226,7 +254,21 @@ export default function Catalog({
               border: '1px solid var(--border-card)'
             }}
           >
-            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
+            <div
+              style={{
+                width: '64px',
+                height: '64px',
+                borderRadius: '50%',
+                background: 'var(--accent-lavender-subtle)',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                marginBottom: '1rem',
+                color: 'var(--accent-lavender-dark)'
+              }}
+            >
+              <IconSearch size={28} />
+            </div>
             <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
               Hech qanday maskan topilmadi
             </h3>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { IconTarget, IconRefresh, IconCheck } from './Icons'
 
 export default function DiagnosticQuiz({ sanatoriums, onOpenBookingModal, onOpenDetailsModal }) {
   const [currentStep, setCurrentStep] = useState(1)
@@ -11,36 +12,36 @@ export default function DiagnosticQuiz({ sanatoriums, onOpenBookingModal, onOpen
 
   const stepsData = {
     1: {
-      title: "1. Sizga hozir qanday xizmat yoki sog'lomlashtirish zarur?",
-      subtitle: "Inson salomatligi va jismoniy tetikligi uchun asosiy yo'nalishni tanlang",
+      title: "1. Sizga qanday yo'nalishdagi xizmat yoki sog'lomlashtirish zarur?",
+      subtitle: "Salomatlik, jismoniy tiklanish va hordiq uchun asosiy yo'nalishni tanlang",
       options: [
-        { id: 'football', code: '01', title: "⚽ Do'stlar bilan mini-futbol va sport", desc: "FIFA sun'iy chim, kechki projektorlar ostidagi o'yinlar, dush va turnirlar" },
-        { id: 'massage', code: '02', title: "💆‍♂️ Bel, umurtqa grijasi yoki bo'g'im massaji", desc: "Sertifikatlangan shifokor-manualistlar, chuqur uqalash, kedr bochkasi va sauna" },
-        { id: 'fitness', code: '03', title: "🏊‍♂️ Suzish, fitnes va butun tanani chiniqtirish", desc: "50 metrlik isitiladigan basseyn, akva-aerobika va zamonaviy trenajyorlar" },
-        { id: 'sanatorium_air', code: '04', title: "🫁 Nafas a'zolari va toza tog' havosi", desc: "Zomin va Oqtosh archazorlari, tuz g'ori, baland tog' iqlimi" },
-        { id: 'sanatorium_joints', code: '05', title: "💧 Mineral buloqlar va shifobaxsh balchiq", desc: "Chortoq va Chimyon termal yod-brom suvlari, revmatizm va bo'g'im davosi" },
-        { id: 'sanatorium_gastro', code: '06', title: "🥗 Oshqozon-ichak va jigar tozalash", desc: "Chinobod va Omonxona tabiiy ichimlik buloqlari, detoks parhez" }
+        { id: 'football', code: '01', title: "Mini-futbol va faol jamoaviy sport", desc: "FIFA standartidagi sun'iy chim, tungi projektorlar, dush va mini-turnirlar" },
+        { id: 'massage', code: '02', title: "Terapevtik massaj, umurtqa va bo'g'im davolash", desc: "Sertifikatlangan shifokor-manualistlar, chuqur uqalash, kedr bochkasi va sauna" },
+        { id: 'fitness', code: '03', title: "Suzish, akva-fitness va tana chiniqtirish", desc: "50 metrlik isitiladigan yopiq va ochiq basseyn, professional trenajyorlar" },
+        { id: 'sanatorium_air', code: '04', title: "Nafas yo'llari va toza tog' iqlim terapiyasi", desc: "Zomin va Oqtosh archazorlari, speleoterapiya (tuz g'ori), baland tog' havosi" },
+        { id: 'sanatorium_joints', code: '05', title: "Mineral buloqlar va shifobaxsh balchiq muolajalari", desc: "Chortoq va Chimyon termal yod-brom suvlari, revmatizm va artrit davosi" },
+        { id: 'sanatorium_gastro', code: '06', title: "Oshqozon-ichak va moddalar almashinuvini yaxshilash", desc: "Chinobod va Omonxona tabiiy shifobaxsh ichimlik suvlari, detoks parhez" }
       ]
     },
     2: {
-      title: "2. Qaysi hudud yoki joylashuv ma'qul?",
-      subtitle: "Borish qulayligi va transport masofasiga qarab",
+      title: "2. Qaysi hudud yoki geografik joylashuv ma'qul?",
+      subtitle: "Borish qulayligi va transport masofasiga qarab tanlang",
       options: [
-        { id: 'tashkent', code: 'A', title: "Poytaxt ichida (Toshkent shahri)", desc: "Shahardan chiqmasdan, oqshomgi yoki dam olish kunlari uchun" },
-        { id: 'tashkent_vil', code: 'B', title: "Tog' tabiati (Bo'stonliq, Chimyon, Humson)", desc: "Toshkentdan 1-1.5 soatlik masofadagi toza tog' etaklari" },
-        { id: 'jizzax', code: 'C', title: "Baland tog' archazori (Zomin)", desc: "2000 metr balandlikdagi beqiyos archazorlar va tog' salqini" },
-        { id: 'vodiy', code: 'D', title: "Farg'ona vodiysi (Namangan, Farg'ona, Andijon)", desc: "Chortoq, Xonobod, Chimyon shifobaxsh suvlari va arenalari" },
-        { id: 'samarqand', code: 'E', title: "Samarqand viloyati", desc: "Sport Siti, Registon arenalari va zamonaviy fitnes klublari" }
+        { id: 'tashkent', code: 'A', title: "Poytaxt hududida (Toshkent shahri)", desc: "Shahardan chiqmasdan, oqshomgi yoki dam olish kunlari mashg'ulotlari uchun" },
+        { id: 'tashkent_vil', code: 'B', title: "Tog' tabiati (Bo'stonliq, Chimyon, Humson)", desc: "Toshkentdan 1-1.5 soatlik masofadagi toza tog' etaklari va dam olish zonalari" },
+        { id: 'jizzax', code: 'C', title: "Baland tog' archazori (Zomin milliy bog'i)", desc: "2000 metr balandlikdagi beqiyos archazorlar va toza tog' salqini" },
+        { id: 'vodiy', code: 'D', title: "Farg'ona vodiysi (Namangan, Farg'ona, Andijon)", desc: "Chortoq, Xonobod, Chimyon shifobaxsh suvlari va zamonaviy sport arenalari" },
+        { id: 'samarqand', code: 'E', title: "Samarqand viloyati", desc: "Sport Siti, Registon arenalari va zamonaviy sog'lomlashtirish klublari" }
       ]
     },
     3: {
       title: "3. Kim bilan tashrif buyurasiz?",
       subtitle: "Xizmat shart-sharoitlari va maydon hajmini moslashtirish uchun",
       options: [
-        { id: 'team', code: 'I', title: "👥 Do'stlar yoki jamoa bilan", desc: "Futbol matchi, birgalikda sport yoki SPA relaksatsiya" },
-        { id: 'solo', code: 'II', title: "🧘 Yakka o'zim", desc: "Individual massaj, erkin suzish yoki shaxsiy davolanish kursi" },
-        { id: 'family', code: 'III', title: "👨‍👩‍👧‍👦 Oila va farzandlar bilan", desc: "Bolalar maydonchasi, oilaviy kottejlar va xavfsiz hordiq" },
-        { id: 'parents', code: 'IV', title: "👵 Ota-ona yoki keksalar uchun", desc: "Tinch maskan, parhez taomlar, 24/7 navbatchi shifokorlar" }
+        { id: 'team', code: 'I', title: "Do'stlar yoki hamkasblar jamoasi bilan", desc: "Futbol matchi, birgalikda sport yoki jamoaviy SPA relaksatsiya" },
+        { id: 'solo', code: 'II', title: "Yakka tartibda", desc: "Individual massaj, erkin suzish mashg'uloti yoki shaxsiy davolanish kursi" },
+        { id: 'family', code: 'III', title: "Oila a'zolari va farzandlar bilan", desc: "Xavfsiz basseynlar, bolalar maydonchasi, oilaviy kottejlar va osoyishta hordiq" },
+        { id: 'parents', code: 'IV', title: "Ota-onalar va keksalar uchun", desc: "Tinch muhit, shifobaxsh parhez taomlar, 24/7 malakali tibbiy nazorat" }
       ]
     }
   }
@@ -267,12 +268,26 @@ export default function DiagnosticQuiz({ sanatoriums, onOpenBookingModal, onOpen
             /* Results View */
             <div>
               <div style={{ textAlign: 'center', marginBottom: '1.75rem' }}>
-                <span style={{ fontSize: '2.5rem' }}>🎯</span>
-                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '0.5rem' }}>
+                <div
+                  style={{
+                    width: '56px',
+                    height: '56px',
+                    borderRadius: '50%',
+                    background: 'var(--accent-lavender-subtle)',
+                    color: 'var(--accent-lavender-dark)',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginBottom: '0.5rem'
+                  }}
+                >
+                  <IconTarget size={28} />
+                </div>
+                <h3 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginTop: '0.25rem' }}>
                   Sizga Eng Mos Topilgan 3 Ta Maskan
                 </h3>
                 <p style={{ fontSize: '0.82rem', color: 'var(--text-secondary)' }}>
-                  Siz tanlagan ehtiyoj va shartlar bo'yicha sun'iy intellekt tahlili natijasi
+                  Siz tanlagan ehtiyoj va mezonlar bo'yicha sun'iy intellekt tahlili natijasi
                 </p>
               </div>
 
@@ -320,8 +335,9 @@ export default function DiagnosticQuiz({ sanatoriums, onOpenBookingModal, onOpen
                           {res.region} • {res.priceFormatted} {res.priceUnit || (res.facilityType === 'football' ? '/ soat' : res.facilityType === 'massage' ? '/ seans' : '/ kun')}
                         </div>
                         {res.reasons && res.reasons.length > 0 && (
-                          <div style={{ fontSize: '0.7rem', color: '#059669', fontWeight: 600, marginTop: '0.2rem' }}>
-                            ✓ {res.reasons.join(' • ')}
+                          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#059669', fontWeight: 600, marginTop: '0.25rem' }}>
+                            <IconCheck size={13} color="#059669" />
+                            <span>{res.reasons.join(' • ')}</span>
                           </div>
                         )}
                       </div>
@@ -351,9 +367,10 @@ export default function DiagnosticQuiz({ sanatoriums, onOpenBookingModal, onOpen
                 <button
                   onClick={restartQuiz}
                   className="btn-outline-pill"
-                  style={{ padding: '0.5rem 1.25rem', fontSize: '0.8rem' }}
+                  style={{ padding: '0.55rem 1.35rem', fontSize: '0.82rem', display: 'inline-flex', alignItems: 'center', gap: '0.45rem' }}
                 >
-                  🔄 Qaytadan test o'tish
+                  <IconRefresh size={14} />
+                  <span>Qaytadan test topshirish</span>
                 </button>
               </div>
             </div>

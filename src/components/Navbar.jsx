@@ -14,14 +14,14 @@ export default function Navbar({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { label: 'Barcha Maskanlar', href: '#katalog', category: 'all' },
-    { label: '⚽ Futbol & Sport', href: '#katalog', category: 'football' },
-    { label: '💆‍♂️ Massaj & SPA', href: '#katalog', category: 'massage' },
-    { label: 'Xarita', href: '#xarita' },
+    { label: 'Katalog', href: '#katalog', category: 'all' },
+    { label: 'Futbol Maydonlari', href: '#katalog', category: 'football' },
+    { label: 'Massaj va Terapiya', href: '#katalog', category: 'massage' },
+    { label: 'Basseyn va Fitnes', href: '#katalog', category: 'fitness' },
+    { label: 'Interaktiv Xarita', href: '#xarita' },
     { label: 'Muolajalar', href: '#muolajalar' },
-    { label: 'Aqlli Tavsiya', href: '#quiz' },
-    { label: 'Vaucher', href: '#vaucher-tekshirish' },
-    { label: 'Savol-Javob', href: '#faq' }
+    { label: 'Saralash Testi', href: '#quiz' },
+    { label: 'Vaucher Tekshirish', href: '#vaucher-tekshirish' }
   ]
 
   const handleNavClick = (e, item) => {
@@ -40,7 +40,7 @@ export default function Navbar({
     <>
       {/* Top Announcement Bar */}
       <div className="announcement-bar">
-        <span>Yagona Sog'lom Hayot & Sport Portali • Futbol maydonlari, massaj, basseyn va sanatoriylar</span>
+        <span>O'zbekistonning Yagona Salomatlik, Sport va Dam Olish Portali • Rasmiy Korxonalar Reyestri</span>
         <a href="tel:+998712000000">+998 (71) 200-00-00</a>
       </div>
 

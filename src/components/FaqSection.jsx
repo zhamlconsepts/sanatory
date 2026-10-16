@@ -17,7 +17,7 @@ export default function FaqSection({ faqs }) {
           </span>
           <h2 className="heading-editorial">Ko'p So'raladigan Savollar</h2>
           <p className="section-subtitle">
-            Sanatoriyalarga yo'llanma olish, to'lovlar va elektron vaucher kafolatlari bo'yicha eng muhim javoblar
+            Sport maydonlari, massaj markazlari va sanatoriylarni band qilish, to'lovlar va rasmiy elektron vaucher kafolatlari bo'yicha eng muhim savol-javoblar
           </p>
         </div>
 
