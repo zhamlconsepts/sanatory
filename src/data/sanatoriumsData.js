@@ -1,9 +1,521 @@
-﻿/**
- * SihatMaskan - O'zbekistonning Yetakchi Sanatoriylari Ma'lumotlar Bazasi
- * Barcha sanatoriyalar rasmiy yo'nalishlari, qulayliklari, narxlari va lokatsiyalari
+/**
+ * SihatMaskan & Sport — O'zbekistonning Yetakchi Sanatoriylari, Futbol Maydonlari,
+ * Massaj & SPA Maskanlari hamda Sport Majmualari Yagona Ma'lumotlar Bazasi.
+ * Har bir maskan o'zining alohida, takrorlanmas, real yuqori aniqlikdagi fotosuratlariga ega.
  */
 
 export const SANATORIUMS_DATA = [
+  // ==========================================================================
+  // 1. FUTBOL & SPORT MAYDONLARI
+  // ==========================================================================
+  {
+    id: "bunyodkor_arena",
+    name: "Bunyodkor Sport & Futbol Arena",
+    tagline: "FIFA Quality sun'iy qoplamali mini-futbol maydonlari va professional sport majmuasi",
+    region: "Toshkent shahri",
+    regionKey: "tashkent",
+    location: "Toshkent sh., Chilonzor tumani, Bunyodkor shox ko'chasi 47",
+    coords: [41.2825, 69.2155],
+    price: 160000,
+    priceFormatted: "160 000 so'm",
+    priceUnit: "/ soat",
+    rating: 4.9,
+    reviewsCount: 382,
+    image: "assets/images/bunyodkor_cover.jpg",
+    gallery: [
+      "assets/images/bunyodkor_bench.jpg",
+      "assets/images/bunyodkor_night.jpg"
+    ],
+    badge: "FIFA Standart",
+    badgeType: "featured",
+    discount: "Tungi chegirma",
+    categories: ["popular", "football", "sports"],
+    facilityType: "football",
+    altitude: "480 m",
+    climate: "Yopiq va ochiq havodagi zamonaviy stadion muhiti",
+    specialties: [
+      "Mini-futbol va futzal o'yinlari (6x6 va 8x8)",
+      "Kechki professional yoritish ostidagi matchlar",
+      "Korporativ do'stona chempionatlar va turnirlar",
+      "Sportchi jismoniy chidamliligini oshirish va kardio"
+    ],
+    amenities: [
+      "FIFA Pro sertifikatli 50mm sun'iy chim",
+      "1000 Lux kuchli LED projektorlar",
+      "Issiq suvli shinam dush va kiyinish xonalari",
+      "To'plar va raqamli jiletkalar bepul",
+      "Tribunalar va muxlislar uchun o'rindiqlar",
+      "Fitobar, izotonik ichimliklar va sport qahvaxonasi",
+      "80+ avtomobil uchun 24/7 qo'riqlanadigan parkovka"
+    ],
+    advantages: [
+      "Poytaxtning qulay markaziy lokatsiyasi, metro va transportga yaqin",
+      "Bo'g'im va tizzalarga ortiqcha yuk tushirmaydigan amortizatsiyali eng so'nggi chim",
+      "Hakamlar xizmati va do'stona jamoalar uchun turnirlar tashkil qilish imkoniyati"
+    ],
+    description: "Bunyodkor Sport & Futbol Arena — haftalik jismoniy faollik va do'stlar bilan mini-futbol o'ynash uchun Toshkentdagi eng nufuzli majmualardan biridir. Oliy sifatli yoritish tizimi kechki soatlarda ham kunduzgidek qulay o'yin sharoitini yaratadi. Har bir o'yindan so'ng toza dush va sport barida tetiklanish mumkin.",
+    rooms: [
+      { name: "Kunduzgi soatlar (08:00 - 18:00)", price: 130000, desc: "1 soatlik maydon ijarasi, kiyinish xonasi, dush, to'p va jiletkalar kiritilgan" },
+      { name: "Kechki Prime-Time (18:00 - 00:00)", price: 160000, desc: "Kechki kuchli LED yoritish ostida 1 soatlik o'yin, barcha qulayliklar bilan" },
+      { name: "Tungi soatlar (00:00 - 04:00)", price: 140000, desc: "Sokin tungi o'yinlar uchun maxsus chegirmali tarif" },
+      { name: "Oylik Korporativ Paket (8 ta o'yin)", price: 1150000, desc: "Haftada 2 marta qat'iy vaqt band qilish, hakam ta'minoti va kubok taxtasi" }
+    ],
+    includedInPrice: [
+      "To'liq professional maydon va to'rlar",
+      "Individual shkaflarga ega kiyinish xonasi va dush",
+      "Rasmiy o'yin to'plari (Select/Nike) va rangli jiletkalar",
+      "Avtomobil uchun bepul qo'riqlanadigan turargoh"
+    ],
+    contraindications: "O'tkir jarohatlar, sinishlar, yurak faoliyatining o'tkir yetishmovchiligi.",
+    phone: "+998 (90) 800-11-22"
+  },
+  {
+    id: "zaamin_stadium",
+    name: "Zomin Tog' Bag'ri Sport Majmuasi",
+    tagline: "1800m balandlikdagi toza archazor tog' havosi, tabiiy chimli stadion va kottejlar",
+    region: "Jizzax viloyati",
+    regionKey: "jizzax",
+    location: "Zomin milliy bog'i, sanatoriya majmuasiga tutash hudud",
+    coords: [39.6360, 68.5200],
+    price: 140000,
+    priceFormatted: "140 000 so'm",
+    priceUnit: "/ soat",
+    rating: 5.0,
+    reviewsCount: 248,
+    image: "assets/images/zaamin_stadium_cover.jpg",
+    gallery: [
+      "assets/images/zaamin_track.jpg",
+      "assets/images/zaamin_field.jpg"
+    ],
+    badge: "Tog' Bag'rida",
+    badgeType: "featured",
+    discount: "Sport & Oila",
+    categories: ["popular", "football", "sports", "mountain"],
+    facilityType: "football",
+    altitude: "1 800 m",
+    climate: "Kislorodga boy archazor havosi, tog' salqini",
+    specialties: [
+      "O'pka va nafas yo'llarini sport orqali tabiiy chiniqtirish",
+      "Tabiiy chimli stadionda mini-futbol va voleybol",
+      "Professional sport jamoalari uchun tog' yig'inlari",
+      "Dam olish kunlari oilaviy va do'stona matchlar"
+    ],
+    amenities: [
+      "Tabiiy tog' chimi va yozgi mini-maydon",
+      "Archazorlar oralab ketgan terrenkur va yugurish yo'laklari",
+      "Dush va sauna majmuasi",
+      "Tog' buloq suvi va fitobar",
+      "Shinam yog'och kottejlar bilan birlashgan hudud"
+    ],
+    advantages: [
+      "Dengiz sathidan 1800 metr balandlikdagi beqiyos archa fitonsidlariga to'la havo",
+      "Futbol o'ynash barobarida butun organizmning kislorod bilan chuqur to'yinishi",
+      "O'yindan so'ng Zomin sanatoriyasining sauna va tabiiy buloqlaridan foydalanish qulayligi"
+    ],
+    description: "Zomin Tog' Bag'ri Arenasi — sport va dam olishni tabiat bilan uyg'unlashtirgan noyob majmua. Bu yerda tog' havosi ostida futbol o'ynash nafaqat jismoniy tetiklik, balki nafas a'zolari va immunitetni kuchaytirishda ulkan terapevtik samara beradi.",
+    rooms: [
+      { name: "Standart mini-maydon (1 soat)", price: 140000, desc: "Sun'iy va tabiiy chimli mini-futbol maydoni, tog' manzarasi bilan" },
+      { name: "Katta stadion (1 soat)", price: 280000, desc: "11x11 formatidagi tabiiy chimli katta futbol stadioni" },
+      { name: "Sport & Kottej kunlik paket", price: 650000, desc: "4 kishilik yog'och kottej + 2 soat futbol maydoni + sauna" }
+    ],
+    includedInPrice: [
+      "Maydon va projektor chiroqlari",
+      "Tog' bulog'idan toza ichimlik suvi",
+      "Kiyinish xonasi va dush",
+      "Sport to'plari"
+    ],
+    contraindications: "Og'ir astma xuruji, o'tkir infarkt davri.",
+    phone: "+998 (78) 120-40-25"
+  },
+  {
+    id: "registan_sport",
+    name: "Registon Sport Siti & Mini-Futbol",
+    tagline: "Samarqand markazidagi yopiq va ochiq professional maydonlar, dush va fitobar",
+    region: "Samarqand viloyati",
+    regionKey: "samarqand",
+    location: "Samarqand sh., Gagarin ko'chasi, Sport Siti majmuasi",
+    coords: [39.6542, 66.9597],
+    price: 150000,
+    priceFormatted: "150 000 so'm",
+    priceUnit: "/ soat",
+    rating: 4.8,
+    reviewsCount: 290,
+    image: "assets/images/registan_sport_cover.jpg",
+    gallery: [
+      "assets/images/registan_indoor.jpg",
+      "assets/images/registan_court.jpg"
+    ],
+    badge: "Samarqand Markazi",
+    badgeType: "featured",
+    discount: "Abonement chegirma",
+    categories: ["popular", "football", "sports"],
+    facilityType: "football",
+    altitude: "710 m",
+    climate: "Mo''tadil shahar sport mikroiqlimi",
+    specialties: [
+      "Yopiq va ochiq mini-futbol matchlari (har qanday ob-havoda)",
+      "Haftalik havaskorlar ligasi va kuboklar",
+      "Bolalar va o'smirlar futbol seksiyasi",
+      "Mashg'ulotdan keyingi sauna va massaj"
+    ],
+    amenities: [
+      "3 ta zamonaviy mini-futbol maydoni",
+      "Belgiya sifatli monofilament sun'iy chim",
+      "Yopiq isitiladigan manej maydoni (qish mavsumi uchun)",
+      "Shaxsiy dush kabinalari va lokerlar",
+      "Sport kafe va televizion translyatsiyalar zali"
+    ],
+    advantages: [
+      "Yozda salqin, qishda esa yopiq isitiladigan qulay manej",
+      "Professional darajadagi yumshoq qoplama va elastik to'rlar",
+      "Doimiy jamoalar uchun maxsus chegirmali abonementlar"
+    ],
+    description: "Registon Sport Siti — Samarqanddagi futbol ixlosmandlari va sportsevarlar uchun eng sevimli markaz. Shaharning barcha nuqtalaridan yetib kelish qulay, maydon qoplamasi esa yevropa standartlariga to'la mos keladi.",
+    rooms: [
+      { name: "Ochiq maydon (1 soat)", price: 150000, desc: "Full LED projektorli ochiq havodagi maydon" },
+      { name: "Yopiq isitiladigan manej (1 soat)", price: 190000, desc: "Yomg'ir va sovuqdan himoyalangan qulay yopiq arena" },
+      { name: "Haftalik jamoa abonementi (1 oy)", price: 1100000, desc: "8 ta kechki o'yin kafolatlangan vaqt bilan" }
+    ],
+    includedInPrice: [
+      "Maydon va yoritish tizimi",
+      "Kiyinish xonasi, dush va lokerlar",
+      "To'p va jiletkalar to'plami"
+    ],
+    contraindications: "Yangi olingan oyoq jarohatlari, surunkali yurak yetishmovchiligi.",
+    phone: "+998 (66) 234-55-66"
+  },
+  {
+    id: "fergana_arena",
+    name: "Vodiy Grand Arena Sport Majmuasi",
+    tagline: "Farg'onadagi zamonaviy universal sport maydoni, mini-futbol, dush va sauna",
+    region: "Farg'ona viloyati",
+    regionKey: "fargona",
+    location: "Farg'ona sh., Al-Farg'oniy xiyoboni yaqinida",
+    coords: [40.3842, 71.7843],
+    price: 130000,
+    priceFormatted: "130 000 so'm",
+    priceUnit: "/ soat",
+    rating: 4.8,
+    reviewsCount: 195,
+    image: "assets/images/fergana_arena_cover.jpg",
+    gallery: [
+      "assets/images/fergana_pitch.jpg",
+      "assets/images/fergana_stands.jpg"
+    ],
+    badge: "Vodiy Tanlovi",
+    badgeType: "budget",
+    discount: "10% Chegirma",
+    categories: ["popular", "football", "sports"],
+    facilityType: "football",
+    altitude: "580 m",
+    climate: "Mo''tadil bog'oldi sport muhiti",
+    specialties: [
+      "Mini-futbol va do'stona musobaqalar",
+      "Sportchi tiklanishi va kardio yuklamalar",
+      "Tungi matchlar va sport hordig'i"
+    ],
+    amenities: [
+      "Professional sun'iy chim qoplamasi",
+      "Kuchli yoritish tizimi",
+      "Yuvinish va kiyinish xonalari",
+      "Fin saunasi (alohida buyurtma)",
+      "Keng avtoturargoh"
+    ],
+    advantages: [
+      "Vodiy viloyatlari ichida eng hamyonbop va sifatli maydon",
+      "Doimiy tozalik va sanitariya qoidalariga qat'iy rioya etilishi",
+      "Tungi matchlardan so'ng sauna bilan charchoqni chiqarish imkoni"
+    ],
+    description: "Vodiy Grand Arena — Farg'ona shahridagi eng mashhur futbol maydonchalaridan biri. Har kuni yuzlab yoshlar va korxona xodimlari sog'lom turmush tarzi yo'lida bu yerda futbol o'ynab, kuch-quvvat to'playdilar.",
+    rooms: [
+      { name: "Standart soat (1 soat)", price: 130000, desc: "Maydon, yoritish, kiyinish xonasi va dush kiritilgan" },
+      { name: "Maydon + 1 soat Sauna paketi", price: 260000, desc: "Futbol o'yinidan so'ng butun jamoa uchun issiq fin saunasi" }
+    ],
+    includedInPrice: ["Maydon ijarasi", "Dush va kiyinish", "O'yin to'plari"],
+    contraindications: "Og'ir surunkali kasalliklarning xuruji davri.",
+    phone: "+998 (73) 226-70-80"
+  },
+
+  // ==========================================================================
+  // 2. MASSAJ & TERAPEVTIK SPA MASKANLARI
+  // ==========================================================================
+  {
+    id: "ibn_sino_massage",
+    name: "Ibn Sino Terapevtik Massaj & Manual Markazi",
+    tagline: "Umurtqa churrasi (grija), bel-bo'g'im og'riqlari va asabiy zo'riqishni davolovchi tibbiy markaz",
+    region: "Toshkent shahri",
+    regionKey: "tashkent",
+    location: "Toshkent sh., Shayxontohur tumani, Navoiy ko'chasi 24",
+    coords: [41.3210, 69.2485],
+    price: 180000,
+    priceFormatted: "180 000 so'm",
+    priceUnit: "/ seans",
+    rating: 5.0,
+    reviewsCount: 462,
+    image: "assets/images/ibn_sino_cover.jpg",
+    gallery: [
+      "assets/images/ibn_sino_manual.jpg",
+      "assets/images/ibn_sino_kedr.jpg"
+    ],
+    badge: "Tibbiy Sertifikatli",
+    badgeType: "premium",
+    discount: "Kursga 15% chegirma",
+    categories: ["popular", "massage", "joints", "nerve"],
+    facilityType: "massage",
+    altitude: "480 m",
+    climate: "Tinch va osoyishta tibbiy relaksatsiya muhiti",
+    specialties: [
+      "Umurtqa pog'onasi churrasi (grija) va osteoxondroz davosi",
+      "Skolioz, kifoz va qad-qomat egriligini to'g'rilash",
+      "Bo'yin-kurak sohasidagi tuz to'planishi va migren bosh og'riqlari",
+      "Sport mashg'ulotlaridan keyingi chuqur mushak reabilitatsiyasi",
+      "Surunkali asabiy toliqish, stress va uyqusizlikni bartaraf etish"
+    ],
+    amenities: [
+      "Alohida shinam VIP massaj kabinetlari",
+      "Erkaklar va ayollar uchun alohida tajribali mutaxassislar",
+      "Kedr bochkasi (tabiiy tog' giyohlari bilan bug'lash)",
+      "Infraqizil umurtqa isitish va magnitoterapiya apparatlari",
+      "Tinchlantiruvchi fitobar (dorivor choylar)",
+      "Ortopedik ko'p funksiyali massaj stollari"
+    ],
+    advantages: [
+      "Har bir bemor holatini MRT yoki rentgen tahlillari asosida individual tekshirish",
+      "Og'riqsiz yumshoq manual texnikalar orqali birinchi seansdayoq sezilarli yengillik",
+      "Tibbiyot fanlari nomzodlari va xalqaro toifadagi massajistlar nazorati"
+    ],
+    description: "Ibn Sino nomidagi terapevtik massaj markazi — inson umurtqa pog'onasi, suyak-mushak tizimi va asab tugunlarini tabiiy yo'l bilan sog'lomlashtirishga ixtisoslashgan yetakchi markaz. Bu yerda disk churrasi, radikulit, bel qotishi va surunkali stress mutaxassislar tomonidan zamonaviy hamda sharqona uslubda davolanadi.",
+    rooms: [
+      { name: "Terapevtik davolovchi massaj (60 daqiqa)", price: 180000, desc: "Bel, bo'yin, kurak va umurtqani to'liq davolash seansi va isituvchi malhamlar" },
+      { name: "Professional sport massaji (60 daqiqa)", price: 200000, desc: "Mashg'ulotdan so'ng to'plangan sut kislotasini haydash, mushaklar elastikligini tiklash" },
+      { name: "Kompleks Manual Terapiya + Kedr bochkasi (90 daqiqa)", price: 280000, desc: "Kedr bug'ida qizdirish, umurtqa traksiyasi (cho'zish) va chuqur nuqtali massaj" },
+      { name: "10 kunlik to'liq sog'lomlashtirish kursi", price: 1500000, desc: "Shifokor nazorati ostida 10 ta to'liq seans + fitobar va 15% chegirma" }
+    ],
+    includedInPrice: [
+      "Shifokor-vertebrolog ko'rigi va tashxisi",
+      "Tabiiy efir moylari va shifobaxsh malhamlar",
+      "Bir martalik gigiyenik choyshab va sochiqlar",
+      "Seansdan so'ng dorivor fitobar choyi"
+    ],
+    contraindications: "Onkologik xastaliklar, faol bosqichdagi o'tkir qon ketishlar, yuqori tana harorati.",
+    phone: "+998 (71) 244-10-20"
+  },
+  {
+    id: "lotus_spa_wellness",
+    name: "Lotus SPA & Shifobaxsh Relaks Markazi",
+    tagline: "Fin saunasi, turk hammomi, gidromassaj va relaksatsiya — to'liq qayta tug'ilish hissi",
+    region: "Toshkent viloyati",
+    regionKey: "tashkent_vil",
+    location: "Bo'stonliq tumani, Chorvoq yo'li bo'yi, tog' daryosi sohili",
+    coords: [41.6050, 69.9800],
+    price: 220000,
+    priceFormatted: "220 000 so'm",
+    priceUnit: "/ seans",
+    rating: 4.9,
+    reviewsCount: 312,
+    image: "assets/images/lotus_spa_cover.jpg",
+    gallery: [
+      "assets/images/lotus_hammam.jpg",
+      "assets/images/lotus_jacuzzi.jpg"
+    ],
+    badge: "SPA & Relaks",
+    badgeType: "featured",
+    discount: "Juftliklar paketi",
+    categories: ["popular", "massage", "spa", "family"],
+    facilityType: "massage",
+    altitude: "900 m",
+    climate: "Tog' daryosi bo'yidagi toza va salqin havo",
+    specialties: [
+      "Detoks va butun tanani toksinlardan tozalash",
+      "Turk xamomi va sharqona kisa-skrab parvarishi",
+      "Aromaterapiya va toshlar bilan issiq massaj (Stone therapy)",
+      "Surunkali toliqish, migren va asab zo'riqishini yo'qotish"
+    ],
+    amenities: [
+      "Fin saunasi va Rim bug'xonasi",
+      "Marmar toshli an'anaviy turk hammomi",
+      "Gidromassajli jakuzi va iliq hovuz",
+      "Shinam dam olish zallari va kamin",
+      "Tabiiy o'simlik choylari va yangi siqilgan sharbatlar"
+    ],
+    advantages: [
+      "Tabiat qo'ynida joylashgan sokin va hashamatli muhit",
+      "Tana va ruhiyatni bir vaqtda dam oldiruvchi eng sara SPA marosimlari",
+      "Oilaviy va do'stlar davrasida xususiy xona ijarasi imkoni"
+    ],
+    description: "Lotus SPA — tog' tabiati bag'rida joylashgan premium relaksatsiya maskani. Issiq marmar toshlarda amalga oshiriladigan kisa va ko'pikli massaj, fin saunasi va xushbo'y moylar bilan uqalash insonni og'ir ish haftasidan keyin butunlay yengillashtiradi.",
+    rooms: [
+      { name: "Klassik SPA Relaks (60 daqiqa)", price: 220000, desc: "Fin saunasi, yengil skrab va xushbo'y moyli umumiy tana massaji" },
+      { name: "Sharqona Hammom Marosimi (90 daqiqa)", price: 320000, desc: "Turk hammomi, kisa, ko'pikli massaj, jakuzi va fitobar" },
+      { name: "VIP Royal SPA & Massaj (120 daqiqa)", price: 450000, desc: "Issiq vulqon toshlari bilan massaj, kedr bochkasi, yuz parvarishi" }
+    ],
+    includedInPrice: ["Barcha sauna va hammom xizmatlari", "Xalat, sochiq va shippak", "Dorivor damlama va quritilgan mevalar"],
+    contraindications: "O'tkir yuqumli teri kasalliklari, yuqori qon bosimi xuruji.",
+    phone: "+998 (71) 205-33-88"
+  },
+  {
+    id: "shifo_nur_massage",
+    name: "Shifo Nur Sharqona & Nuqtali Massaj Maskani",
+    tagline: "Qadimiy sharqona nuqtali uqalash, parafinoterapiya va umurtqani tiklash maskani",
+    region: "Namangan viloyati",
+    regionKey: "namangan",
+    location: "Namangan sh., Bobur bog'i yaqinida",
+    coords: [40.9983, 71.6726],
+    price: 150000,
+    priceFormatted: "150 000 so'm",
+    priceUnit: "/ seans",
+    rating: 4.8,
+    reviewsCount: 220,
+    image: "assets/images/shifo_nur_cover.jpg",
+    gallery: [
+      "assets/images/shifo_nur_acupressure.jpg",
+      "assets/images/shifo_nur_stones.jpg"
+    ],
+    badge: "Sharq Tabobati",
+    badgeType: "budget",
+    discount: "Pensionerlarga 10%",
+    categories: ["popular", "massage", "joints"],
+    facilityType: "massage",
+    altitude: "450 m",
+    climate: "Tinch va osoyishta maskan",
+    specialties: [
+      "Nuqtali massaj (Akupressura) va qon aylanishini kuchaytirish",
+      "Bel, tizza va yelka bo'g'imlaridagi tuzlarni eritish",
+      "Bosh og'rig'i va bo'yin qotishini davolash"
+    ],
+    amenities: [
+      "Shinam xonalar",
+      "Parafin-ozokerit isitish stoli",
+      "Erkak va ayol ustalar",
+      "Giyohli fitobar"
+    ],
+    advantages: [
+      "Tajribali xalq tabobati va zamonaviy nevrologiya uyg'unligi",
+      "Hamyonbop narxlar va keksalar uchun alohida g'amxo'rlik",
+      "Bo'g'imlardagi harakat cheklanishini tezda ochish"
+    ],
+    description: "Shifo Nur — Farg'ona vodiysida o'zining mohir massaj ustalari bilan tanilgan markaz. Bo'g'imlardagi og'riqlar, bel qotishi va tana horg'inligi uchun qadimiy tabobat uslublarida samarali muolajalar taqdim etiladi.",
+    rooms: [
+      { name: "Umumiy sharqona massaj (50 daqiqa)", price: 150000, desc: "Butun tana mushaklarini yozish va bo'g'imlar nuqtali uqalanishi" },
+      { name: "Bel va umurtqa massaji + Parafin (60 daqiqa)", price: 190000, desc: "Chuqur qizdirish va nerv ildizlari qisilishi bo'shashtirilishi" }
+    ],
+    includedInPrice: ["Massaj seansi", "Shifobaxsh giyohli moylar", "Choy"],
+    contraindications: "O'tkir yallig'lanish, qon bosimi kritik darajasi.",
+    phone: "+998 (69) 232-14-14"
+  },
+
+  // ==========================================================================
+  // 3. BASSEYN, FITNES & SUV SPORTI MAJMUALARI
+  // ==========================================================================
+  {
+    id: "olimpiya_complex",
+    name: "Olimpiya Suv & Zamonaviy Fitnes Majmuasi",
+    tagline: "50 metrlik isitiladigan yopiq basseyn, Technogym fitnes zali va professional murabbiylar",
+    region: "Toshkent shahri",
+    regionKey: "tashkent",
+    location: "Toshkent sh., Yunusobod tumani, Amir Temur shox ko'chasi 108",
+    coords: [41.3450, 69.2850],
+    price: 90000,
+    priceFormatted: "90 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.9,
+    reviewsCount: 520,
+    image: "assets/images/olimpiya_pool_cover.jpg",
+    gallery: [
+      "assets/images/olimpiya_lanes.jpg",
+      "assets/images/olimpiya_gym.jpg"
+    ],
+    badge: "Olimpiya Basseyn",
+    badgeType: "featured",
+    discount: "Oylik abonement",
+    categories: ["popular", "fitness", "sports", "family"],
+    facilityType: "fitness",
+    altitude: "480 m",
+    climate: "Tozalangan va doimiy 28°C haroratdagi suv muhiti",
+    specialties: [
+      "Suzish orqali umurtqa pog'onasi va nafas tizimini mustahkamlash",
+      "Kardio va mushak massasini rivojlantirish trenajyorlari",
+      "Ayollar uchun akva-aerobika va suv gimnastikasi",
+      "Og'ir jarohatlardan keyingi gidro-reabilitatsiya"
+    ],
+    amenities: [
+      "50 metrli 8 ta yo'lakka ega isitiladigan yopiq basseyn",
+      "Technogym so'nggi avlod trenajyor zallari",
+      "Fin saunasi, turk xamomi va dam olish zonasi",
+      "Shaxsiy sertifikatlangan instruktorlar ko'magi",
+      "Bolalar uchun maxsus sayoz basseyn va suzish maktabi",
+      "Protein va fitobar (vitaminli kokteyllar)"
+    ],
+    advantages: [
+      "Suvni xlor hidisiz tozalovchi zamonaviy ozonlash va ultrabinafsha filtrlash tizimi",
+      "Professional suzish yo'laklari va erkin mashg'ulotlar uchun keng maydon",
+      "Fitnes, basseyn va saunaning bir joyda mujassamligi"
+    ],
+    description: "Olimpiya Suv & Fitnes Majmuasi — sog'lom turmush tarzini sevuvchilar uchun poytaxtdagi eng yirik maskanlardan biridir. Suzish — insonning barcha mushak guruhlarini birdek ishlatuvchi, bo'g'imlarga ziyon yetkazmaydigan yagona sport turidir. Majmuada barcha yoshdagilar uchun qulay sharoit yaratilgan.",
+    rooms: [
+      { name: "1 kunlik erkin tashrif (Basseyn + Zal + Sauna)", price: 90000, desc: "Cheklovsiz vaqt davomida basseyn, trenajyor zali va saunadan foydalanish" },
+      { name: "Oylik to'liq abonement (12 ta tashrif)", price: 650000, desc: "Basseyn, barcha trenajyorlar va murabbiyning ertalabki yo'riqnomasi" },
+      { name: "VIP Yillik Cheksiz Karta", price: 5500000, desc: "Yil davomida 24/7 erkin kirish, shaxsiy shkafcha, sochiq va massajga 20% chegirma" }
+    ],
+    includedInPrice: ["Basseyn yo'laklari", "Trenajyorlar zali", "Fin saunasi", "Issiq dush va loker"],
+    contraindications: "Yuqumli teri xastaliklari, ochiq yaralar, quloq parda yallig'lanishi.",
+    phone: "+998 (71) 235-90-90"
+  },
+  {
+    id: "titan_fit_club",
+    name: "Titan Gym & Recovery Wellness Club",
+    tagline: "Samarqanddagi eng katta fitnes, krioteraqiya va sport reabilitatsiyasi zali",
+    region: "Samarqand viloyati",
+    regionKey: "samarqand",
+    location: "Samarqand sh., Universitet xiyoboni 14",
+    coords: [39.6580, 66.9650],
+    price: 80000,
+    priceFormatted: "80 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.8,
+    reviewsCount: 310,
+    image: "assets/images/titan_gym_cover.jpg",
+    gallery: [
+      "assets/images/titan_cardio.jpg",
+      "assets/images/titan_weights.jpg"
+    ],
+    badge: "Fitnes & Gym",
+    badgeType: "featured",
+    discount: "Talabalar 20%",
+    categories: ["popular", "fitness", "sports"],
+    facilityType: "fitness",
+    altitude: "710 m",
+    climate: "Konditsionerlangan toza sport zali",
+    specialties: [
+      "Kardio mashg'ulotlar va ortiqcha vazn yo'qotish (detoks)",
+      "Kuch mashqlari va qad-qomat korreksiyasi",
+      "Krioteraqiya va mushaklar regeneratsiyasi",
+      "Shaxsiy fitnes taomnoma tuzish"
+    ],
+    amenities: [
+      "1200 kv.m kenglikdagi yorug' mashg'ulot zali",
+      "Zamonaviy yugurish yo'laklari va velotrenajyorlar",
+      "Quruq fin saunasi",
+      "Sport ovqatlanishi va fitobar"
+    ],
+    advantages: [
+      "Keng zallar, tirbandliksiz mashg'ulot o'tkazish imkoniyati",
+      "Tajribali murabbiylar tomonidan individual mashqlar dasturi tuzilishi",
+      "Mashg'ulotdan so'ng saunada qon aylanishini tiklash"
+    ],
+    description: "Titan Gym — sog'lom, kuchli va baquvvat bo'lishni xohlovchilar uchun Samarqanddagi premium sport klubi. Erkaklar va ayollar uchun qulay zonalar, zamonaviy uskunalar va jo'shqin musiqiy muhit sizga har mashg'ulotda zavq ulashadi.",
+    rooms: [
+      { name: "1 kunlik kirish chiptasi", price: 80000, desc: "Trenajyor zali, kardiomashinalar, sauna va dush" },
+      { name: "1 oylik erkin abonement (cheksiz)", price: 550000, desc: "O'zingizga qulay har qanday vaqtda zalga kelish imkoni" }
+    ],
+    includedInPrice: ["Trenajyorlar", "Kiyinish xonasi", "Sauna va dush"],
+    contraindications: "Yurak anevrizmasi, o'tkir churra yorilishi xavfi.",
+    phone: "+998 (66) 210-44-55"
+  },
+
+  // ==========================================================================
+  // 4. SANATORIYLAR & TIBBIY SIHATGOHLAR
+  // ==========================================================================
   {
     id: "zomin",
     name: "Zomin Sanatoriysi",
@@ -14,19 +526,19 @@ export const SANATORIUMS_DATA = [
     coords: [39.6385, 68.5147],
     price: 480000,
     priceFormatted: "480 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.9,
     reviewsCount: 348,
-    image: "assets/images/hero_zaamin.jpg",
+    image: "assets/images/zomin_resort_cover.jpg",
     gallery: [
-      "assets/images/hero_zaamin.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/cottage_nature.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/zomin_hero_view.jpg",
+      "assets/images/zomin_alpine_path.jpg"
     ],
     badge: "Top Tanlov",
     badgeType: "featured",
     discount: "10% Chegirma",
-    categories: ["popular", "mountain", "family"],
+    categories: ["popular", "mountain", "family", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "2 000 m",
     climate: "Tog' iqlimi, archazor fitonsidlari, toza kislorod",
     specialties: [
@@ -78,19 +590,19 @@ export const SANATORIUMS_DATA = [
     coords: [41.0664, 71.8159],
     price: 420000,
     priceFormatted: "420 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.8,
     reviewsCount: 412,
-    image: "assets/images/park_mineral.jpg",
+    image: "assets/images/chortoq_mineral_cover.jpg",
     gallery: [
-      "assets/images/park_mineral.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/massage_therapy.jpg",
-      "assets/images/doctor_care.jpg"
+      "assets/images/chortoq_spring.jpg",
+      "assets/images/chortoq_park_trees.jpg"
     ],
     badge: "Mineral Buloq",
     badgeType: "mineral",
     discount: "15% Chegirma",
-    categories: ["popular", "mineral", "joints"],
+    categories: ["popular", "mineral", "joints", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "650 m",
     climate: "Mo''tadil vodiy iqlimi, daryo bo'yi salqini",
     specialties: [
@@ -141,19 +653,19 @@ export const SANATORIUMS_DATA = [
     coords: [41.3653, 69.3142],
     price: 390000,
     priceFormatted: "390 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.7,
     reviewsCount: 295,
-    image: "assets/images/resort_exterior.jpg",
+    image: "assets/images/chinobod_gastro_cover.jpg",
     gallery: [
-      "assets/images/resort_exterior.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/doctor_care.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/chinobod_park.jpg",
+      "assets/images/chinobod_clinic.jpg"
     ],
     badge: "Hamyonbop & Sifatli",
     badgeType: "budget",
     discount: "5% Chegirma",
-    categories: ["popular", "mineral", "gastro"],
+    categories: ["popular", "mineral", "gastro", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "480 m",
     climate: "Mo''tadil shahar park iqlimi, manzarali dendropark",
     specialties: [
@@ -204,19 +716,19 @@ export const SANATORIUMS_DATA = [
     coords: [41.6111, 70.0244],
     price: 690000,
     priceFormatted: "690 000 so'm",
+    priceUnit: "/ kun",
     rating: 5.0,
     reviewsCount: 520,
-    image: "assets/images/spa_thermal.jpg",
+    image: "assets/images/humson_buloq_cover.jpg",
     gallery: [
-      "assets/images/spa_thermal.jpg",
-      "assets/images/hero_zaamin.jpg",
-      "assets/images/cottage_nature.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/humson_river.jpg",
+      "assets/images/humson_spa_pool.jpg"
     ],
     badge: "Premium 5★",
     badgeType: "premium",
     discount: "Maxsus Taklif",
-    categories: ["popular", "mountain", "family", "cardio"],
+    categories: ["popular", "mountain", "family", "cardio", "spa", "sports", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "1 100 m",
     climate: "Ugom daryosi bo'yidagi toza tog' havosi, salqin shabada",
     specialties: [
@@ -267,19 +779,19 @@ export const SANATORIUMS_DATA = [
     coords: [41.5972, 69.8322],
     price: 460000,
     priceFormatted: "460 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.8,
     reviewsCount: 380,
-    image: "assets/images/mountain_view.jpg",
+    image: "assets/images/oqtosh_mountain_cover.jpg",
     gallery: [
-      "assets/images/mountain_view.jpg",
-      "assets/images/hero_zaamin.jpg",
-      "assets/images/cottage_nature.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/oqtosh_river.jpg",
+      "assets/images/oqtosh_alpine_air.jpg"
     ],
     badge: "O'pka & Nafas",
     badgeType: "featured",
     discount: "8% Chegirma",
-    categories: ["popular", "mountain", "family"],
+    categories: ["popular", "mountain", "family", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "1 200 m",
     climate: "Oqtosh vodiysining mo''jizaviy kislorodli havosi, yong'oqzorlar",
     specialties: [
@@ -329,19 +841,19 @@ export const SANATORIUMS_DATA = [
     coords: [40.8066, 73.0033],
     price: 520000,
     priceFormatted: "520 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.9,
     reviewsCount: 310,
-    image: "assets/images/resort_exterior.jpg",
+    image: "assets/images/xonobod_cardio_cover.jpg",
     gallery: [
-      "assets/images/resort_exterior.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/room_suite.jpg",
-      "assets/images/doctor_care.jpg"
+      "assets/images/xonobod_garden.jpg",
+      "assets/images/xonobod_clinic_suite.jpg"
     ],
     badge: "Yurak & Qon Tomir",
     badgeType: "cardio",
     discount: "12% Chegirma",
-    categories: ["popular", "cardio", "mountain"],
+    categories: ["popular", "cardio", "mountain", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "850 m",
     climate: "Qoradaryo va Andijon suv ombori yaqinidagi toza kislorodli shabada",
     specialties: [
@@ -390,19 +902,19 @@ export const SANATORIUMS_DATA = [
     coords: [41.4285, 69.4589],
     price: 380000,
     priceFormatted: "380 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.6,
     reviewsCount: 260,
-    image: "assets/images/cottage_nature.jpg",
+    image: "assets/images/botanika_park_cover.jpg",
     gallery: [
-      "assets/images/cottage_nature.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/park_mineral.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/botanika_alleys.jpg",
+      "assets/images/botanika_springs.jpg"
     ],
     badge: "Asab & Xotirjamlik",
     badgeType: "budget",
     discount: "10% Chegirma",
-    categories: ["popular", "mineral", "gastro"],
+    categories: ["popular", "mineral", "gastro", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "530 m",
     climate: "Daryo bo'yi mikroiqlimi, asriy chinorlar va bog'lar",
     specialties: [
@@ -448,362 +960,301 @@ export const SANATORIUMS_DATA = [
     region: "Farg'ona viloyati",
     regionKey: "fargona",
     location: "Farg'ona tumani, Chimyon qishlog'i, Farg'ona shahridan 32 km",
-    coords: [40.2312, 71.7456],
-    price: 350000,
-    priceFormatted: "350 000 so'm",
-    rating: 4.7,
-    reviewsCount: 315,
-    image: "assets/images/massage_therapy.jpg",
+    coords: [40.2982, 71.7456],
+    price: 410000,
+    priceFormatted: "410 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.8,
+    reviewsCount: 320,
+    image: "assets/images/chimyon_mud_cover.jpg",
     gallery: [
-      "assets/images/massage_therapy.jpg",
-      "assets/images/park_mineral.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/resort_exterior.jpg"
+      "assets/images/chimyon_mud_bath.jpg",
+      "assets/images/chimyon_mountain_side.jpg"
     ],
-    badge: "Eng Hamyonbop",
-    badgeType: "budget",
-    discount: "20% Chegirma",
-    categories: ["popular", "mineral", "joints"],
+    badge: "Vodorod-Sulfidli",
+    badgeType: "mineral",
+    discount: "10% Chegirma",
+    categories: ["popular", "mineral", "joints", "women", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "450 m",
-    climate: "Quruq vodiy iqlimi, serquyosh kunlar",
+    climate: "Mo''tadil vodiy iqlimi, yer osti shifobaxsh gazlari",
     specialties: [
-      "Harakat-tayanch tizimi (poliartrit, radikulit, spondilyoz)",
-      "Yurak-qon tomir kasalliklari (ateroskleroz, gipotoniya)",
+      "Harakat va tayanch apparati (revmatizm, poliartrit, osteoxondroz)",
+      "Teri xastaliklari (psoriaz, neyrodermit, ekzema)",
       "Ginekologik va urologik surunkali yallig'lanishlar",
-      "Teri xastaliklari"
+      "Periferik nerv tizimi xastaliklari"
     ],
     amenities: [
-      "Sulfidli-vodorodli vanna korpusi",
-      "Tabiiy torfli shifobaxsh balchiq (loy)",
-      "Yopiq suzish havzasi va sauna",
+      "Sulfidli mineral vannalar zali",
+      "Shifobaxsh balchiq (loy) applikatsiyalari",
+      "Gidromassaj va marvaridli vannalar",
       "3 mahal parhez taomnoma",
-      "Madaniyat saroyi va kinoteatr",
-      "Dori-darmonsiz tabiiy sog'lomlashtirish",
+      "Dendrologik soya-salqin bog'",
+      "Kutubxona va sport maydonchalari",
       "Wi-Fi internet"
     ],
     advantages: [
-      "Mashhur Matsesta suvlariga teng keluvchi sulfidli mineral suv va dorivor balchiq",
-      "O'zbekistondagi eng hamyonbop va xalqona narxlar (350 000 so'mdan)",
-      "Bo'g'imlardagi tuz va yallig'lanishlarni ketkazuvchi yuqori samarali muolajalar"
+      "Mashhur Matsesta (Sochi) suvlariga o'xshash tabiiy vodorod-sulfidli mineral manba",
+      "Bo'g'imlardagi yallig'lanish va surunkali teri xastaliklarini davolashda eng yuqori samara",
+      "Ko'p yillik tajribaga ega tibbiyot xodimlari va qulay narxlar"
     ],
-    description: "Chimyon sanatoriysi — Farg'ona vodiysidagi eng mashhur balneologik kurortlardan biri. O'zining seroltingugurtli (vodorod-sulfidli) suvlari va shifobaxsh balchig'i bilan butun O'zbekistonga tanilgan. Suyak, bo'g'im, bel va oyoq og'riqlaridan aziyat chekkanlar uchun haqiqiy shifo maskanidir.",
+    description: "Chimyon sanatoriysi — Markaziy Osiyodagi eng mashhur balneologik kurortlardan biri. Uning vodorod-sulfidli termal suvlari qon aylanishini kuchaytiradi, modda almashinuvini yaxshilaydi va bo'g'imlardagi eng og'ir yallig'lanishlarni ham qisqa fursatda bartaraf etadi.",
     rooms: [
-      { name: "Standart 2 kishilik", price: 350000, desc: "Qulay xona, dush, 3 mahal ovqat va barcha vanna-balchiq muolajalari kiritilgan" },
-      { name: "Yarim Lyuks", price: 450000, desc: "Televizor, muzlatgich, yangi mebellar, qulay to'shaklar" },
-      { name: "Lyuks", price: 580000, desc: "2 xonali lyuks, konditsioner, yumshoq divan, maxsus servis" }
+      { name: "Standart 2 kishilik", price: 410000, desc: "Shinam xona, dush, tv, 3 mahal ovqat va to'liq balneologik muolajalar" },
+      { name: "Yarim Lyuks", price: 520000, desc: "Yangi mebel, muzlatgich, alohida sanitariya tarmog'i" },
+      { name: "Lyuks", price: 670000, desc: "2 xonali nomer, konditsioner, bog' manzarasi, fitobar" }
     ],
     includedInPrice: [
-      "Vodorod-sulfidli mineral vannalar",
-      "Shifobaxsh loy va balchiq applikatsiyalari",
+      "Sulfidli vodorodli vannalar kursi",
+      "Balchiq bilan davolash muolajalari",
       "3 mahal parhezli taomlar",
-      "Gidroterapiya va massaj kurslari",
-      "Tibbiy tekshiruv va EKG"
+      "Fizioterapiya va EKG diagnostikasi",
+      "Shifokor nazorati"
     ],
-    contraindications: "Buyrak va jigar yetishmovchiligi, gipertoniya 3-bosqich, o'tkir yallig'lanishlar.",
-    phone: "+998 (73) 352-14-14"
+    contraindications: "O'tkir jigar va buyrak yetishmovchiligi, onkologiya, sil kasalligi.",
+    phone: "+998 (73) 352-12-20"
   },
   {
     id: "omonxona",
-    name: "Omonxona Sanatoriysi (Boysun)",
-    tagline: "O'zbekistonning mo''jizaviy shifobaxsh Omonxona suvi — Jigar, o't yo'llari va oshqozon davosi",
+    name: "Omonxona Sanatoriysi (Surxondaryo)",
+    tagline: "Mo''jizaviy jigar, o't qopi va buyrak davosi — Tabiiy yerosti shifobaxsh bulog'i",
     region: "Surxondaryo viloyati",
     regionKey: "surxondaryo",
-    location: "Boysun tumani, Omonxona qishlog'i, Boysun tog'lari, 1300m balandlik",
+    location: "Boysun tumani, Omonxona qishlog'i, Boysun tog'lari etagi",
     coords: [38.2045, 67.2012],
     price: 430000,
     priceFormatted: "430 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.9,
-    reviewsCount: 460,
-    image: "assets/images/sanatoriya_park_resort_1790760932042.jpg",
+    reviewsCount: 375,
+    image: "assets/images/omonxona_spring_cover.jpg",
     gallery: [
-      "assets/images/sanatoriya_park_resort_1790760932042.jpg",
-      "assets/images/mountain_view.jpg",
-      "assets/images/doctor_care.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/omonxona_canyon_stream.jpg",
+      "assets/images/omonxona_healing_baths.jpg"
     ],
-    badge: "Noyob Buloq Suvi",
+    badge: "Jigar & O't Yo'llari",
     badgeType: "mineral",
     discount: "10% Chegirma",
-    categories: ["popular", "mineral", "gastro"],
-    altitude: "1 300 m",
-    climate: "Boysun tog'larining toza shabadasi, quruq va shifobaxsh tog' iqlimi",
+    categories: ["popular", "mineral", "gastro", "sanatorium"],
+    facilityType: "sanatorium",
+    altitude: "1 250 m",
+    climate: "Boysun tog'larining salqin va toza havosi, archazorlar",
     specialties: [
-      "Surunkali gepatit va gepatotoksik holatlar",
-      "O't pufagi va o't yo'llari diskineziyasi, xoletsistit",
-      "Surunkali gastrit va oshqozon-ichak shillig'i xastaliklari",
-      "Modda almashinuvining buzilishi va buyrak qumlari"
+      "Surunkali gepatit, jigar gepatozi va jigar faoliyatini tiklash",
+      "O't qopi yallig'lanishi (xoletsistit, diskineziya)",
+      "Oshqozon-ichak va modda almashinuvi buzilishi",
+      "Surunkali piyelonefrit va siydik yo'llari xastaliklari"
     ],
     amenities: [
-      "Tabiiy Omonxona mineral suvi ichish galereyasi",
-      "Mineral vannalar va suv muolajalari",
-      "Laboratoriya va biokimyoviy tahlil markazi",
-      "3 mahal maxsus parhez taomnoma (№5 jigar stoli)",
-      "Fizioterapiya va elektroforez xonalari",
-      "Tog' sayrgohi va chorpoyalar",
+      "Omonxona tabiiy mineral suv ichish galereyasi",
+      "Tyubaj va ichak yuvish maxsus xonalari",
+      "Fizioterapiya va massaj zallari",
+      "3 mahal parhez stol №5 (jigar va me'da uchun)",
+      "Shinam yangi korpus va kottejlar",
+      "Tog' sayr yo'laklari",
       "Wi-Fi internet"
     ],
     advantages: [
-      "Yer qa'ridan chiquvchi Omonxona suvi jigar hujayralarini qayta tiklashda xalqaro miqyosda mashhur",
-      "Boysun darasining sokinligi va magnit to'lqinlaridan xoli toza tog' tabiati",
-      "Gepatolog va gastroenterologlarning maxsus individual sog'lomlashtirish protokoli"
+      "Butun dunyoda o'xshashi kam bo'lgan tabiiy jigar tozalovchi Omonxona mineral suvi",
+      "Dorilarsiz, tabiiy suv orqali jigar fermentlari va o't suyuqligini me'yorlashtirish",
+      "Boysun tog'larining maftunkor tabiati, shifobaxsh archa havosi"
     ],
-    description: "Omonxona sanatoriysi — Surxondaryoning purviqor Boysun tog'lari bag'rida joylashgan noyob davolash maskanidir. Bu yerdagi mineral buloq suvi tarkibida ko'plab mikroelementlar mavjud bo'lib, o't haydovchi, jigarni tozalovchi va oshqozon faoliyatini me'yorlashtiruvchi qudratli shifobaxsh ta'sirga ega.",
+    description: "Omonxona sanatoriysi — Boysun tog'larining bag'ridagi afsonaviy maskan. Uning yer qa'ridan chiqadigan mineral suvi jigar, o't yo'llari va oshqozon faoliyatini aql bovar qilmas darajada tez tiklaydi. Respublikamiz va qo'shni davlatlardan minglab insonlar har yili bu yerga shifo topgani kelishadi.",
     rooms: [
-      { name: "Standart 2 kishilik", price: 430000, desc: "Shinam xona, dush, tv, 3 mahal parhez taom va to'liq ichish kursi" },
-      { name: "Yarim Lyuks", price: 550000, desc: "Tog' manzarali, konditsioner, muzlatgich, yangi mebellar" },
-      { name: "Lyuks Kottej", price: 720000, desc: "Keng yotoqxona va mehmonxona, shaxsiy terassa, premium qulayliklar" }
+      { name: "Standart 2 kishilik", price: 430000, desc: "Yangi korpus, dush, tv, 3 mahal maxsus jigar parhezi va muolajalar" },
+      { name: "Yarim Lyuks", price: 550000, desc: "Konditsioner, yumshoq mebel, tog' manzarasi, sovutgich" },
+      { name: "Lyuks Kottej", price: 720000, desc: "Alohida shaxsiy kottej, 2 xonali keng joylashuv, VIP xizmat" }
     ],
     includedInPrice: [
-      "Omonxona mineral suvini ichish kursi (kuniga 3 mahal)",
-      "Shifokor-gepatolog va terapevt muntazam ko'rigi",
-      "Biokimyoviy tahlillar (bilirubin, ALT, AST)",
-      "3 mahal jigar va me'da uchun shifobaxsh parhez",
-      "Fizioterapiya va dorivor giyohli choylar"
+      "Omonxona mineral suvini ichish kursi",
+      "Shifokor-gepatolog va gastroenterolog ko'rigi",
+      "3 mahal №5 maxsus shifobaxsh parhez stoli",
+      "Tyubaj va fizioterapevtik apparatlar",
+      "Tog' sayrlari va terrenkur"
     ],
-    contraindications: "O't pufagidagi yirik toshlar (obstruksiya xavfi), jigar sirrozining og'ir davri, o'tkir sarig' kasalligi davri.",
-    phone: "+998 (76) 220-33-44"
+    contraindications: "Jigar sirrozining og'ir bosqichi, o't qopida 1 sm dan katta toshlar mavjudligi.",
+    phone: "+998 (76) 332-20-40"
+  },
+  {
+    id: "turon",
+    name: "Turon Sanatoriysi",
+    tagline: "Yurak-qon tomir va asab tizimi bo'yicha Toshkentdagi bosh kardiologik maskan",
+    region: "Toshkent shahri",
+    regionKey: "tashkent",
+    location: "Toshkent sh., Chilonzor tumani, xushmanzara park zonasi",
+    coords: [41.2750, 69.2080],
+    price: 450000,
+    priceFormatted: "450 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.8,
+    reviewsCount: 315,
+    image: "assets/images/turon_cardio_cover.jpg",
+    gallery: [
+      "assets/images/turon_cardio_suite.jpg",
+      "assets/images/turon_physio_park.jpg"
+    ],
+    badge: "Kardiologiya",
+    badgeType: "cardio",
+    discount: "7% Chegirma",
+    categories: ["popular", "cardio", "sanatorium"],
+    facilityType: "sanatorium",
+    altitude: "480 m",
+    climate: "Shahar ichidagi yashil mikroiqlim, kislorodli bog'",
+    specialties: [
+      "Yurak ishemik kasalligi (IHK) va stenokardiya barqaror bosqichi",
+      "Arterial gipertoniya va gipotoniya (qon bosimi buzilishi)",
+      "Miokard infarktidan keyingi reabilitatsiya",
+      "Asab tizimi kasalliklari va kardionevroz"
+    ],
+    amenities: [
+      "Yuqori aniqlikdagi kardiomonitoring va EKG zallari",
+      "Marvaridli, kislorodli va mineral vannalar",
+      "Isitiladigan yopiq suzish havzasi",
+      "Terapevtik massaj va fizioterapiya",
+      "3 mahal maxsus kardiologik parhez taom",
+      "Keng yashil park va favvoralar",
+      "Wi-Fi internet"
+    ],
+    advantages: [
+      "Respublikaning yetakchi kardiolog professorlari va tajribali shifokorlar nazorati",
+      "Poytaxtda joylashgani tufayli qulay yetib borish va statsionar sharoit",
+      "Qon bosimini dori-darmonlarsiz barqarorlashtiruvchi zamonaviy texnologiyalar"
+    ],
+    description: "Turon sanatoriysi — kardiologik yo'nalishdagi eng nufuzli davolash muassasasi. Bu yerda infarktdan keyingi reabilitatsiya, yuqori qon bosimi va yurak qon-tomir zo'riqishlari zamonaviy usullar bilan davolanadi.",
+    rooms: [
+      { name: "Standart 2 kishilik", price: 450000, desc: "Shinam xona, dush, tv, 3 mahal kardiologik parhez ovqat va davolash" },
+      { name: "Standart 1 kishilik", price: 530000, desc: "Yolg'iz davolanuvchilar uchun tinch va qulay xona" },
+      { name: "Lyuks", price: 720000, desc: "2 xonali keng nomer, konditsioner, yangi zamonaviy interyer" }
+    ],
+    includedInPrice: [
+      "Doimiy kardiomonitoring va shifokor nazorati",
+      "Marvaridli va mineral vannalar",
+      "3 mahal kardiologik parhez stoli",
+      "Fizioterapiya va davolovchi jismoniy tarbiya",
+      "Fitobar va vitaminli kokteyllar"
+    ],
+    contraindications: "Og'ir yurak ritmi buzilishlari, o'tkir beqaror stenokardiya.",
+    phone: "+998 (71) 277-50-50"
   },
   {
     id: "sitora",
     name: "Sitorai Mohi Xosa Sanatoriysi",
-    tagline: "Buxoro amirlarining yozgi saroyi yonidagi shifobaxsh buyrak, urologiya va asab markazi",
+    tagline: "Buxoro amirlarining yozgi saroyi yonidagi buyrak, urologiya va asab maskani",
     region: "Buxoro viloyati",
     regionKey: "buxoro",
-    location: "Buxoro shahri, Sitorai Mohi Xosa xiyoboni, Buxoro",
-    coords: [39.8123, 64.4419],
-    price: 410000,
-    priceFormatted: "410 000 so'm",
-    rating: 4.8,
-    reviewsCount: 390,
-    image: "assets/images/resort_exterior.jpg",
+    location: "Buxoro sh., Sitorai Mohi Xosa saroyi tarixiy bog'i",
+    coords: [39.8130, 64.4410],
+    price: 390000,
+    priceFormatted: "390 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.7,
+    reviewsCount: 280,
+    image: "assets/images/sitora_palace_cover.jpg",
     gallery: [
-      "assets/images/resort_exterior.jpg",
-      "assets/images/park_mineral.jpg",
-      "assets/images/massage_therapy.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/sitora_palace_courtyard.jpg",
+      "assets/images/sitora_garden_walk.jpg"
     ],
-    badge: "Tarixiy Maskani",
-    badgeType: "featured",
-    discount: "15% Chegirma",
-    categories: ["popular", "mineral", "joints"],
+    badge: "Buyrak & Urologiya",
+    badgeType: "budget",
+    discount: "8% Chegirma",
+    categories: ["popular", "mineral", "urology", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "230 m",
-    climate: "Mo''tadil voha iqlimi, tarixiy bog' va asriy chinorlar salqini",
+    climate: "Quruq va iliq cho'l-voha iqlimi, buyrak faoliyati uchun a'lo",
     specialties: [
-      "Buyrak va siydik yo'llari xastaliklari (piyelonefrit, surunkali sistit)",
-      "Harakat-tayanch tizimi va bo'g'im kasalliklari (artroz, radikulit)",
-      "Urologik va ginekologik surunkali yallig'lanishlar",
-      "Asab tizimi toliqishi va uyqusizlik"
+      "Surunkali nefrit, piyelonefrit va sistit",
+      "Buyrak-tosh kasalligi (kichik qum va tuzlar)",
+      "Ginekologik va erkaklar urologik xastaliklari",
+      "Harakat va tayanch a'zolari xastaliklari"
     ],
     amenities: [
-      "Termal xlorid-natriyli mineral suv vannalari",
-      "Dorivor balchiq va ozokerit applikatsiyalari",
-      "Zamonaviy urologik fizioterapiya bloki",
-      "3 mahal shifobaxsh parhez taomlar",
-      "Tarixiy bog' hududidagi yurish yo'laklari",
-      "Madaniyat va hordiq markazi",
+      "Iliq mineral vannalar va dushlar",
+      "Katta tarixiy manzarali bog' va xiyobon",
+      "3 mahal shifobaxsh buyrak parhez taomnoma",
+      "Ultratovush va laboratoriya diagnostikasi",
+      "Madaniyat saroyi va ekskursiyalar",
       "Wi-Fi internet"
     ],
     advantages: [
-      "Buxoro amiri saroyi hududidagi asriy chinorlar bilan o'ralgan betakror tarixiy atmosfera",
-      "O'zbekistondagi eng mashhur buyrak va urologik reabilitatsiya maskanlaridan biri",
-      "Samarali mineral vannalar va arzon xalqona narxlar"
+      "Buxoroning quruq va issiq iqlimi buyraklarga tushadigan yukni tabiiy yengillashtiradi",
+      "Tarixiy amir saroyi bog'ida sayr qilish va ruhiy xotirjamlik",
+      "Buyrak va siydik yo'llarini tuzlardan tozalash bo'yicha yuqori natijalar"
     ],
-    description: "Sitorai Mohi Xosa sanatoriysi — oxirgi Buxoro amirining yozgi saroyi yaqinida joylashgan mashhur balneologik kurort. Bu yerdagi mineral suvlar buyraklarni tuz va qumlardan tozalash, siydik yo'llari yallig'lanishlarini ketkazish hamda asabni tinchlantirishda beqiyos natijalar beradi.",
+    description: "Sitorai Mohi Xosa — Buxoro amirlarining sobiq yozgi saroyi hududida barpo etilgan ajoyib kurort. Buxoroning tabiiy quruq iqlimi va shifobaxsh mineral suvlari buyrak, peshob yo'llari hamda ginekologik muammolarni davolashda mo''jizalar ko'rsatadi.",
     rooms: [
-      { name: "Standart 2 kishilik", price: 410000, desc: "Shinam xona, dush, tv, 3 mahal ovqat va to'liq balneologik muolajalar" },
-      { name: "Yarim Lyuks", price: 520000, desc: "Konditsioner, muzlatgich, yangi ta'mirlangan vanna, yumshoq mebellar" },
-      { name: "Lyuks Kvartira", price: 680000, desc: "2 xonali keng lyuks, tarixiy bog' manzarasi, individual shifokor xizmati" }
+      { name: "Standart 2 kishilik", price: 390000, desc: "Shinam xona, dush, tv, 3 mahal ovqat va davolash kiritilgan" },
+      { name: "Yarim Lyuks", price: 490000, desc: "Konditsioner, yangi mebellar, shaxsiy vanna" },
+      { name: "Lyuks", price: 630000, desc: "Keng 2 xona, saroy bog'i manzarasi, shaxsiy xizmat" }
     ],
     includedInPrice: [
-      "Xlorid-natriyli shifobaxsh mineral vannalar",
-      "Shifobaxsh loy (balchiq) va ozokerit bilan davolash",
-      "3 mahal parhez taomnoma (№7 buyrak stoli)",
-      "Urolog va nefrolog ko'rigi, ultratovush diagnostikasi",
-      "Fitobar va buyrakni tozalovchi giyohlar damlamalari"
+      "Urolog va terapevt ko'rigi",
+      "Mineral vannalar va suv muolajalari",
+      "3 mahal maxsus №7 buyrak parhezi",
+      "Fizioterapiya muolajalari",
+      "Fitobar va tarvuz/qovun terapiyasi (mavsumda)"
     ],
-    contraindications: "Buyrak yetishmovchiligining 2-3 bosqichlari, o'tkir piyelonefrit xuruji, yirik o'lchamdagi buyrak toshlari.",
+    contraindications: "Og'ir buyrak yetishmovchiligi, siydik yo'llarida tiqilib qolgan yirik toshlar.",
     phone: "+998 (65) 228-50-20"
-  },
-  {
-    id: "turon",
-    name: "Turon Sanatoriysi (Toshkent)",
-    tagline: "Respublikaning bosh kardiologiya, qon bosimi va qon aylanishi reabilitatsiya markazi",
-    region: "Toshkent shahri",
-    regionKey: "tashkent",
-    location: "Toshkent sh., Mirzo Ulug'bek tumani, Bo'zbozor mavzesi",
-    coords: [41.3325, 69.3456],
-    price: 540000,
-    priceFormatted: "540 000 so'm",
-    rating: 4.9,
-    reviewsCount: 430,
-    image: "assets/images/doctor_care.jpg",
-    gallery: [
-      "assets/images/doctor_care.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/resort_exterior.jpg",
-      "assets/images/room_suite.jpg"
-    ],
-    badge: "Yurak & Qon Bosimi",
-    badgeType: "cardio",
-    discount: "Maxsus Taklif",
-    categories: ["popular", "cardio", "family"],
-    altitude: "490 m",
-    climate: "Toshkent shahrining shinam yashil hududi, manzarali istirohat bog'i",
-    specialties: [
-      "Yurak ishemik kasalligi (infarktdan keyingi reabilitatsiya)",
-      "Arterial gipertoniya va gipotoniya (qon bosimi balandligi)",
-      "Bosh miya qon aylanishining buzilishi (insultdan keyingi holat)",
-      "Neyrotsirkulyator distoniya va kardiomiopatiya"
-    ],
-    amenities: [
-      "Raqamli kardiomonitoring va Holter EKG markazi",
-      "Kislorodli va marvaridli shifobaxsh vannalar",
-      "Lazeroterapiya va magnitoterapiya uskunalari",
-      "Katta yopiq isitiladigan basseyn",
-      "3 mahal yurak uchun foydali kardiologik parhez stoli",
-      "Psixoterapevt va yetakchi kardiologlar xizmati",
-      "Wi-Fi internet"
-    ],
-    advantages: [
-      "O'zbekistondagi eng yetakchi kardiolog-olimlar va reabilitolog shifokorlar nazorati",
-      "Poytaxt markazida joylashgan, yuqori darajadagi statsionar qulayliklar va laboratoriya",
-      "Infarkt va insultdan keyin bemorlarni tezda oyoqqa turg'azuvchi ilmiy tasdiqlangan dastur"
-    ],
-    description: "Turon sanatoriysi — O'zbekistonning poytaxtida joylashgan yirik ixtisoslashgan kardiologik klinika-kurortdir. Bu yerda arterial gipertoniya, stenokardiya, yurak qon aylanishi yetishmovchiligi va asab tizimi toliqishi eng zamonaviy tibbiy uskunalar yordamida muvaffaqiyatli tiklanadi.",
-    rooms: [
-      { name: "Standart 2 kishilik", price: 540000, desc: "Shinam xona, dush, kardiomonitoring, 3 mahal taom va to'liq davo" },
-      { name: "Yarim Lyuks", price: 680000, desc: "Konditsioner, muzlatgich, ortopedik to'shak, sokin xiyobon ko'rinishi" },
-      { name: "Lyuks Suite", price: 890000, desc: "2 xonali hashamatli lyuks, shaxsiy shifokor nazorati va VIP xizmat" }
-    ],
-    includedInPrice: [
-      "Kardiolog, nevropatolog ko'rigi va EKG kardiogramma",
-      "Kislorodli kokteyl, fitobar va marvaridli vannalar",
-      "3 mahal muvozanatlangan kardiologik parhez (tuzsiz stol)",
-      "Yopiq isitiladigan basseyn va shifobaxsh gimnastika",
-      "Fizioterapiya va elektroson muolajalari"
-    ],
-    contraindications: "O'tkir infarkt davri (birinchi 3 oy), beqaror stenokardiya, ritmning xavfli buzilishlari.",
-    phone: "+998 (71) 267-24-40"
   },
   {
     id: "umid_guli",
     name: "Umid Guli Sanatoriysi",
-    tagline: "Reproduktiv salomatlik, ayollar va erkaklar salomatligi bo'yicha yetakchi maskan",
+    tagline: "Ayollar va erkaklar reproduktiv salomatligi, bepushtlikni davolash maskani",
     region: "Toshkent viloyati",
     regionKey: "tashkent_vil",
-    location: "Qibray tumani, Salar temiryo'l bekati yaqinida, Toshkentdan 10 km",
-    coords: [41.3855, 69.3789],
-    price: 470000,
-    priceFormatted: "470 000 so'm",
-    rating: 4.9,
-    reviewsCount: 385,
-    image: "assets/images/cottage_nature.jpg",
+    location: "Qibray tumani, Salar temiryo'l bekati yaqinida, Toshkentdan 12 km",
+    coords: [41.3800, 69.3900],
+    price: 430000,
+    priceFormatted: "430 000 so'm",
+    priceUnit: "/ kun",
+    rating: 4.8,
+    reviewsCount: 330,
+    image: "assets/images/umid_guli_cover.jpg",
     gallery: [
-      "assets/images/cottage_nature.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/doctor_care.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/umid_guli_rehab_room.jpg",
+      "assets/images/umid_guli_floral_park.jpg"
     ],
-    badge: "Ayollar & Erkaklar Salomatligi",
+    badge: "Reproduktiv Salomatlik",
     badgeType: "featured",
-    discount: "10% Chegirma",
-    categories: ["popular", "mineral", "family"],
-    altitude: "510 m",
-    climate: "Mo''tadil bog'dorchilik hududi, tinch va sokin tabiat",
+    discount: "Oilaviy paket",
+    categories: ["popular", "women", "urology", "sanatorium"],
+    facilityType: "sanatorium",
+    altitude: "500 m",
+    climate: "Mo''tadil shaharoldi mikroiqlimi, yashil xiyobon",
     specialties: [
-      "Ginekologik surunkali yallig'lanishlar va bepushtlik",
-      "Urologik kasalliklar, surunkali prostatit va andrologik muammolar",
-      "Harakat-tayanch a'zolari va umurtqa xastaliklari",
-      "Asab tizimi toliqishi"
+      "Birlamchi va ikkilamchi bepushtlikni kompleks davolash",
+      "Surunkali adneksit, endometrit va bachadon naylari o'tkazuvchanligi",
+      "Surunkali prostatit va erkaklar jinsiy faoliyati pasayishi",
+      "Bo'g'im va asab tizimi xastaliklari"
     ],
     amenities: [
-      "Sulfidli ginekologik va urologik sug'orish xonalari",
-      "Tabiiy dorivor balchiq (loy) applikatsiyalari",
-      "Urologik apparat majmuasi va massaj",
-      "3 mahal to'yimli parhez taom",
-      "Wi-Fi internet",
-      "Shinam yashil istirohat bog'i"
-    ],
-    advantages: [
-      "O'zbekistonda bepushtlik va surunkali yallig'lanishlarni dori-darmonsiz tabiiy davolash bo'yicha №1 maskan",
-      "Toshkent shahriga nihoyatda yaqin — qulay transport va xushmanzara sokin hudud",
-      "Tajribali ginekolog va androlog shifokorlarning individual yondashuvi"
-    ],
-    description: "Umid Guli sanatoriysi — ko'p yillardan buyon minglab oilalarga farzand ko'rish quvonchini baxsh etib kelayotgan respublika miqyosidagi ixtisoslashtirilgan maskandir. Bu yerdagi yerosti termal mineral suvlari va shifobaxsh balchiqlar reproduktiv a'zolar qon aylanishini kuchaytiradi va yallig'lanishlarni butkul yo'qotadi.",
-    rooms: [
-      { name: "Standart 2 kishilik", price: 470000, desc: "Shinam xona, dush, tv, 3 mahal parhez ovqat va maxsus davolash kursi" },
-      { name: "Yarim Lyuks", price: 580000, desc: "Konditsioner, sovutgich, yangi mebellar, tinch park ko'rinishi" },
-      { name: "Lyuks", price: 740000, desc: "2 xonali keng lyuks, yumshoq mebel, shaxsiy konsyerj xizmati" }
-    ],
-    includedInPrice: [
-      "Ginekolog yoki urolog-androlog to'liq ko'rigi",
-      "Mineral sug'orishlar va balchiq applikatsiyalari",
-      "3 mahal muvozanatlashgan parhez taomnoma",
-      "Fizioterapiya va magnit-lazer muolajalari",
-      "Psixologik xotirjamlik va dam olish xizmatlari"
-    ],
-    contraindications: "Onkologik holatlar, bachadon miomasi (tez o'suvchi), o'tkir qon ketishlar.",
-    phone: "+998 (71) 295-40-10"
-  },
-  {
-    id: "tovoqsoy",
-    name: "Tovoqsoy Sanatoriysi",
-    tagline: "Tabiiy tog' sharsharalari shabadasi — Asab, yurak va toza nafas maskani",
-    region: "Toshkent viloyati",
-    regionKey: "tashkent_vil",
-    location: "Bo'stonliq tumani, Tovoqsoy qishlog'i, Chirchiq daryosi sohillari",
-    coords: [41.5211, 69.6422],
-    price: 440000,
-    priceFormatted: "440 000 so'm",
-    rating: 4.7,
-    reviewsCount: 270,
-    image: "assets/images/mountain_view.jpg",
-    gallery: [
-      "assets/images/mountain_view.jpg",
-      "assets/images/cottage_nature.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/room_suite.jpg"
-    ],
-    badge: "Sharshara & Asab",
-    badgeType: "budget",
-    discount: "12% Chegirma",
-    categories: ["popular", "mountain", "cardio"],
-    altitude: "680 m",
-    climate: "Tog' daryosi va sharsharalar salqini, tabiiy ionlashgan toza havo",
-    specialties: [
-      "Asab tizimi kasalliklari (asabiy toliqish, nevrozlar, uyqusizlik)",
-      "Yurak-qon tomir tizimi funksional buzilishlari",
-      "Nafas olish yo'llari shamollashlari",
-      "Oshqozon-ichak a'zolari"
-    ],
-    amenities: [
-      "Tabiiy sharshara sayrgohi va daryo bo'yi chorpoyalari",
-      "Mineral vannalar va gidromassaj",
-      "Yopiq suzish havzasi va sauna",
-      "3 mahal to'yimli milliy va parhez taomlar",
-      "Fizioterapevtik apparatlar",
+      "Ginekologik va urologik mineral suvli sug'orishlar",
+      "Shifobaxsh dorivor balchiqli tamponlar va applikatsiyalar",
+      "Ultratovush, magnitoterapiya va lazeroterapiya",
+      "Suzish havzasi va sauna",
+      "3 mahal vitaminlarga boy parhez taomnoma",
       "Wi-Fi internet"
     ],
     advantages: [
-      "Tovoqsoy daryosi va sharsharalarining havoni ionlashtiruvchi tabiiy shifobaxsh kuchi",
-      "Toshkentdan atigi 45 daqiqalik masofa va qulay narxlar",
-      "Sokinlik, yashil tabiat va asabni to'liq tinchlantiruvchi osoyishtalik"
+      "Respublikada reproduktiv salomatlik va bepushtlik bo'yicha eng yuqori ijobiy ko'rsatkich",
+      "Juftliklar (er-xotin) uchun birgalikda to'liq tekshiruv va davolanish imkoniyati",
+      "Toshkentga yaqin va qulay transport aloqasi"
     ],
-    description: "Tovoqsoy sanatoriysi — Bo'stonliq tumanining go'zal tog'oldi qismida, shovillab oquvchi Tovoqsoy daryosi yoqasida joylashgan. Uning toza, ionlarga boy havosi yurak va asab tizimi toliqishini dori-darmonsiz tezda ketkazadi.",
+    description: "Umid Guli sanatoriysi — minglab oilalarga farzand ko'rish quvonchini baxsh etgan ixtisoslashgan sihatgohdir. Bu yerda tabiiy mineral suvlar, dorivor balchiqlar va zamonaviy fizioterapevtik usullar orqali ayollar va erkaklar reproduktiv salomatligi muvaffaqiyatli tiklanadi.",
     rooms: [
-      { name: "Standart 2 kishilik", price: 440000, desc: "Shinam xona, dush, tv, 3 mahal ovqat va standart davolash" },
-      { name: "Yarim Lyuks", price: 540000, desc: "Konditsioner, muzlatgich, daryo shovqini va yangi mebellar" },
-      { name: "Lyuks Kottej", price: 710000, desc: "Alohida kottej, shaxsiy terassa, panoramik tog' ko'rinishi" }
+      { name: "Standart 2 kishilik", price: 430000, desc: "Shinam xona, barcha qulayliklar, 3 mahal ovqat va davolash" },
+      { name: "Oilaviy Juftlik Xonasi", price: 540000, desc: "Katta 2 kishilik ortopedik krovat, tv, konditsioner" },
+      { name: "Lyuks", price: 690000, desc: "2 xonali keng lyuks nomer, barcha qulayliklar" }
     ],
     includedInPrice: [
-      "Shifokor-nevropatolog ko'rigi va maslahatlari",
-      "Mineral va ignabargli (xvoyli) vannalar",
-      "3 mahal parhezli va to'yimli taomlar",
-      "Daryo bo'yida iqlimoterapiya va terrenkur",
-      "Massaj va fizioterapevtik muolajalar"
+      "Ginekolog va urolog-androlog ko'rigi",
+      "Mineral sug'orishlar va balchiq tamponlari",
+      "Fizioterapevtik apparatlar va massaj",
+      "3 mahal parhezli taomlar",
+      "Basseyn va fitobar"
     ],
-    contraindications: "Og'ir ruhiy kasalliklar, faol bosqichdagi o'tkir yallig'lanishlar.",
-    phone: "+998 (70) 715-20-30"
+    contraindications: "O'tkir qon ketishlar, bachadon miomasi tez o'sishi, onkologik shubha.",
+    phone: "+998 (71) 260-20-10"
   },
   {
     id: "miraki",
@@ -815,19 +1266,19 @@ export const SANATORIUMS_DATA = [
     coords: [38.9950, 67.0420],
     price: 400000,
     priceFormatted: "400 000 so'm",
+    priceUnit: "/ kun",
     rating: 4.8,
     reviewsCount: 290,
-    image: "assets/images/sanatoriya_hero_1790760851731.jpg",
+    image: "assets/images/miraki_hisor_cover.jpg",
     gallery: [
-      "assets/images/sanatoriya_hero_1790760851731.jpg",
-      "assets/images/mountain_view.jpg",
-      "assets/images/spa_thermal.jpg",
-      "assets/images/room_suite.jpg"
+      "assets/images/miraki_reservoir_view.jpg",
+      "assets/images/miraki_mountain_range.jpg"
     ],
     badge: "Hisor Havosi",
     badgeType: "budget",
     discount: "10% Chegirma",
-    categories: ["popular", "mountain", "cardio"],
+    categories: ["popular", "mountain", "cardio", "sanatorium"],
+    facilityType: "sanatorium",
     altitude: "1 050 m",
     climate: "Hisor tog'larining salqin va toza havosi, quyoshli kunlar ko'pligi",
     specialties: [
@@ -867,106 +1318,152 @@ export const SANATORIUMS_DATA = [
   }
 ];
 
-// Hududlar ro'yxati (Yangilangan)
+// ==========================================================================
+// TOIFALAR & FILTERLAR
+// ==========================================================================
+export const FACILITY_CATEGORIES = [
+  { key: 'all', label: 'Barchasi', icon: '🌟' },
+  { key: 'football', label: 'Futbol & Sport Maydonlari', icon: '⚽' },
+  { key: 'massage', label: 'Massaj & Terapevtik SPA', icon: '💆‍♂️' },
+  { key: 'sanatorium', label: 'Sanatoriylar & Davolanish', icon: '🏥' },
+  { key: 'fitness', label: 'Basseyn & Fitnes Zallari', icon: '🏊‍♂️' },
+  { key: 'mountain', label: "Tog' Iqlimi & Eko Hordiq", icon: '🏔️' },
+  { key: 'mineral', label: 'Mineral Buloqlar', icon: '💧' },
+  { key: 'family', label: 'Oilaviy Hordiq', icon: '👨‍👩‍👧‍👦' }
+];
+
+// Hududlar ro'yxati
 export const REGIONS_DATA = [
-  { id: "all", name: "Barcha hududlar", count: 14 },
-  { id: "jizzax", name: "Jizzax (Zomin)", count: 1, desc: "Baland tog' havosi va archazorlar" },
-  { id: "namangan", name: "Namangan (Chortoq)", count: 1, desc: "Yod-bromli mineral suvlar" },
-  { id: "tashkent", name: "Toshkent shahri", count: 2, desc: "Chinobod, Turon kardiologiya" },
-  { id: "tashkent_vil", name: "Toshkent viloyati", count: 5, desc: "Oqtosh, Humson, Botanika, Umid Guli, Tovoqsoy" },
+  { id: "all", name: "Barcha hududlar", count: 20 },
+  { id: "tashkent", name: "Toshkent shahri", count: 6, desc: "Bunyodkor Arena, Chinobod, Olimpiya basseyn, Ibn Sino massaj" },
+  { id: "tashkent_vil", name: "Toshkent viloyati", count: 6, desc: "Oqtosh, Humson Buloq, Lotus SPA, Botanika, Umid Guli" },
+  { id: "jizzax", name: "Jizzax (Zomin)", count: 2, desc: "Zomin sanatoriysi va Tog' Bag'ri futbol arenasi" },
+  { id: "samarqand", name: "Samarqand viloyati", count: 2, desc: "Registon Sport Siti va Titan Gym Wellness" },
+  { id: "namangan", name: "Namangan (Chortoq)", count: 2, desc: "Chortoq mineral suvlari va Shifo Nur massaji" },
   { id: "andijon", name: "Andijon (Xonobod)", count: 1, desc: "Yurak-qon tomir va toza shabada" },
-  { id: "fargona", name: "Farg'ona (Chimyon)", count: 1, desc: "Sulfidli suvlar va shifobaxsh balchiq" },
+  { id: "fargona", name: "Farg'ona (Chimyon)", count: 2, desc: "Chimyon sulfidli suvlari va Vodiy Grand Arena" },
   { id: "surxondaryo", name: "Surxondaryo (Omonxona)", count: 1, desc: "Jigar va o't yo'llari shifobaxsh bulog'i" },
   { id: "buxoro", name: "Buxoro (Sitorai Mohi Xosa)", count: 1, desc: "Buyrak, urologiya va tarixiy bog'" },
   { id: "qashqadaryo", name: "Qashqadaryo (Miraki)", count: 1, desc: "Hisor tog'lari va toza kislorod" }
 ];
 
-// Davolash yo'nalishlari
+// Mutaxassisliklar va xizmat yo'nalishlari
 export const SPECIALTIES_DATA = [
   { id: "all", name: "Barcha yo'nalishlar", icon: "activity" },
+  { id: "football", name: "Futbol maydoni (Sun'iy / Tabiiy chim)", icon: "award" },
+  { id: "massage", name: "Terapevtik massaj & Manual terapiya", icon: "shield" },
+  { id: "fitness", name: "Fitnes, Basseyn & Kardio zallar", icon: "activity" },
   { id: "nafas", name: "Nafas yo'llari va o'pka (Astma, bronxit)", icon: "wind" },
-  { id: "joints", name: "Bo'g'im va umurtqa (Artroz, osteoxondroz)", icon: "shield" },
-  { id: "gastro", name: "Oshqozon-ichak va jigar (Gastrit, gepatit)", icon: "coffee" },
+  { id: "joints", name: "Bo'g'im va umurtqa (Artroz, osteoxondroz, grija)", icon: "shield" },
+  { id: "gastro", name: "Oshqozon-ichak va jigar (Mineral suvlar)", icon: "coffee" },
   { id: "cardio", name: "Yurak-qon tomir (Gipertoniya, qon bosimi)", icon: "heart" },
-  { id: "nerve", name: "Asab tizimi va uyqusizlik (Stress, toliqish)", icon: "zap" },
-  { id: "urology", name: "Buyrak va Urologiya (Piyelonefrit, sistit)", icon: "activity" },
+  { id: "nerve", name: "Asab tizimi va uyqusizlik (Stress, relaks)", icon: "zap" },
+  { id: "urology", name: "Buyrak va Urologiya", icon: "activity" },
   { id: "women", name: "Ayollar va Erkaklar reproduktiv salomatligi", icon: "shield" }
 ];
 
 // ==========================================================================
-// TIBBIY TAYYORGARLIK VA SANATORIYAGA BORISH QO'LLANMASI (GUIDE)
+// TIBBIY TAYYORGARLIK VA SOG'LOMLASHTIRISH QO'LLANMASI (GUIDE)
 // ==========================================================================
 export const PREPARATION_GUIDE_DATA = {
   steps: [
     {
       step: 1,
-      title: "Sanatoriya-kurort kartasini olish (Forma 072/y)",
-      desc: "Safardan 1-2 hafta oldin yashash joyingizdagi oilaviy poliklinikaga borasiz. Terapevt shifokor sizga yo'llanma yozib beradi.",
-      tip: "Agar ulgurmasangiz, ko'pgina sanatoriyalarimizda kelgan kuningizning o'zidayoq laboratoriya tekshiruvi tashkil etiladi."
+      title: "Xizmat turini aniqlash va onlayn band qilish",
+      desc: "Sanatoriya davolanishi, do'stlar bilan mini-futbol o'yini, terapevtik massaj yoki basseyn tashrifini tanlang va sanani belgilang.",
+      tip: "Har bir xizmat uchun saytimizda rasmiy elektron vaucher beriladi."
     },
     {
       step: 2,
-      title: "Majburiy tibbiy tahlillarni topshirish",
-      desc: "Flyurografiya (o'pka rentgeni), EKG (kardiogramma), umumiy qon va peshob tahlillari hamda ayollar uchun ginekolog xulosasi.",
-      tip: "Tahlillar muddati odatda 1 oydan oshmagan bo'lishi lozim."
+      title: "Hujjatlar va tayyorgarlik",
+      desc: "Sanatoriyalar uchun poliklinikadan sanatoriya-kurort kartasi (yoki joyida tahlil), sport va massaj uchun esa faqat shaxsingizni tasdiqlovchi hujjat kifoya.",
+      tip: "Sport maydonlari va massajga borishda ortiqcha hujjat talab qilinmaydi."
     },
     {
       step: 3,
-      title: "Kerakli kiyim va shaxsiy buyumlar to'plami",
-      desc: "Suzish havzasi uchun cho'milish kiyimi, shippak, qulay sport oyoq kiyimlari, ertalabki sayrlar uchun iliq kiyim va shaxsiy gigiyena vositalari.",
-      tip: "Barcha sanatoriyalar sochiq va yotoq anjomlarini toza taqdim etadi."
+      title: "Kerakli sport va shaxsiy kiyimlar to'plami",
+      desc: "Futbol uchun krossovka va sport kiyimi; basseyn uchun cho'milish kiyimi va shippak; sanatoriya uchun shaxsiy qulay liboslar.",
+      tip: "Futbol maydonlarida to'p va jiletkalar, massajda esa bir martalik sochiqlar bepul taqdim etiladi."
     },
     {
       step: 4,
-      title: "Rasmiy elektron vaucher bilan ro'yxatdan o'tish",
-      desc: "Saytimiz orqali olingan rasmiy QR-kodli elektron vaucher va pasportingizni (ID-karta) qabulxonaga ko'rsatishingiz kifoya.",
-      tip: "Hech qanday navbatsiz, 5 daqiqada xonangizga joylashasiz."
+      title: "Elektron vaucher orqali kafolatlangan xizmat",
+      desc: "Saytimiz orqali olingan rasmiy QR-kodli elektron vaucher bilan borasiz va hech qanday navbatsiz, qulay qabul qilinasiz.",
+      tip: "To'lovni yetib borganingizda yoki onlayn xavfsiz amalga oshirishingiz mumkin."
     }
   ],
   checklist: [
     { id: "c1", text: "Pasport yoki ID-karta (asl nusxasi)" },
-    { id: "c2", text: "SihatMaskan rasmiy elektron vaucheri (telefonda yoki qog'ozda)" },
-    { id: "c3", text: "Sanatoriya-kurort kartasi (forma 072/y) yoki tahlil natijalari" },
-    { id: "c4", text: "Pensiya guvohnomasi (agar pensioner bo'lsangiz chegirma uchun)" },
-    { id: "c5", text: "Suzish havzasi va suv muolajalari uchun shippak (rezinali) va shapkacha" },
-    { id: "c6", text: "Tog' va xiyobonlarda piyoda yurish uchun qulay sport krossovkalari" },
-    { id: "c7", text: "Doimiy qabul qilinadigan shaxsiy dori-darmonlar (agar mavjud bo'lsa)" }
+    { id: "c2", text: "Portalimizdan olingan rasmiy elektron vaucher (telefonda)" },
+    { id: "c3", text: "Futbol yoki fitnes uchun mos sport poyabzali va kiyimi" },
+    { id: "c4", text: "Basseyn uchun suzish kiyimi, rezina shippak va shapkacha" },
+    { id: "c5", text: "Sanatoriya uchun tahlillar yoki sanatoriya kartasi (agar mavjud bo'lsa)" },
+    { id: "c6", text: "Massaj uchun avvalgi rentgen/MRT xulosasi (bel/bo'g'im muammolarida)" }
   ],
   dailySchedule: [
-    { time: "07:30 - 08:00", activity: "Ertalabki badantarbiya va terrenkur (shifobaxsh piyoda yurish)" },
-    { time: "08:00 - 09:00", activity: "Nonushta (parhezli shved stoli yoki buyurtma taom)" },
-    { time: "09:00 - 13:00", activity: "Asosiy tibbiy muolajalar (mineral vanna, loy, tuz g'ori, massaj)" },
-    { time: "13:00 - 14:00", activity: "Tushlik va vitaminli fitobar ichimliklari" },
-    { time: "14:00 - 16:00", activity: "Sokin sokinlik soati (kunduzgi dam olish va uyqu)" },
-    { time: "16:00 - 18:00", activity: "Suzish havzasi, fitnes, yengil fizioterapiya va shifokor nazorati" },
-    { time: "18:30 - 19:30", activity: "Kechki ovqat" },
-    { time: "20:00 - 22:00", activity: "Madaniy hordiq, kinozal, konsert yoki xiyobonda sayr" }
+    { time: "07:30 - 08:30", activity: "Ertalabki yugurish, badantarbiya yoki basseyn suzishi" },
+    { time: "08:30 - 09:30", activity: "Sog'lom nonushta va yangi siqilgan fitobar sharbatlari" },
+    { time: "10:00 - 13:00", activity: "Asosiy muolajalar (mineral vanna, terapevtik massaj yoki fitnes)" },
+    { time: "13:00 - 14:00", activity: "Muvozanatli parhez tushlik" },
+    { time: "17:00 - 19:00", activity: "Do'stlar bilan mini-futbol matchi yoki SPA relaksatsiya" },
+    { time: "19:30 - 20:30", activity: "Yengil kechki ovqat" },
+    { time: "20:30 - 22:00", activity: "Sokin sayr, toza havodagi hordiq va sog'lom uyqu" }
   ]
 };
 
 // ==========================================================================
-// KASALLIKLAR VA TASHXISLAR BO'YICHA SANATORIYA TANLASH KATALOGI
+// KASALLIKLAR VA SPORT-SOG'LOMLASHTIRISH YO'RIQNOMASI
 // ==========================================================================
 export const DISEASES_DIRECTORY_DATA = [
-  {
-    id: "astma",
-    name: "Bronxial astma va surunkali bronxit",
-    icon: "🫁",
-    recommendedSanatoriums: ["Zomin Sanatoriysi", "Oqtosh Sanatoriysi", "Miraki Sanatoriysi"],
-    sanatoriumIds: ["zomin", "oqtosh", "miraki"],
-    treatments: "Tuz g'ori (Speleoterapiya), ignabargli archazor iqlimoterapiyasi, kislotali ingalyatsiyalar.",
-    expectedResult: "Nafas qisishining kamayishi, yo'tal to'xtashi, o'pka hajmining 30% gacha kengayishi.",
-    contraindication: "Nafas yetishmovchiligining 3-bosqichi, o'tkir o'pka shamollashi (pnevmoniya xuruji)."
-  },
   {
     id: "artroz",
     name: "Artroz, osteoxondroz va umurtqa churrasi (grija)",
     icon: "🦴",
-    recommendedSanatoriums: ["Chortoq Sanatoriysi", "Chimyon Sanatoriysi", "Sitorai Mohi Xosa"],
-    sanatoriumIds: ["chortoq", "chimyon", "sitora"],
-    treatments: "Termal yod-bromli vannalar, dorivor balchiq applikatsiyalari, umurtqa cho'zish (traksiya), gidromassaj.",
-    expectedResult: "Bo'g'imlardagi tuz va yallig'lanishning ketishi, og'riqsiz erkin harakatlanish.",
-    contraindication: "Bo'g'imlarning o'tkir yiringli yallig'lanishi, o'tkir falajlik davri."
+    recommendedSanatoriums: ["Ibn Sino Massaj Markazi", "Chortoq Sanatoriysi", "Olimpiya Basseyn Majmuasi"],
+    sanatoriumIds: ["ibn_sino_massage", "chortoq", "olimpiya_complex"],
+    treatments: "Manual terapiya va davolovchi massaj, termal yod-bromli vannalar, suzish (umurtqaga yuk tushirmasdan mustahkamlash).",
+    expectedResult: "Bo'g'imlardagi yallig'lanish va qotishning ketishi, disk bosimining kamayishi, erkin harakatlanish.",
+    contraindication: "Bo'g'imlarning o'tkir yiringli yallig'lanishi, o'tkir sinishlar davri."
+  },
+  {
+    id: "charchoq",
+    name: "Surunkali stress, charchoq va gipodinamiya (kamharakatlik)",
+    icon: "⚡",
+    recommendedSanatoriums: ["Bunyodkor Futbol Arena", "Lotus SPA & Relaks", "Humson Buloq"],
+    sanatoriumIds: ["bunyodkor_arena", "lotus_spa_wellness", "humson"],
+    treatments: "Haftada 2 marta mini-futbol o'ynash, fin saunasi va bug' hammomi, toshlar bilan relaks massaj.",
+    expectedResult: "Endorfin va tetiklik gormonlarining ko'tarilishi, mushaklar tonusi oshishi, chuqur xotirjam uyqu.",
+    contraindication: "Yurak o'tkir xuruji, kuchli holsizlik."
+  },
+  {
+    id: "astma",
+    name: "Bronxial astma, nafas qisishi va surunkali bronxit",
+    icon: "🫁",
+    recommendedSanatoriums: ["Zomin Sanatoriysi", "Zomin Sport Majmuasi", "Oqtosh Sanatoriysi"],
+    sanatoriumIds: ["zomin", "zaamin_stadium", "oqtosh"],
+    treatments: "Tuz g'ori (Speleoterapiya), ignabargli archazor tog' kislorodi, ochiq havoda yengil yugurish.",
+    expectedResult: "Nafas qisishining kamayishi, yo'tal to'xtashi, o'pka hajmining 30% gacha kengayishi.",
+    contraindication: "Nafas yetishmovchiligining 3-bosqichi, o'tkir pnevmoniya."
+  },
+  {
+    id: "vazn",
+    name: "Ortiqcha vazn, modda almashinuvi sekinlashishi va diabet",
+    icon: "🏃‍♂️",
+    recommendedSanatoriums: ["Olimpiya Fitnes Majmuasi", "Titan Gym Club", "Chinobod Sanatoriysi"],
+    sanatoriumIds: ["olimpiya_complex", "titan_fit_club", "chinobod"],
+    treatments: "Kardiomashqlar, 50m suzish, xlorid-gidrokarbonatli mineral suv ichish, limfodrenaj massaji.",
+    expectedResult: "Vaznning me'yorlashishi, qondagi qand va xolesterin miqdorining kamayishi, yengillik.",
+    contraindication: "Oshqozon yarasining qonash xavfi bo'lgan o'tkir xuruji."
+  },
+  {
+    id: "yurak",
+    name: "Arterial gipertoniya va yurak qon aylanishi zo'riqishi",
+    icon: "❤️",
+    recommendedSanatoriums: ["Turon Kardiologiya", "Xonobod Sanatoriysi", "Lotus SPA"],
+    sanatoriumIds: ["turon", "xonobod", "lotus_spa_wellness"],
+    treatments: "Doimiy kardiomonitoring, marvaridli va kislorodli vannalar, yengil suzish, piyoda terrenkur.",
+    expectedResult: "Qon bosimining normallashishi, bosh aylanishi va yurak sanchishining yo'qolishi, quvvat ortishi.",
+    contraindication: "Yurak ritmining og'ir beqarorligi, yaqin 3 oy ichida o'tkazilgan infarkt."
   },
   {
     id: "jigar",
@@ -977,36 +1474,6 @@ export const DISEASES_DIRECTORY_DATA = [
     treatments: "Tabiiy mineral buloq suvlarini ichish, tyubaj, №5 maxsus jigar parhezi, mineral vannalar.",
     expectedResult: "O't suyuqligi dimlanishining bartaraf bo'lishi, jigar hujayralarining tiklanishi, ovqat hazmining yaxshilanishi.",
     contraindication: "O't pufagidagi yirik toshlar (tiqilib qolish xavfi), jigar sirrozining og'ir bosqichi."
-  },
-  {
-    id: "yurak",
-    name: "Arterial gipertoniya va yurak qon aylanishi",
-    icon: "❤️",
-    recommendedSanatoriums: ["Turon Sanatoriysi", "Xonobod Sanatoriysi", "Humson Buloq"],
-    sanatoriumIds: ["turon", "xonobod", "humson"],
-    treatments: "Doimiy kardiomonitoring, marvaridli va kislorodli vannalar, tuzsiz kardiologik stol, yengil terrenkur.",
-    expectedResult: "Qon bosimining normallashishi, bosh aylanishi va yurak sanchishining yo'qolishi, quvvat ortishi.",
-    contraindication: "Yurak ritmining og'ir beqarorligi, yaqin 3 oy ichida o'tkazilgan infarkt."
-  },
-  {
-    id: "gastrit",
-    name: "Surunkali gastrit, kolit va qandli diabet",
-    icon: "🥣",
-    recommendedSanatoriums: ["Chinobod Sanatoriysi", "Omonxona Sanatoriysi", "Botanika Sanatoriysi"],
-    sanatoriumIds: ["chinobod", "omonxona", "botanika"],
-    treatments: "Xlorid-gidrokarbonatli mineral suv ichish, ichaklarni chuqur tozalash, diabetik parhez menyusi.",
-    expectedResult: "Jig'ildon qaynashi va qorin dam bo'lishining to'xtashi, qondagi qand miqdorining barqarorlashishi.",
-    contraindication: "Oshqozon yarasining qonash xavfi bo'lgan o'tkir xuruji davri."
-  },
-  {
-    id: "reproduktiv",
-    name: "Bepushtlik, ginekologik va urologik yallig'lanishlar",
-    icon: "🌸",
-    recommendedSanatoriums: ["Umid Guli Sanatoriysi", "Sitorai Mohi Xosa", "Chimyon Sanatoriysi"],
-    sanatoriumIds: ["umid_guli", "sitora", "chimyon"],
-    treatments: "Sulfidli sug'orishlar, dorivor balchiqli tamponlar, kichik chanoq a'zolari magnitoterapiyasi.",
-    expectedResult: "Surunkali yallig'lanishlarning butkul yo'qolishi, reproduktiv salomatlikning tiklanishi.",
-    contraindication: "Bachadon o'tkir qon ketishlari, tez kattalashuvchi xavfli o'smalar."
   }
 ];
 
@@ -1027,40 +1494,52 @@ export const SAMPLE_VERIFICATION_VOUCHERS = [
     verifiedAt: "2026-10-15"
   },
   {
-    code: "SM-2026-31950",
-    sanatoriumName: "Chortoq Sanatoriysi",
-    fullName: "Gulchehra Mirzayeva",
-    checkIn: "2026-10-25",
-    checkOut: "2026-11-06",
-    nights: 12,
-    roomName: "Standart (2 kishilik)",
-    grandTotal: 5040000,
+    code: "FB-2026-90412",
+    sanatoriumName: "Bunyodkor Futbol Arena",
+    fullName: "Sardorbek Olimov",
+    checkIn: "2026-10-20",
+    checkOut: "2026-10-20 (20:00 - 22:00)",
+    nights: 2,
+    roomName: "Prime-Time kechki (2 soat)",
+    grandTotal: 320000,
     status: "Tasdiqlangan",
-    verifiedAt: "2026-10-14"
+    verifiedAt: "2026-10-16"
+  },
+  {
+    code: "MS-2026-55102",
+    sanatoriumName: "Ibn Sino Massaj Markazi",
+    fullName: "Madina Karimova",
+    checkIn: "2026-10-22",
+    checkOut: "2026-10-22 (14:00)",
+    nights: 1,
+    roomName: "Terapevtik massaj (60 daqiqa)",
+    grandTotal: 180000,
+    status: "Tasdiqlangan",
+    verifiedAt: "2026-10-16"
   }
 ];
 
 // FAQ - Savol-javoblar
 export const FAQS_DATA = [
   {
-    q: "Sanatoriyaga borish uchun qanday tibbiy hujjatlar talab etiladi?",
-    a: "Asosiy talab qilinadigan hujjat — yashash joyingizdagi poliklinikadan olingan Sanatoriya-kurort kartasi (forma 072/y), pasport (ID-karta) va bizning tizim orqali olingan rasmiy elektron Vaucherdir. Agar sanatoriya-kurort kartasini ololmagan bo'lsangiz, ko'pgina sanatoriyalarning o'zida kelgan kuningiz laboratoriya tahlillari va mutaxassis ko'rigi tashkil etiladi."
+    q: "Sayt orqali nafaqat sanatoriya, balki futbol maydoni va massaj ham bron qilsa bo'ladimi?",
+    a: "Ha, albatta! Bizning yangilangan platformamiz inson salomatligi va faol hayoti uchun zarur bo'lgan barcha yo'nalishlarni birlashtirdi: shifobaxsh sanatoriylar, mini-futbol maydonchalari, terapevtik massaj markazlari, suzish havzalari va fitnes zallari. Barchasini bir joyda solishtirib, onlayn band qilishingiz mumkin."
   },
   {
-    q: "1 kunlik to'lov ichiga aynan qanday xizmatlar kiritilgan?",
-    a: "Bizning portalimizda ko'rsatilgan har bir narx — TO'LIQ KUNLIK PAKET hisoblanadi. U o'z ichiga: tanlangan toifadagi xonada yashash, kuniga 3 (yoki 4) mahal shifobaxsh parhez taomlar, shifokorlar ko'rigi, diagnostika va belgilangan standart fizioterapevtik/balneologik muolajalarni qamrab oladi. Yashirin to'lovlar mavjud emas!"
+    q: "Futbol maydonini qanday band qilinadi va to'lov qanday bo'ladi?",
+    a: "Kerakli maydonni tanlaysiz, o'yin sanasi va qulay soat oralig'ini (masalan, 19:00 - 21:00) belgilaysiz. Sizga bir zumda rasmiy tasdiqlangan elektron vaucher beriladi. To'lovni joyiga borganingizda yoki onlayn karta orqali amalga oshirishingiz mumkin."
   },
   {
-    q: "Keksalar (pensionerlar) va bolalar uchun chegirmalar bormi?",
-    a: "Ha! Pensiya guvohnomasiga ega bo'lgan fuqarolar uchun barcha sanatoriyalarda 10% gacha maxsus chegirmalar mavjud. Shuningdek, 3 yoshgacha bo'lgan bolalar alohida o'rin talab qilinmasa bepul, 3 yoshdan 12 yoshgacha bo'lgan bolalar uchun esa 30% dan 50% gacha imtiyozli tariflar amal qiladi."
+    q: "Massaj va SPA xizmatlariga oldindan yozilish shartmi?",
+    a: "Ha, massaj ustalari va shifokor-manualistlar oldida navbatda turib vaqt yo'qotmaslik uchun oldindan o'zingizga qulay vaqtga yozilib qo'yish tavsiya etiladi. Portalimiz orqali usta jinsi (erkak/ayol) va muolaja turini bevosita tanlay olasiz."
   },
   {
-    q: "Bron qilish qanday amalga oshiriladi va bekor qilsa bo'ladimi?",
-    a: "Saytimizda bir necha daqiqada onlayn ariza to'ldirasiz, sanalar va xonani tanlaysiz. Sizga bir zumda rasmiy QR-kodli elektron vaucher taqdim etiladi. Yetib kelganingizda yoki onlayn to'lov qilishingiz mumkin. Safar bekor bo'lgan taqdirda, kelish kunidan 3 kun oldin ogohlantirsangiz, hech qanday jarimasiz buyurtmangiz bekor qilinadi."
+    q: "Sanatoriyaga borish uchun qanday tibbiy hujjatlar kerak?",
+    a: "Sanatoriya uchun yashash joyingizdagi poliklinikadan olingan Sanatoriya-kurort kartasi (forma 072/y), pasport (ID-karta) va bizning elektron vaucherimiz kerak bo'ladi. Agar kartani ololmagan bo'lsangiz, ko'pgina sanatoriyalarning o'zida kelgan kuningiz laboratoriya tahlillari o'tkaziladi."
   },
   {
-    q: "Davolanishning tavsiya etilgan eng kam muddati necha kun?",
-    a: "To'liq terapevtik va sog'lomlashtiruvchi natijaga erishish uchun shifokorlar kamida 10-12 kunlik davolash kursini tavsiya etadilar. Biroq, shunchaki dam olish va quvvat yig'ish maqsadida 3 kundan boshlab ham xona band qilish imkoniyati mavjud."
+    q: "Keksalar (pensionerlar) va talabalar uchun chegirmalar bormi?",
+    a: "Ha! Pensiya guvohnomasi yoki talabalik guvohnomasiga ega bo'lgan foydalanuvchilarimiz uchun sanatoriyalar, massaj va sport zallarida 10% dan 20% gacha maxsus chegirmalar amal qiladi."
   }
 ];
 
@@ -1070,67 +1549,55 @@ export const REVIEWS_DATA = [
     id: 1,
     name: "Akmal Rahimov",
     city: "Toshkent shahri",
-    sanatoriumName: "Zomin Sanatoriysi",
-    sanatoriumId: "zomin",
+    sanatoriumName: "Bunyodkor Futbol Arena",
+    sanatoriumId: "bunyodkor_arena",
     rating: 5,
-    date: "14-Sentabr, 2026",
-    text: "O'tgan yili o'pka shamollashidan so'ng Zomin sanatoriyasiga bordim. 12 kunlik davo kursidan keyin nafas olishim butunlay yengillashdi. Archazorlar havosi, tuz g'ori va shifokorlarning e'tibori shunchaki a'lo darajada. Ushbu sayt orqali bron qilgandik, hech qanday ortiqcha navbatsiz joylashdik.",
+    date: "14-Oktabr, 2026",
+    text: "Har hafta do'stlarimiz bilan Bunyodkor arenasida mini-futbol o'ynaymiz. Maydon chimi nihoyatda sifatli, oyoq og'rimaydi. Kechki chiroqlari xuddi kunduzgidek yoritadi. Dush va kiyinish xonalari doim toza va ozoda!",
     avatar: "AR"
   },
   {
     id: 2,
     name: "Dilnoza Karimova",
-    city: "Samarqand",
-    sanatoriumName: "Chortoq Sanatoriysi",
-    sanatoriumId: "chortoq",
+    city: "Toshkent",
+    sanatoriumName: "Ibn Sino Massaj Markazi",
+    sanatoriumId: "ibn_sino_massage",
     rating: 5,
-    date: "02-Avgust, 2026",
-    text: "Ota-onamni Chortoqqa jo'natgandim. Bo'g'imlardagi og'riqlar va tizzalari qattiq bezovta qilardi. Mineral vannalar va loy bilan davolashdan so'ng dadam bemalol hassasiz yura boshladilar. Xodimlar juda muloyim, ovqatlari parhezli bo'lsa ham nihoyatda mazali ekan.",
+    date: "10-Oktabr, 2026",
+    text: "Belimda disk grijasi sabab doimiy og'riq bor edi. Ibn Sino markazida 10 kunlik manual davolash kursi oldim. Massaj va kedr bochkasi mo''jiza ko'rsatdi — hozir bemalol og'riqsiz harakatlanyapman. Rahmat shifokorlarga!",
     avatar: "DK"
   },
   {
     id: 3,
-    name: "Botir Qodirov",
-    city: "Buxoro",
-    sanatoriumName: "Humson Buloq",
-    sanatoriumId: "humson",
+    name: "Jamshid Ergashov",
+    city: "Samarqand",
+    sanatoriumName: "Zomin Sanatoriysi",
+    sanatoriumId: "zomin",
     rating: 5,
-    date: "22-Iyul, 2026",
-    text: "Haqiqiy 5 yulduzli dam olish va davolanish maskani! Oilamiz bilan dam oldik. Basseynlari toza, tabiat manzarasi hayratlanarli. Shved stoli taomlari va kardiologiya apparatlari juda zamonaviy. Narxiga 100% arziydi.",
-    avatar: "BQ"
+    date: "02-Oktabr, 2026",
+    text: "O'tgan yili o'pka shamollashidan so'ng Zomin sanatoriyasiga bordim. 12 kunlik davo kursidan keyin nafas olishim butunlay yengillashdi. Archazorlar havosi, tuz g'ori va shifokorlarning e'tibori shunchaki a'lo darajada.",
+    avatar: "JE"
   },
   {
     id: 4,
-    name: "Shahnoza Yusupova",
-    city: "Farg'ona",
-    sanatoriumName: "Oqtosh Sanatoriysi",
-    sanatoriumId: "oqtosh",
-    rating: 5,
-    date: "10-Iyun, 2026",
-    text: "Bolamda allergik astma bor edi. Oqtoshning tog' havosi va galoterapiyasi tufayli bolam kechalari yo'talsiz, xotirjam uxlaydigan bo'ldi. Hammaga tavsiya qilaman!",
-    avatar: "SY"
-  },
-  {
-    id: 5,
     name: "Bobur Mirzayev",
-    city: "Termiz",
-    sanatoriumName: "Omonxona Sanatoriysi",
-    sanatoriumId: "omonxona",
+    city: "Toshkent",
+    sanatoriumName: "Olimpiya Basseyn Majmuasi",
+    sanatoriumId: "olimpiya_complex",
     rating: 5,
-    date: "05-Sentabr, 2026",
-    text: "Jigar va o't pufagi xastaligi bilan Omonxonaga bordim. 14 kunlik suv ichish kursi va №5 parhez stolidan so'ng tahlillarim a'lo chiqdi. Buloq suvi haqiqatan mo''jiza!",
+    date: "25-Sentabr, 2026",
+    text: "50 metrlik basseyn shunchaki zo'r! Suvi toza, xlor hidi umuman yo'q. Suzishdan keyin saunaga kirish butun tanadagi charchoqni yo'qotadi. Oylik abonement olganman, har kimga sog'liq uchun tavsiya qilaman.",
     avatar: "BM"
   },
   {
-    id: 6,
-    name: "Nodira Qosimova",
-    city: "Toshkent",
-    sanatoriumName: "Turon Sanatoriysi",
-    sanatoriumId: "turon",
+    id: 5,
+    name: "Shahnoza Yusupova",
+    city: "Farg'ona",
+    sanatoriumName: "Chortoq Sanatoriysi",
+    sanatoriumId: "chortoq",
     rating: 5,
-    date: "28-Avgust, 2026",
-    text: "Onamning qon bosimi baland bo'lib bezovta qilardi. Turonda davolangach, qon bosimlari me'yorga tushdi. Kardiolog shifokorlarning e'tibori va kardiomonitoring xizmatidan juda mamnunmiz.",
-    avatar: "NQ"
+    date: "18-Sentabr, 2026",
+    text: "Ota-onamni Chortoqqa jo'natgandim. Bo'g'imlardagi og'riqlar va tizzalari qattiq bezovta qilardi. Mineral vannalar va loy bilan davolashdan so'ng dadam bemalol hassasiz yura boshladilar.",
+    avatar: "SY"
   }
 ];
-

@@ -8,25 +8,29 @@ export default function Navbar({
   bookingsCount,
   onOpenBookings,
   onOpenBookingModal,
-  onOpenConsultation
+  onOpenConsultation,
+  onSelectCategory
 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navItems = [
-    { label: 'Sanatoriyalar', href: '#katalog' },
-    { label: 'Tashxislar', href: '#tashxislar' },
+    { label: 'Barcha Maskanlar', href: '#katalog', category: 'all' },
+    { label: '⚽ Futbol & Sport', href: '#katalog', category: 'football' },
+    { label: '💆‍♂️ Massaj & SPA', href: '#katalog', category: 'massage' },
     { label: 'Xarita', href: '#xarita' },
     { label: 'Muolajalar', href: '#muolajalar' },
-    { label: 'Tavsiya Olish', href: '#quiz' },
+    { label: 'Aqlli Tavsiya', href: '#quiz' },
     { label: 'Vaucher', href: '#vaucher-tekshirish' },
-    { label: 'Yo\'riqnoma', href: '#yoriqnoma' },
     { label: 'Savol-Javob', href: '#faq' }
   ]
 
-  const handleNavClick = (e, href) => {
+  const handleNavClick = (e, item) => {
     e.preventDefault()
     setMobileMenuOpen(false)
-    const target = document.querySelector(href)
+    if (item.category && onSelectCategory) {
+      onSelectCategory(item.category)
+    }
+    const target = document.querySelector(item.href)
     if (target) {
       target.scrollIntoView({ behavior: 'smooth' })
     }
@@ -34,9 +38,9 @@ export default function Navbar({
 
   return (
     <>
-      {/* Top Announcement Bar (Soft Lavender) */}
+      {/* Top Announcement Bar */}
       <div className="announcement-bar">
-        <span>Rasmiy sanatoriylar portali • 100% kafolatlangan elektron vaucher</span>
+        <span>Yagona Sog'lom Hayot & Sport Portali • Futbol maydonlari, massaj, basseyn va sanatoriylar</span>
         <a href="tel:+998712000000">+998 (71) 200-00-00</a>
       </div>
 
@@ -52,19 +56,19 @@ export default function Navbar({
               window.scrollTo({ top: 0, behavior: 'smooth' })
             }}
           >
-            <span>SIHATMASKAN</span>
-            <span className="logo-pill">Rasmiy</span>
+            <span>SIHAT & SPORT</span>
+            <span className="logo-pill">Ekotizim</span>
           </a>
 
           {/* Desktop Nav Links */}
           <nav>
             <ul className="floating-nav-links">
               {navItems.map(item => (
-                <li key={item.href}>
+                <li key={item.label}>
                   <a
                     href={item.href}
                     className="floating-nav-link"
-                    onClick={(e) => handleNavClick(e, item.href)}
+                    onClick={(e) => handleNavClick(e, item)}
                   >
                     {item.label}
                   </a>
@@ -118,12 +122,12 @@ export default function Navbar({
               {bookingsCount > 0 && <span className="nav-badge-dot">{bookingsCount}</span>}
             </button>
 
-            {/* Lavender Pill CTA Button (Like Shop button in screenshot) */}
+            {/* Action CTA Button */}
             <button
               className="nav-lavender-btn"
               onClick={() => onOpenBookingModal()}
             >
-              Joy Band Qilish
+              Onlayn Band Qilish
             </button>
 
             {/* Mobile Hamburger */}
@@ -142,37 +146,41 @@ export default function Navbar({
           </div>
         </header>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
-          <div style={{
-            background: 'var(--dark-capsule)',
-            borderRadius: '20px',
-            marginTop: '8px',
-            padding: '1.25rem',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '0.65rem',
-            boxShadow: '0 12px 30px rgba(0,0,0,0.3)'
-          }}>
+          <div
+            style={{
+              marginTop: '0.5rem',
+              background: 'var(--dark-capsule)',
+              borderRadius: '20px',
+              padding: '1.25rem',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.75rem',
+              boxShadow: '0 12px 36px rgba(0,0,0,0.3)',
+              color: '#FFFFFF'
+            }}
+          >
             {navItems.map(item => (
               <a
-                key={item.href}
+                key={item.label}
                 href={item.href}
-                style={{ color: '#FFFFFF', padding: '0.4rem 0', fontSize: '0.92rem', fontWeight: 500 }}
-                onClick={(e) => handleNavClick(e, item.href)}
+                style={{ color: '#EAD5E6', fontSize: '0.9rem', fontWeight: 600, padding: '0.35rem 0' }}
+                onClick={(e) => handleNavClick(e, item)}
               >
                 {item.label}
               </a>
             ))}
-            <div style={{ display: 'flex', gap: '0.5rem', marginTop: '0.5rem' }}>
-              <button
-                className="nav-lavender-btn"
-                style={{ width: '100%', justifyContent: 'center' }}
-                onClick={() => { setMobileMenuOpen(false); onOpenBookingModal(); }}
-              >
-                Joy Band Qilish
-              </button>
-            </div>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false)
+                onOpenBookingModal()
+              }}
+              className="nav-lavender-btn"
+              style={{ width: '100%', marginTop: '0.5rem', textAlign: 'center' }}
+            >
+              Joy Band Qilish
+            </button>
           </div>
         )}
       </div>

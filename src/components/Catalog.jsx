@@ -1,5 +1,6 @@
 import React from 'react'
 import SanatoriumCard from './SanatoriumCard.jsx'
+import { FACILITY_CATEGORIES } from '../data/sanatoriumsData.js'
 
 export default function Catalog({
   sanatoriums,
@@ -22,16 +23,30 @@ export default function Catalog({
   onOpenDetails,
   onOpenBooking
 }) {
-  const categories = [
-    { key: 'all', label: 'Barchasi' },
-    { key: 'popular', label: 'Eng Ommabop' },
-    { key: 'mountain', label: "Tog' Iqlimi" },
-    { key: 'mineral', label: 'Mineral Buloqlar' },
-    { key: 'family', label: 'Oilaviy Hordiq' },
-    { key: 'vip', label: 'Premium Kurort' }
-  ]
-
   const hasActiveFilters = activeCategory !== 'all' || activeRegion !== 'all' || activeSpecialty !== 'all' || !!searchQuery
+
+  const getSectionTitle = () => {
+    switch (activeCategory) {
+      case 'football': return 'Futbol & Sport Maydonlari'
+      case 'massage': return 'Terapevtik Massaj & SPA Markazlari'
+      case 'fitness': return 'Basseyn & Fitnes Majmualari'
+      case 'sanatorium': return 'Shifobaxsh Sanatoriylar & Kurortlar'
+      case 'mountain': return "Tog' Iqlimi & Eko Maskanlar"
+      case 'mineral': return 'Tabiiy Mineral Buloqlar'
+      case 'family': return 'Oilaviy Dam Olish Maskani'
+      default: return 'Barcha Salomatlik, Sport & Hordiq Maskanlari'
+    }
+  }
+
+  const getSectionSubtitle = () => {
+    switch (activeCategory) {
+      case 'football': return "FIFA standartidagi sun'iy chim, tungi LED yoritgichlar, dush va qulay mini-futbol arenalari"
+      case 'massage': return "Umurtqa churrasi (grija), bel-bo'g'im og'riqlari va asabiy charchoqni yo'qotuvchi sertifikatlangan tibbiy massaj"
+      case 'fitness': return "50 metrli isitiladigan basseynlar, professional Technogym trenajyorlari va akva-aerobika"
+      case 'sanatorium': return "Davlat sog'liqni saqlash akkreditatsiyasiga ega, tabiiy buloqlari va zamonaviy tibbiy bazasi bilan mashhur kurortlar"
+      default: return "Inson salomatligi, jismoniy chiniqish, professional massaj va to'liq tibbiy tiklanish maskanlari ro'yxati"
+    }
+  }
 
   return (
     <section className="catalog-section" id="katalog" style={{ padding: '3rem 0 2rem 0' }}>
@@ -40,25 +55,32 @@ export default function Catalog({
         <div className="section-header">
           <span className="section-tagline">
             <span className="tagline-dot"></span>
-            RASMIY RO'YXAT
+            RASMIY RO'YXAT VA BRON TIZIMI
           </span>
-          <h2 className="heading-editorial">Eng Shifobaxsh Sanatoriyalar</h2>
+          <h2 className="heading-editorial">{getSectionTitle()}</h2>
           <p className="section-subtitle">
-            Davlat sog'liqni saqlash akkreditatsiyasiga ega, tabiiy buloqlari va zamonaviy tibbiy bazasi bilan mashhur kurortlar
+            {getSectionSubtitle()}
           </p>
         </div>
 
         {/* Category Segmented Pills Bar */}
-        <div className="segmented-pills-bar">
-          {categories.map(cat => {
+        <div className="segmented-pills-bar" style={{ flexWrap: 'wrap', gap: '0.45rem', justifyContent: 'center' }}>
+          {FACILITY_CATEGORIES.map(cat => {
             const isActive = activeCategory === cat.key
             return (
               <button
                 key={cat.key}
                 onClick={() => onCategoryChange(cat.key)}
                 className={`segmented-pill-btn ${isActive ? 'active' : ''}`}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.4rem',
+                  padding: '0.45rem 1rem'
+                }}
               >
-                {cat.label}
+                <span>{cat.icon}</span>
+                <span>{cat.label}</span>
               </button>
             )
           })}
@@ -100,7 +122,7 @@ export default function Catalog({
               >
                 <option value="all">Barchasi</option>
                 {regions.map(r => (
-                  <option key={r.key} value={r.key}>{r.name}</option>
+                  <option key={r.id || r.key} value={r.id || r.key}>{r.name}</option>
                 ))}
               </select>
             </div>
@@ -122,7 +144,7 @@ export default function Catalog({
                 value={activeSpecialty}
                 onChange={(e) => onSpecialtyChange(e.target.value)}
               >
-                <option value="all">Barcha yo'nalishlar</option>
+                <option value="all">Barcha xizmatlar</option>
                 {specialties.map(s => (
                   <option key={s.id} value={s.id}>{s.name}</option>
                 ))}
@@ -141,10 +163,10 @@ export default function Catalog({
             )}
           </div>
 
-          {/* Sort & Count */}
+          {/* Results count & Sort */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-            <span style={{ fontSize: '0.82rem', fontWeight: 700, color: 'var(--text-primary)' }}>
-              Topildi: {sanatoriums.length} ta
+            <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 600 }}>
+              {sanatoriums.length} ta maskan topildi
             </span>
 
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
@@ -164,17 +186,23 @@ export default function Catalog({
                 onChange={(e) => onSortChange(e.target.value)}
               >
                 <option value="recommended">Tavsiya etilgan</option>
-                <option value="price-asc">Avval arzonrog'i</option>
-                <option value="price-desc">Avval qimmatrog'i</option>
+                <option value="priceAsc">Arzondan qimmatga</option>
+                <option value="priceDesc">Qimmatdan arzonga</option>
                 <option value="rating">Reytingi yuqori</option>
               </select>
             </div>
           </div>
         </div>
 
-        {/* Clean Cards Grid */}
+        {/* Catalog Grid */}
         {sanatoriums.length > 0 ? (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(290px, 1fr))', gap: '1.5rem' }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+              gap: '1.75rem'
+            }}
+          >
             {sanatoriums.map(item => (
               <SanatoriumCard
                 key={item.id}
@@ -191,27 +219,22 @@ export default function Catalog({
         ) : (
           <div
             style={{
+              textAlign: 'center',
+              padding: '4rem 1rem',
               background: 'var(--bg-card)',
-              border: '1px solid var(--border-card)',
               borderRadius: '20px',
-              padding: '3.5rem 1.5rem',
-              textAlign: 'center'
+              border: '1px solid var(--border-card)'
             }}
           >
-            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: 'var(--bg-subtle)', margin: '0 auto 1rem auto', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--text-muted)' }}>
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8"/>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-              </svg>
-            </div>
-            <h3 style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.4rem' }}>
-              So'rovingizga mos sanatoriya topilmadi
+            <div style={{ fontSize: '2.5rem', marginBottom: '0.75rem' }}>🔍</div>
+            <h3 style={{ fontSize: '1.25rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '0.5rem' }}>
+              Hech qanday maskan topilmadi
             </h3>
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.86rem', maxWidth: '420px', margin: '0 auto 1.5rem auto' }}>
-              Qidiruv so'zini yoki tanlangan viloyat/yo'nalish parametrlarini o'zgartirib ko'ring.
+            <p style={{ color: 'var(--text-secondary)', fontSize: '0.88rem', maxWidth: '400px', margin: '0 auto 1.5rem auto' }}>
+              Qidiruv so'zini yoki filtrlarni o'zgartirib ko'ring yoki barcha parametrlarni tozalang.
             </p>
-            <button className="btn-dark-pill" onClick={onClearFilters}>
-              Filtrlarni bekor qilish
+            <button onClick={onClearFilters} className="btn-dark-pill">
+              Barcha filtrlarni tozalash
             </button>
           </div>
         )}

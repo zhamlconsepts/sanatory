@@ -100,10 +100,10 @@ export default function ComparisonModal({
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid var(--border-card)' }}>
-                  <td style={{ padding: '0.75rem 0.65rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Kunlik narxi:</td>
+                  <td style={{ padding: '0.75rem 0.65rem', fontWeight: 600, color: 'var(--text-secondary)' }}>Narxi:</td>
                   {items.map(item => (
                     <td key={item.id} style={{ padding: '0.75rem 0.65rem', fontWeight: 800, color: 'var(--text-primary)', fontSize: '0.96rem' }}>
-                      {item.priceFormatted}
+                      {item.priceFormatted} <span style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 500 }}>{item.priceUnit || (item.facilityType === 'football' ? '/ soat' : item.facilityType === 'massage' ? '/ seans' : '/ kun')}</span>
                     </td>
                   ))}
                 </tr>

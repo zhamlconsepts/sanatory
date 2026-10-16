@@ -79,7 +79,7 @@ export default function FavoritesDrawer({
                     {item.region} • {item.rating} / 5.0
                   </div>
                   <div style={{ fontSize: '0.88rem', fontWeight: 800, color: 'var(--text-primary)', margin: '0.15rem 0 0.35rem 0' }}>
-                    {item.priceFormatted}
+                    {item.priceFormatted} <span style={{ fontSize: '0.7rem', color: 'var(--text-muted)', fontWeight: 500 }}>{item.priceUnit || (item.facilityType === 'football' ? '/ soat' : item.facilityType === 'massage' ? '/ seans' : '/ kun')}</span>
                   </div>
 
                   <div style={{ display: 'flex', gap: '0.45rem' }}>

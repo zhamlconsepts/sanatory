@@ -92,7 +92,7 @@ export default function BookingsDrawer({
                     {b.guestName} • {b.roomName}
                   </div>
                   <div style={{ fontSize: '0.76rem', color: 'var(--text-muted)', marginTop: '0.15rem' }}>
-                    {b.checkIn} — {b.checkOut} ({b.nights} kun)
+                    {b.checkIn} — {b.checkOut} ({b.nights} {b.facilityType === 'football' ? 'soat' : b.facilityType === 'massage' ? 'seans' : 'kun'})
                   </div>
                 </div>
 

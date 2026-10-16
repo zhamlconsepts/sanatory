@@ -12,26 +12,72 @@ export default function Hero({
   regions,
   specialties,
   onSearchSubmit,
-  onQuickFilter
+  onQuickFilter,
+  activeCategory,
+  onCategoryChange
 }) {
+  const categoryShortcuts = [
+    { key: 'all', label: 'Barchasi', icon: '🌟' },
+    { key: 'football', label: 'Futbol & Sport', icon: '⚽' },
+    { key: 'massage', label: 'Massaj & SPA', icon: '💆‍♂️' },
+    { key: 'sanatorium', label: 'Sanatoriylar', icon: '🏥' },
+    { key: 'fitness', label: 'Basseyn & Fitnes', icon: '🏊‍♂️' },
+    { key: 'mountain', label: "Tog' Iqlimi", icon: '🏔️' }
+  ]
+
   return (
     <section className="hero-wrapper">
       <div className="container">
         {/* Editorial Tagline */}
         <div className="hero-kicker-badge">
           <span className="badge-pulse-dot"></span>
-          <span>Rasmiy Sanatoriyalar & Kurortlar Portali</span>
+          <span>Yagona Sog'lom Hayot, Sport & Sanatoriya Ekotizimi</span>
         </div>
 
         {/* Editorial Main Title */}
         <h1 className="hero-main-title">
-          <span className="font-italic-serif">Tabiat bag'rida</span> sog'lomlashtirish va osoyishtalik
+          <span className="font-italic-serif">Salomatlik, sport</span> va to'laqonli dam olish maskanlari
         </h1>
 
         {/* Lead subtitle */}
         <p className="hero-lead-text">
-          Zomin archazorlaridan Chortoq va Omonxonaning shifobaxsh mineral buloqlarigacha — to'liq akkreditatsiyalangan davolash kurslari, xolis baholar va kafolatlangan elektron vaucher.
+          Shifobaxsh sanatoriylar, professional mini-futbol maydonchalari, terapevtik massaj studiyalari va zamonaviy sport majmualari — inson salomatligi uchun barchasi yagona rasmiy platformada.
         </p>
+
+        {/* Quick Category Navigation Shortcuts */}
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', flexWrap: 'wrap', margin: '0 auto 1.75rem auto', maxWidth: '850px' }}>
+          {categoryShortcuts.map(cat => {
+            const isActive = activeCategory === cat.key
+            return (
+              <button
+                key={cat.key}
+                onClick={() => {
+                  if (onCategoryChange) onCategoryChange(cat.key)
+                  const el = document.getElementById('katalog')
+                  if (el) el.scrollIntoView({ behavior: 'smooth' })
+                }}
+                style={{
+                  background: isActive ? 'var(--dark-capsule)' : 'var(--bg-card)',
+                  color: isActive ? '#FFFFFF' : 'var(--text-primary)',
+                  border: isActive ? '1px solid var(--dark-capsule)' : '1px solid var(--border-subtle)',
+                  padding: '0.45rem 1rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.82rem',
+                  fontWeight: 600,
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.45rem',
+                  cursor: 'pointer',
+                  boxShadow: '0 2px 8px rgba(0,0,0,0.03)',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>{cat.icon}</span>
+                <span>{cat.label}</span>
+              </button>
+            )
+          })}
+        </div>
 
         {/* Master Airbnb/Capsule Style Search Bar */}
         <div className="search-capsule-bar">
@@ -48,7 +94,7 @@ export default function Hero({
               type="text"
               id="heroSearchInput"
               className="search-segment-input"
-              placeholder="Zomin, Chortoq, astma..."
+              placeholder="Bunyodkor futbol, Zomin, massaj, basseyn..."
               value={searchQuery}
               onChange={(e) => onSearchChange(e.target.value)}
               onKeyDown={(e) => {
@@ -77,20 +123,20 @@ export default function Hero({
             >
               <option value="all">Barcha hududlar</option>
               {regions.map(r => (
-                <option key={r.key} value={r.key}>{r.name}</option>
+                <option key={r.id || r.key} value={r.id || r.key}>{r.name}</option>
               ))}
             </select>
           </div>
 
           <div className="search-divider"></div>
 
-          {/* 3. Specialty Select */}
+          {/* 3. Specialty / Service Select */}
           <div className="search-segment">
             <label className="search-segment-label" htmlFor="heroSpecialtySelect">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
               </svg>
-              <span>Yo'nalish</span>
+              <span>Xizmat turi</span>
             </label>
             <select
               id="heroSpecialtySelect"
@@ -99,7 +145,7 @@ export default function Hero({
               onChange={(e) => onSpecialtyChange(e.target.value)}
               style={{ cursor: 'pointer' }}
             >
-              <option value="all">Barcha tibbiy sohalar</option>
+              <option value="all">Barcha xizmatlar</option>
               {specialties.map(s => (
                 <option key={s.id} value={s.id}>{s.name}</option>
               ))}
@@ -115,7 +161,7 @@ export default function Hero({
                 <rect x="2" y="5" width="20" height="14" rx="2"/>
                 <line x1="2" y1="10" x2="22" y2="10"/>
               </svg>
-              <span>Narx (kun)</span>
+              <span>Narx toifasi</span>
             </label>
             <select
               id="heroPriceSelect"
@@ -124,10 +170,10 @@ export default function Hero({
               onChange={(e) => onPriceChange(e.target.value)}
               style={{ cursor: 'pointer' }}
             >
-              <option value="all">Barcha toifalar</option>
-              <option value="under400">400 000 so'mgacha</option>
-              <option value="400to600">400 000 — 600 000</option>
-              <option value="above600">600 000 dan yuqori</option>
+              <option value="all">Barcha narxlar</option>
+              <option value="under200">200 000 so'mgacha (Maydon / Massaj)</option>
+              <option value="400to600">400 000 — 600 000 so'm (Sanatoriyalar)</option>
+              <option value="above600">600 000 dan yuqori (Premium Kurortlar)</option>
             </select>
           </div>
 
@@ -143,8 +189,8 @@ export default function Hero({
 
         {/* Quick Suggestion Chips */}
         <div className="quick-chips-wrapper">
-          <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}>Tavsiya etiladi:</span>
-          {['Zomin', 'Chortoq', 'Chinobod', 'Omonxona', 'Oqtosh', "Tog' iqlimi", 'Mineral buloq'].map(tag => (
+          <span style={{ fontSize: '0.74rem', color: 'var(--text-muted)', fontWeight: 600 }}>Ommabop qidiruvlar:</span>
+          {['Mini-Futbol', 'Manual Massaj', 'Zomin Sanatoriysi', 'Olimpiya Basseyn', 'Chortoq', 'Tuz g\'ori'].map(tag => (
             <button
               key={tag}
               className="quick-tag-chip"
@@ -155,33 +201,137 @@ export default function Hero({
           ))}
         </div>
 
-        {/* Modern Visual Banner Container (Matching MyPiFi product hero photography layout) */}
-        <div style={{ marginTop: '2.5rem', position: 'relative', borderRadius: '24px', overflow: 'hidden', boxShadow: '0 20px 45px -10px rgba(0,0,0,0.12)' }}>
-          <img
-            src="assets/images/sanatoriya_park_resort_1790760932042.jpg"
-            alt="O'zbekiston Sanatoriylari Manzarasi"
-            style={{ width: '100%', height: '380px', objectFit: 'cover', display: 'block' }}
-          />
+        {/* 4-Pillar Visual Interactive Feature Showcase Cards */}
+        <div style={{ marginTop: '2.5rem', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '1rem' }}>
+          {/* Card 1: Futbol */}
           <div
-            style={{
-              position: 'absolute',
-              inset: 0,
-              background: 'linear-gradient(180deg, rgba(28,28,30,0.1) 0%, rgba(28,28,30,0.65) 100%)',
-              display: 'flex',
-              alignItems: 'flex-end',
-              padding: '2rem'
+            onClick={() => {
+              if (onCategoryChange) onCategoryChange('football')
+              const el = document.getElementById('katalog')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
             }}
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              height: '240px',
+              cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
+              transition: 'transform 0.25s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
           >
-            <div style={{ color: '#FFFFFF', textAlign: 'left', maxWidth: '600px' }}>
-              <span style={{ background: 'var(--accent-lavender)', color: 'var(--accent-lavender-dark)', fontSize: '0.72rem', fontWeight: 700, padding: '0.2rem 0.65rem', borderRadius: '9999px', textTransform: 'uppercase', letterSpacing: '0.04em', display: 'inline-block', marginBottom: '0.5rem' }}>
-                Davlat Reabilitatsiya Tizimi
+            <img
+              src="assets/images/hero_football_card.jpg"
+              alt="Futbol va Sport Maydonlari"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#0284C7', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
+                ⚽ SPORT & FUTBOL
               </span>
-              <h2 style={{ fontSize: '1.5rem', fontWeight: 700, letterSpacing: '-0.02em', margin: 0, color: '#FFFFFF' }}>
-                Tabiiy mineral buloqlar va zamonaviy tibbiy texnologiyalar
-              </h2>
-              <p style={{ fontSize: '0.86rem', color: 'rgba(255,255,255,0.85)', margin: '0.35rem 0 0 0' }}>
-                24 dan ortiq sanatoriyalarning rasmiy reestri, xonalar mavjudligi va kafolatlangan elektron bron.
-              </p>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Futbol Maydonlari</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>FIFA chimli maydonlar, tungi projektorlar va dush</p>
+            </div>
+          </div>
+
+          {/* Card 2: Massaj & SPA */}
+          <div
+            onClick={() => {
+              if (onCategoryChange) onCategoryChange('massage')
+              const el = document.getElementById('katalog')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
+            }}
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              height: '240px',
+              cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
+              transition: 'transform 0.25s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <img
+              src="assets/images/hero_massage_card.jpg"
+              alt="Terapevtik Massaj & SPA"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#7C3AED', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
+                💆‍♂️ RELAKS & TIKLANISH
+              </span>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Terapevtik Massaj</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>Grija, bo'g'im, manual terapiya va sauna</p>
+            </div>
+          </div>
+
+          {/* Card 3: Basseyn & Fitnes */}
+          <div
+            onClick={() => {
+              if (onCategoryChange) onCategoryChange('fitness')
+              const el = document.getElementById('katalog')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
+            }}
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              height: '240px',
+              cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
+              transition: 'transform 0.25s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <img
+              src="assets/images/hero_fitness_card.jpg"
+              alt="Basseyn va Fitnes Zallari"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#0D9488', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
+                🏊‍♂️ AQUA & FITNES
+              </span>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Basseyn & Fitnes</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>50m isitiladigan basseyn, akva va zallar</p>
+            </div>
+          </div>
+
+          {/* Card 4: Sanatoriya */}
+          <div
+            onClick={() => {
+              if (onCategoryChange) onCategoryChange('sanatorium')
+              const el = document.getElementById('katalog')
+              if (el) el.scrollIntoView({ behavior: 'smooth' })
+            }}
+            style={{
+              position: 'relative',
+              borderRadius: '20px',
+              overflow: 'hidden',
+              height: '240px',
+              cursor: 'pointer',
+              boxShadow: '0 8px 24px rgba(0,0,0,0.06)',
+              transition: 'transform 0.25s ease'
+            }}
+            onMouseEnter={(e) => e.currentTarget.style.transform = 'translateY(-4px)'}
+            onMouseLeave={(e) => e.currentTarget.style.transform = 'translateY(0)'}
+          >
+            <img
+              src="assets/images/hero_sanatorium_card.jpg"
+              alt="Shifobaxsh Sanatoriylar"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.8) 100%)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '1.25rem', color: '#fff' }}>
+              <span style={{ background: '#059669', color: '#fff', fontSize: '0.68rem', fontWeight: 800, padding: '0.2rem 0.6rem', borderRadius: '9999px', width: 'fit-content', marginBottom: '0.4rem' }}>
+                🏥 TIBBIY SOG'LOMLASHTIRISH
+              </span>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: 0, color: '#fff' }}>Sanatoriylar & Kurortlar</h3>
+              <p style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', margin: '0.2rem 0 0 0' }}>Zomin, Chortoq, Chinobod, mineral suvlar</p>
             </div>
           </div>
         </div>

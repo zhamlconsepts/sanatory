@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { getCompanyDetails, fetchLiveWeather } from '../services/companyApi'
 
 export default function SanatoriumCard({
   item,
@@ -9,6 +10,69 @@ export default function SanatoriumCard({
   onOpenDetails,
   onOpenBooking
 }) {
+  const [weather, setWeather] = useState(null)
+  const company = getCompanyDetails(item.id)
+
+  useEffect(() => {
+    let mounted = true
+    if (item.coords && item.coords.length === 2) {
+      fetchLiveWeather(item.coords[0], item.coords[1]).then(data => {
+        if (mounted && data) setWeather(data)
+      })
+    }
+    return () => { mounted = false }
+  }, [item.coords])
+  const getCategoryBadge = () => {
+    switch (item.facilityType) {
+      case 'football':
+        return { label: '⚽ Futbol Arenasi', bg: '#0284C7', color: '#FFFFFF' }
+      case 'massage':
+        return { label: '💆‍♂️ Terapevtik Massaj', bg: '#7C3AED', color: '#FFFFFF' }
+      case 'fitness':
+        return { label: '🏊‍♂️ Basseyn & Fitnes', bg: '#0D9488', color: '#FFFFFF' }
+      case 'sanatorium':
+      default:
+        return { label: '🏥 Sanatoriya', bg: '#059669', color: '#FFFFFF' }
+    }
+  }
+
+  const getInclusionText = () => {
+    switch (item.facilityType) {
+      case 'football':
+        return "FIFA sun'iy chim + Yoritgich + Dush kiritilgan"
+      case 'massage':
+        return "Shifokor ko'rigi + Shifobaxsh moylar kiritilgan"
+      case 'fitness':
+        return "Basseyn + Trenajyor + Sauna erkin kirish"
+      case 'sanatorium':
+      default:
+        return "3 mahal ovqat + To'liq davolash kiritilgan"
+    }
+  }
+
+  const getPriceSub = () => {
+    if (item.priceUnit) return item.priceUnit.replace('/', '').trim()
+    switch (item.facilityType) {
+      case 'football': return '1 soat / maydon'
+      case 'massage': return '1 seans / 60 daqiqa'
+      case 'fitness': return '1 kunlik / erkin tashrif'
+      case 'sanatorium':
+      default: return '1 kishi / kun'
+    }
+  }
+
+  const getBookingBtnText = () => {
+    switch (item.facilityType) {
+      case 'football': return 'Maydonni Band Qilish'
+      case 'massage': return 'Seansni Band Qilish'
+      case 'fitness': return 'Abonement Olish'
+      case 'sanatorium':
+      default: return 'Vaucher Olish'
+    }
+  }
+
+  const categoryBadge = getCategoryBadge()
+
   return (
     <div className="sanatorium-card">
       {/* Card Image Wrap */}
@@ -21,7 +85,21 @@ export default function SanatoriumCard({
         />
 
         {/* Top Badges */}
-        <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '0.4rem', zIndex: 2 }}>
+        <div style={{ position: 'absolute', top: '12px', left: '12px', display: 'flex', gap: '0.4rem', zIndex: 2, flexWrap: 'wrap' }}>
+          <span
+            style={{
+              background: categoryBadge.bg,
+              color: categoryBadge.color,
+              fontSize: '0.68rem',
+              fontWeight: 800,
+              padding: '0.22rem 0.6rem',
+              borderRadius: '9999px',
+              letterSpacing: '0.02em',
+              boxShadow: '0 2px 6px rgba(0,0,0,0.15)'
+            }}
+          >
+            {categoryBadge.label}
+          </span>
           {item.badge && (
             <span className="card-badge-pill">
               {item.badge}
@@ -106,6 +184,22 @@ export default function SanatoriumCard({
           </div>
         </div>
 
+        {/* Live Satellite Weather + State Verification Pill */}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '0.4rem', margin: '0.45rem 0', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', fontSize: '0.72rem', color: '#059669', background: 'rgba(5, 150, 105, 0.08)', padding: '0.18rem 0.55rem', borderRadius: '9999px', fontWeight: 600 }}>
+            <span>✓</span>
+            <span title={company.officialLegalName}>STIR: {company.inn}</span>
+          </div>
+
+          {weather && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.3rem', fontSize: '0.72rem', color: 'var(--text-secondary)', background: 'var(--bg-subtle)', padding: '0.18rem 0.55rem', borderRadius: '9999px', fontWeight: 600, border: '1px solid var(--border-subtle)' }} title={`Jonli Open-Meteo ob-havo: ${weather.description}, Shamol: ${weather.windSpeed} km/s`}>
+              <span>{weather.icon}</span>
+              <span>{weather.temp > 0 ? `+${weather.temp}` : weather.temp}°C</span>
+              <span style={{ fontSize: '0.65rem', color: 'var(--text-muted)' }}>Jonli</span>
+            </div>
+          )}
+        </div>
+
         {/* Title */}
         <h3
           className="card-title-editorial"
@@ -121,7 +215,7 @@ export default function SanatoriumCard({
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <polyline points="20 6 9 17 4 12"/>
           </svg>
-          <span>3 mahal ovqat + Davolash kiritilgan</span>
+          <span>{getInclusionText()}</span>
         </div>
 
         {/* Clean Specialty Chips */}
@@ -136,7 +230,7 @@ export default function SanatoriumCard({
         {/* Direct Phone Contact Row */}
         {item.phone && (
           <div className="card-phone-banner">
-            <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Qabulxona:</span>
+            <span style={{ color: 'var(--text-muted)', fontWeight: 600 }}>Aloqa:</span>
             <a
               href={`tel:${item.phone.replace(/[^0-9+]/g, '')}`}
               title="To'g'ridan-to'g'ri bog'lanish"
@@ -152,7 +246,7 @@ export default function SanatoriumCard({
         {/* Bottom Pricing & Actions */}
         <div className="card-bottom-pricing">
           <div>
-            <div className="card-price-sub">1 kishi / kun</div>
+            <div className="card-price-sub">{getPriceSub()}</div>
             <div className="card-price-num">
               {item.priceFormatted || `${item.price?.toLocaleString()} so'm`}
             </div>
@@ -173,7 +267,7 @@ export default function SanatoriumCard({
               className="btn-dark-pill"
               style={{ padding: '0.42rem 0.95rem', fontSize: '0.78rem' }}
             >
-              Band Qilish
+              {getBookingBtnText()}
             </button>
           </div>
         </div>

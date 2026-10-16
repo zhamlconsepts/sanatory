@@ -247,8 +247,14 @@ export default function App() {
   const filteredSanatoriums = useMemo(() => {
     let result = SANATORIUMS_DATA.filter(item => {
       // 1. Category
-      if (activeCategory !== 'all' && !item.categories.includes(activeCategory)) {
-        return false
+      if (activeCategory !== 'all') {
+        if (activeCategory === 'football' && item.facilityType !== 'football' && !item.categories?.includes('football')) return false
+        if (activeCategory === 'massage' && item.facilityType !== 'massage' && !item.categories?.includes('massage')) return false
+        if (activeCategory === 'fitness' && item.facilityType !== 'fitness' && !item.categories?.includes('fitness')) return false
+        if (activeCategory === 'sanatorium' && item.facilityType !== 'sanatorium' && !item.categories?.includes('sanatorium')) return false
+        if (activeCategory === 'mountain' && !item.categories?.includes('mountain')) return false
+        if (activeCategory === 'mineral' && !item.categories?.includes('mineral')) return false
+        if (activeCategory === 'family' && !item.categories?.includes('family')) return false
       }
 
       // 2. Region
@@ -256,24 +262,29 @@ export default function App() {
         return false
       }
 
-      // 3. Specialty
+      // 3. Specialty / Service
       if (activeSpecialty !== 'all') {
-        const hasSpec = item.specialties.some(s => {
-          const lower = s.toLowerCase()
-          if (activeSpecialty === 'nafas' && (lower.includes('nafas') || lower.includes('astma') || lower.includes('bronxit'))) return true
-          if (activeSpecialty === 'oshqozon' && (lower.includes('oshqozon') || lower.includes('jigar') || lower.includes('ichak'))) return true
-          if (activeSpecialty === 'bogim' && (lower.includes('bo\'g\'im') || lower.includes('suyak') || lower.includes('artroz') || lower.includes('umurtqa'))) return true
-          if (activeSpecialty === 'yurak' && (lower.includes('yurak') || lower.includes('qon') || lower.includes('kardio'))) return true
-          if (activeSpecialty === 'asab' && (lower.includes('asab') || lower.includes('stress') || lower.includes('nevroz'))) return true
-          if (activeSpecialty === 'diabet' && (lower.includes('diabet') || lower.includes('endokrin') || lower.includes('modda'))) return true
-          if (activeSpecialty === 'urologiya' && (lower.includes('buyrak') || lower.includes('urolog') || lower.includes('ginekolog'))) return true
-          return lower.includes(activeSpecialty.toLowerCase())
-        })
-        if (!hasSpec) return false
+        if (activeSpecialty === 'football' && item.facilityType !== 'football' && !item.categories?.includes('football')) return false
+        if (activeSpecialty === 'massage' && item.facilityType !== 'massage' && !item.categories?.includes('massage')) return false
+        if (activeSpecialty === 'fitness' && item.facilityType !== 'fitness' && !item.categories?.includes('fitness')) return false
+        if (['nafas', 'joints', 'gastro', 'cardio', 'nerve', 'urology', 'women'].includes(activeSpecialty)) {
+          const hasSpec = item.specialties?.some(s => {
+            const lower = s.toLowerCase()
+            if (activeSpecialty === 'nafas' && (lower.includes('nafas') || lower.includes('astma') || lower.includes('bronxit'))) return true
+            if (activeSpecialty === 'gastro' && (lower.includes('oshqozon') || lower.includes('jigar') || lower.includes('ichak'))) return true
+            if (activeSpecialty === 'joints' && (lower.includes('bo\'g\'im') || lower.includes('suyak') || lower.includes('artroz') || lower.includes('umurtqa') || lower.includes('grija'))) return true
+            if (activeSpecialty === 'cardio' && (lower.includes('yurak') || lower.includes('qon') || lower.includes('kardio') || lower.includes('gipertoniya'))) return true
+            if (activeSpecialty === 'nerve' && (lower.includes('asab') || lower.includes('stress') || lower.includes('nevroz') || lower.includes('uyqusizlik') || lower.includes('toliqish'))) return true
+            if (activeSpecialty === 'urology' && (lower.includes('buyrak') || lower.includes('urolog') || lower.includes('sistit'))) return true
+            if (activeSpecialty === 'women' && (lower.includes('ayol') || lower.includes('reproduktiv') || lower.includes('bepushtlik'))) return true
+            return lower.includes(activeSpecialty.toLowerCase())
+          })
+          if (!hasSpec) return false
+        }
       }
 
       // 4. Price range
-      if (selectedPrice === 'under400' && item.price > 400000) return false
+      if (selectedPrice === 'under200' && item.price > 200000) return false
       if (selectedPrice === '400to600' && (item.price < 400000 || item.price > 600000)) return false
       if (selectedPrice === 'above600' && item.price < 600000) return false
 
@@ -283,9 +294,10 @@ export default function App() {
         const matchName = item.name.toLowerCase().includes(q)
         const matchRegion = item.region.toLowerCase().includes(q)
         const matchLocation = item.location.toLowerCase().includes(q)
+        const matchTagline = item.tagline?.toLowerCase().includes(q)
         const matchSpec = item.specialties.some(s => s.toLowerCase().includes(q))
         const matchAmenity = item.amenities.some(a => a.toLowerCase().includes(q))
-        if (!matchName && !matchRegion && !matchLocation && !matchSpec && !matchAmenity) {
+        if (!matchName && !matchRegion && !matchLocation && !matchTagline && !matchSpec && !matchAmenity) {
           return false
         }
       }
@@ -294,9 +306,9 @@ export default function App() {
     })
 
     // Sorting
-    if (sortBy === 'price-asc') {
+    if (sortBy === 'priceAsc') {
       result.sort((a, b) => a.price - b.price)
-    } else if (sortBy === 'price-desc') {
+    } else if (sortBy === 'priceDesc') {
       result.sort((a, b) => b.price - a.price)
     } else if (sortBy === 'rating') {
       result.sort((a, b) => b.rating - a.rating)
@@ -322,6 +334,7 @@ export default function App() {
         onOpenBookings={() => setBookingsDrawerOpen(true)}
         onOpenBookingModal={() => openBookingModal()}
         onOpenConsultation={() => setConsultationModalOpen(true)}
+        onSelectCategory={setActiveCategory}
       />
 
       {/* Main Content */}
@@ -340,6 +353,8 @@ export default function App() {
           specialties={SPECIALTIES_DATA}
           onSearchSubmit={scrollToCatalog}
           onQuickFilter={handleQuickFilter}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
         />
 
         {/* 2. Key Metrics & Trust Section */}
